@@ -5,76 +5,76 @@
 <title>Curly Hair — byMarissaJohnson</title>
 <link rel="stylesheet" href="shared.css">
 <style>
-:root{--ht:#c47a55;--hs:#e8c9a0;--hw:#f5e8d4;--hb:#6a3f28;--hc:#faf4ee;}
-.builder-hero{background:linear-gradient(135deg,#f5ebe0,#ecddd0,#e0cfc0);padding:140px 80px 80px;text-align:center;position:relative;overflow:hidden;}
+:root{--ht:#c47a55;--hs:#e8c9a0;--hw:#f5e8d4;--hb:#c4a0b8;--hc:#162e1e;}
+.builder-hero{background:linear-gradient(135deg,#162e1e,#ecddd0,#e0cfc0);padding:140px 80px 80px;text-align:center;position:relative;overflow:hidden;}
 .builder-hero::before{content:'';position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(196,122,85,0.25) 0%,transparent 70%);top:-80px;left:50%;transform:translateX(-50%);border-radius:50%;pointer-events:none;}
 .bhi{position:relative;z-index:1;max-width:640px;margin:0 auto;}
 .builder-hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;line-height:1.1;opacity:0;animation:fadeUp 0.8s ease forwards 0.2s;}
 .builder-hero h1 em{font-style:italic;color:var(--ht);}
-.builder-hero p{font-size:0.9rem;color:var(--mid);line-height:1.8;font-weight:300;margin-top:16px;opacity:0;animation:fadeUp 0.8s ease forwards 0.4s;}
+.builder-hero p{font-size:0.9rem;color:var(--muted-sage);line-height:1.8;font-weight:300;margin-top:16px;opacity:0;animation:fadeUp 0.8s ease forwards 0.4s;}
 .si{display:flex;align-items:center;justify-content:center;gap:0;margin-top:32px;opacity:0;animation:fadeUp 0.8s ease forwards 0.6s;}
-.sd{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:600;transition:all 0.3s;border:2px solid var(--brand-linen);background:white;color:var(--soft);}
+.sd{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:600;transition:all 0.3s;border:2px solid rgba(196,160,184,0.2);background:#1e3828;color:var(--sage-soft);}
 .sd.active{background:var(--ht);border-color:var(--ht);color:white;}
 .sd.done{background:var(--sage);border-color:var(--sage);color:white;}
 .sl{width:40px;height:2px;background:var(--brand-linen);}
 .sl.done{background:var(--sage);}
-.quiz-section{background:var(--hc);padding:60px 80px 80px;}
+.quiz-section{background:#162e1e;padding:60px 80px 80px;}
 .quiz-step{display:none;max-width:780px;margin:0 auto;}
 .quiz-step.active{display:block;animation:fadeUp 0.5s ease forwards;}
 .ql{font-size:0.6rem;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--ht);margin-bottom:12px;}
 .qq{font-family:'DM Serif Display',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:300;line-height:1.2;margin-bottom:8px;}
 .qq em{font-style:italic;color:var(--ht);}
-.qs{font-size:0.82rem;color:var(--soft);font-weight:300;margin-bottom:36px;}
+.qs{font-size:0.82rem;color:var(--sage-soft);font-weight:300;margin-bottom:36px;}
 .og{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:32px;}
-.oc{background:white;border:2px solid var(--brand-linen);border-radius:18px;padding:22px 18px;cursor:pointer;transition:all 0.2s;text-align:center;user-select:none;}
+.oc{background:#1e3828;border:2px solid rgba(196,160,184,0.2);border-radius:18px;padding:22px 18px;cursor:pointer;transition:all 0.2s;text-align:center;user-select:none;}
 .oc:hover{border-color:var(--hs);transform:translateY(-2px);}
 .oc.selected{border-color:var(--ht);background:var(--hw);}
 .oi{font-size:1.6rem;margin-bottom:10px;}
-.ot{font-size:0.82rem;font-weight:600;color:var(--text);margin-bottom:4px;}
-.od{font-size:0.68rem;color:var(--soft);line-height:1.5;}
+.ot{font-size:0.82rem;font-weight:600;color:var(--warm-white);margin-bottom:4px;}
+.od{font-size:0.68rem;color:var(--sage-soft);line-height:1.5;}
 .oc.selected .ot{color:var(--ht);}
 .qnav{display:flex;gap:12px;align-items:center;margin-top:8px;}
 .bt{background:var(--ht);color:white;display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:100px;font-size:0.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.25s;font-family:'Outfit',sans-serif;}
 .bt:hover{background:var(--hb);transform:translateY(-2px);}
 .bot{background:transparent;color:var(--ht);border:1.5px solid var(--hs);display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:100px;font-size:0.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all 0.25s;font-family:'Outfit',sans-serif;}
 .bot:hover{border-color:var(--ht);transform:translateY(-2px);}
-.rs{display:none;background:white;padding:60px 80px 80px;}
+.rs{display:none;background:#1e3828;padding:60px 80px 80px;}
 .rs.active{display:block;}
 .rh{text-align:center;margin-bottom:48px;}
 .rh h2{font-family:'DM Serif Display',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:300;}
 .rh h2 em{font-style:italic;color:var(--ht);}
 .rg{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:1000px;margin:0 auto;}
-.rp{background:var(--hc);border-radius:24px;overflow:hidden;}
+.rp{background:#162e1e;border-radius:24px;overflow:hidden;}
 .rph{padding:22px 28px;display:flex;align-items:center;gap:12px;}
 .rpt{font-family:'DM Serif Display',serif;font-size:1.2rem;font-weight:400;}
 .rsl{padding:0 28px 28px;}
 .rsi{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid rgba(196,122,85,0.1);}
 .rsi:last-child{border-bottom:none;}
 .snb{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;color:white;flex-shrink:0;margin-top:1px;background:var(--ht);}
-.sn{font-size:0.82rem;font-weight:600;color:var(--text);margin-bottom:2px;}
-.sh{font-size:0.7rem;color:var(--mid);line-height:1.5;}
-.spl{display:inline-flex;align-items:center;gap:5px;font-size:0.62rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-top:6px;text-decoration:none;padding:4px 10px;border-radius:100px;background:#fff3e0;color:#c07020;}
-.por-section{background:white;padding:80px;}
+.sn{font-size:0.82rem;font-weight:600;color:var(--warm-white);margin-bottom:2px;}
+.sh{font-size:0.7rem;color:var(--muted-sage);line-height:1.5;}
+.spl{display:inline-flex;align-items:center;gap:5px;font-size:0.62rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-top:6px;text-decoration:none;padding:4px 10px;border-radius:100px;background:#1e38283e0;color:#c07020;}
+.por-section{background:#162e1e;padding:80px;}
 .pc{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px;}
 .pcard{padding:32px;border-radius:20px;}
 .pcard.hl{border:2px solid var(--ht);background:var(--hw);}
-.pcard:not(.hl){background:var(--hc);border:2px solid transparent;}
+.pcard:not(.hl){background:#162e1e;border:2px solid transparent;}
 .pi{font-size:1.8rem;margin-bottom:12px;}
 .pt2{font-family:'DM Serif Display',serif;font-size:1.2rem;font-weight:400;margin-bottom:10px;}
 .ptag{display:inline-block;font-size:0.55rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;border-radius:100px;background:var(--ht);color:white;margin-bottom:12px;}
 .pl{list-style:none;}
-.pl li{font-size:0.75rem;color:var(--mid);padding:5px 0 5px 14px;position:relative;line-height:1.5;}
+.pl li{font-size:0.75rem;color:var(--muted-sage);padding:5px 0 5px 14px;position:relative;line-height:1.5;}
 .pl li::before{content:'·';position:absolute;left:0;color:var(--ht);font-size:1.2rem;top:-2px;}
-.prod-section{background:var(--hc);padding:80px;}
+.prod-section{background:#162e1e;padding:80px;}
 .pg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;}
-.pcard2{background:white;border-radius:18px;padding:20px;border:1px solid rgba(196,122,85,0.12);transition:all 0.25s;}
+.pcard2{background:#1e3828;border-radius:18px;padding:20px;border:1px solid rgba(196,122,85,0.12);transition:all 0.25s;}
 .pcard2:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(196,122,85,0.1);}
 .pdot{width:36px;height:36px;border-radius:50%;background:var(--ht);display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;color:white;margin-bottom:12px;}
-.pn{font-size:0.82rem;font-weight:600;color:var(--text);margin-bottom:4px;}
-.pb{font-size:0.68rem;color:var(--soft);margin-bottom:8px;}
-.pu{font-size:0.68rem;color:var(--mid);font-style:italic;margin-bottom:10px;line-height:1.4;}
-.pl2{display:inline-flex;align-items:center;gap:5px;font-size:0.62rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;text-decoration:none;padding:5px 12px;border-radius:100px;background:#fff3e0;color:#c07020;}
-.dl-section{background:linear-gradient(135deg,var(--hw),#e8f0e4);padding:80px;text-align:center;}
+.pn{font-size:0.82rem;font-weight:600;color:var(--warm-white);margin-bottom:4px;}
+.pb{font-size:0.68rem;color:var(--sage-soft);margin-bottom:8px;}
+.pu{font-size:0.68rem;color:var(--muted-sage);font-style:italic;margin-bottom:10px;line-height:1.4;}
+.pl2{display:inline-flex;align-items:center;gap:5px;font-size:0.62rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;text-decoration:none;padding:5px 12px;border-radius:100px;background:#1e38283e0;color:#c07020;}
+.dl-section{background:#162e1e;padding:80px;text-align:center;}
 .dl-section h2{font-family:'DM Serif Display',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:300;margin-bottom:12px;}
 .dl-section h2 em{font-style:italic;color:var(--ht);}
 .dbtns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:28px;}
@@ -235,7 +235,7 @@
 
 <section class="dl-section">
   <h2>Take your routine <em>with you</em></h2>
-  <p style="font-size:0.85rem;color:var(--mid);font-weight:300;">Download your personalized wash day routine card.</p>
+  <p style="font-size:0.85rem;color:var(--muted-sage);font-weight:300;">Download your personalized wash day routine card.</p>
   <div class="dbtns">
     <button class="bt" onclick="dl()">⬇ Download Routine Card</button>
     <button class="bot" onclick="window.print()">🖨 Print Routine</button>
@@ -295,7 +295,7 @@ function dl(){
   const w=document.getElementById('wsteps').innerHTML;
   const s=document.getElementById('ssteps').innerHTML;
   const sum=document.getElementById('rsummary').textContent;
-  const html=`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>My Curl Routine — byMarissaJohnson</title><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"><style>*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Outfit',sans-serif;background:#faf4ee;color:#2a1f1a;padding:40px;}h1{font-family:'DM Serif Display',serif;font-size:2.5rem;font-weight:300;margin-bottom:8px;}h1 em{font-style:italic;color:#c47a55;}.sum{font-size:0.85rem;color:#7a5c52;margin-bottom:40px;line-height:1.7;}.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}.panel{background:white;border-radius:20px;overflow:hidden;}.ph{padding:18px 24px;font-family:'DM Serif Display',serif;font-size:1.1rem;}.wh{background:#f5e8d4;color:#c47a55;}.sh{background:#e8d4c0;color:#6a3f28;}.steps{padding:0 24px 24px;}.rsi{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #f0e8e0;}.rsi:last-child{border-bottom:none;}.snb{width:24px;height:24px;border-radius:50%;background:#c47a55;display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;color:white;flex-shrink:0;margin-top:2px;}.sn{font-size:0.82rem;font-weight:600;margin-bottom:3px;}.sh2{font-size:0.7rem;color:#7a5c52;line-height:1.5;}.spl{color:#c47a55;font-size:0.65rem;text-decoration:none;}.foot{text-align:center;margin-top:40px;font-size:0.7rem;color:#b09080;font-family:'DM Serif Display',serif;font-style:italic;}@media print{body{padding:20px;}}</style></head><body><h1>My <em>Curl Routine</em></h1><p class="sum">${sum}</p><div class="grid"><div class="panel"><div class="ph wh">🚿 Wash Day</div><div class="steps">${w}</div></div><div class="panel"><div class="ph sh">✨ Styling</div><div class="steps">${s}</div></div></div><div class="foot">byMarissaJohnson.com · Real life, real glow.</div></body></html>`;
+  const html=`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>My Curl Routine — byMarissaJohnson</title><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"><style>*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Outfit',sans-serif;background:#162e1e;color:#f5f0ea;padding:40px;}h1{font-family:'DM Serif Display',serif;font-size:2.5rem;font-weight:300;margin-bottom:8px;}h1 em{font-style:italic;color:#c47a55;}.sum{font-size:0.85rem;color:#c8d8c0;margin-bottom:40px;line-height:1.7;}.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}.panel{background:#1e3828;border-radius:20px;overflow:hidden;}.ph{padding:18px 24px;font-family:'DM Serif Display',serif;font-size:1.1rem;}.wh{background:#f5e8d4;color:#c47a55;}.sh{background:#e8d4c0;color:#c4a0b8;}.steps{padding:0 24px 24px;}.rsi{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #f0e8e0;}.rsi:last-child{border-bottom:none;}.snb{width:24px;height:24px;border-radius:50%;background:#c47a55;display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;color:white;flex-shrink:0;margin-top:2px;}.sn{font-size:0.82rem;font-weight:600;margin-bottom:3px;}.sh2{font-size:0.7rem;color:#c8d8c0;line-height:1.5;}.spl{color:#c47a55;font-size:0.65rem;text-decoration:none;}.foot{text-align:center;margin-top:40px;font-size:0.7rem;color:#a8c4a8;font-family:'DM Serif Display',serif;font-style:italic;}@media print{body{padding:20px;}}</style></head><body><h1>My <em>Curl Routine</em></h1><p class="sum">${sum}</p><div class="grid"><div class="panel"><div class="ph wh">🚿 Wash Day</div><div class="steps">${w}</div></div><div class="panel"><div class="ph sh">✨ Styling</div><div class="steps">${s}</div></div></div><div class="foot">byMarissaJohnson.com · Real life, real glow.</div></body></html>`;
   const blob=new Blob([html],{type:'text/html'});
   const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='my-curl-routine-bymarissajohnson.html';a.click();
 }

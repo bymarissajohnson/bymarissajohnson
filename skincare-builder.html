@@ -25,7 +25,7 @@
 }
 .builder-hero h1 em{font-style:italic;color:var(--brand-rose);}
 .builder-hero p {
-  font-size:0.9rem;color:var(--mid);line-height:1.8;font-weight:300;
+  font-size:0.9rem;color:var(--muted-sage);line-height:1.8;font-weight:300;
   margin-top:16px;opacity:0;animation:fadeUp 0.8s ease forwards 0.4s;
 }
 .steps-indicator {
@@ -36,7 +36,7 @@
   width:32px;height:32px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
   font-size:0.7rem;font-weight:600;transition:all 0.3s;
-  border:2px solid var(--brand-linen);background:white;color:var(--soft);
+  border:2px solid rgba(196,160,184,0.2);background:#1e3828;color:var(--sage-soft);
 }
 .step-dot.active{background:var(--brand-rose);border-color:var(--brand-rose);color:white;}
 .step-dot.done{background:var(--sage);border-color:var(--sage);color:white;}
@@ -44,7 +44,7 @@
 .step-line.done{background:var(--sage);}
 
 /* QUIZ */
-.quiz-section { background:var(--brand-cream);padding:60px 80px 80px; }
+.quiz-section { background:#162e1e;padding:60px 80px 80px; }
 .quiz-step { display:none;max-width:780px;margin:0 auto; }
 .quiz-step.active { display:block;animation:fadeUp 0.5s ease forwards; }
 .quiz-label {
@@ -56,24 +56,24 @@
   font-size:clamp(1.6rem,3vw,2.4rem);font-weight:300;line-height:1.2;margin-bottom:8px;
 }
 .quiz-question em{font-style:italic;color:var(--brand-rose);}
-.quiz-sub{font-size:0.82rem;color:var(--soft);font-weight:300;margin-bottom:36px;}
+.quiz-sub{font-size:0.82rem;color:var(--sage-soft);font-weight:300;margin-bottom:36px;}
 .options-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:32px; }
 .option-card {
-  background:white;border:2px solid var(--brand-linen);border-radius:18px;
+  background:#1e3828;border:2px solid rgba(196,160,184,0.2);border-radius:18px;
   padding:22px 18px;cursor:pointer;transition:all 0.2s;text-align:center;
   user-select:none;
 }
 .option-card:hover{border-color:var(--brand-blush);transform:translateY(-2px);}
 .option-card.selected{border-color:var(--brand-rose);background:var(--brand-petal);}
 .option-icon{font-size:1.6rem;margin-bottom:10px;}
-.option-title{font-size:0.82rem;font-weight:600;color:var(--text);margin-bottom:4px;}
-.option-desc{font-size:0.68rem;color:var(--soft);line-height:1.5;}
+.option-title{font-size:0.82rem;font-weight:600;color:var(--warm-white);margin-bottom:4px;}
+.option-desc{font-size:0.68rem;color:var(--sage-soft);line-height:1.5;}
 .option-card.selected .option-title{color:var(--brand-rose);}
-.multi-hint{font-size:0.68rem;color:var(--soft);font-style:italic;margin-bottom:16px;}
+.multi-hint{font-size:0.68rem;color:var(--sage-soft);font-style:italic;margin-bottom:16px;}
 .quiz-nav{display:flex;gap:12px;align-items:center;margin-top:8px;}
 
 /* RESULTS */
-.results-section{display:none;background:var(--brand-white);padding:60px 80px 80px;}
+.results-section{display:none;background:#162e1e;padding:60px 80px 80px;}
 .results-section.active{display:block;}
 .results-header{text-align:center;margin-bottom:56px;}
 .results-header h2{
@@ -82,7 +82,7 @@
 }
 .results-header h2 em{font-style:italic;color:var(--brand-rose);}
 .results-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:1000px;margin:0 auto;}
-.routine-panel{background:var(--brand-cream);border-radius:24px;overflow:hidden;}
+.routine-panel{background:#162e1e;border-radius:24px;overflow:hidden;}
 .routine-panel-header{
   padding:22px 28px;display:flex;align-items:center;gap:12px;
 }
@@ -99,8 +99,8 @@
   font-size:0.65rem;font-weight:700;color:white;flex-shrink:0;margin-top:1px;
 }
 .step-info{}
-.step-name{font-size:0.82rem;font-weight:600;color:var(--text);margin-bottom:2px;}
-.step-how{font-size:0.7rem;color:var(--mid);line-height:1.5;}
+.step-name{font-size:0.82rem;font-weight:600;color:var(--warm-white);margin-bottom:2px;}
+.step-how{font-size:0.7rem;color:var(--muted-sage);line-height:1.5;}
 .step-product-link{
   display:inline-flex;align-items:center;gap:5px;
   font-size:0.62rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;
@@ -109,14 +109,14 @@
 }
 .link-sephora{background:#f8e8f0;color:#c06080;}
 .link-sephora:hover{background:#f0d0e0;}
-.link-amazon{background:#fff3e0;color:#c07020;}
+.link-amazon{background:#1e38283e0;color:#c07020;}
 .link-amazon:hover{background:#ffe8c0;}
 
 /* PRODUCT KEY */
-.product-key-section{background:var(--brand-cream);padding:60px 80px;}
+.product-key-section{background:#162e1e;padding:60px 80px;}
 .product-key-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;}
 .product-key-card{
-  background:white;border-radius:18px;padding:18px;
+  background:#1e3828;border-radius:18px;padding:18px;
   border:1px solid rgba(200,160,140,0.12);
   display:flex;align-items:center;gap:14px;
   transition:all 0.25s;
@@ -128,8 +128,8 @@
   font-size:0.65rem;font-weight:700;color:white;
 }
 .pk-info{}
-.pk-name{font-size:0.78rem;font-weight:600;color:var(--text);line-height:1.3;}
-.pk-brand{font-size:0.65rem;color:var(--soft);margin-top:1px;}
+.pk-name{font-size:0.78rem;font-weight:600;color:var(--warm-white);line-height:1.3;}
+.pk-brand{font-size:0.65rem;color:var(--sage-soft);margin-top:1px;}
 .pk-links{display:flex;gap:6px;margin-top:6px;}
 .pk-link{
   font-size:0.58rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;
@@ -138,7 +138,7 @@
 
 /* DOWNLOAD */
 .download-section{
-  background:linear-gradient(135deg,var(--brand-petal),#e8f0e4);
+  background:#162e1e;
   padding:80px;text-align:center;
 }
 .download-section h2{
@@ -146,7 +146,7 @@
   font-size:clamp(2rem,3vw,2.8rem);font-weight:300;margin-bottom:12px;
 }
 .download-section h2 em{font-style:italic;color:var(--brand-rose);}
-.download-section p{font-size:0.85rem;color:var(--mid);font-weight:300;margin-bottom:36px;}
+.download-section p{font-size:0.85rem;color:var(--muted-sage);font-weight:300;margin-bottom:36px;}
 .download-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
 
 @media(max-width:900px){
@@ -423,7 +423,7 @@
         <div class="pk-name">Zero Pore Deep Cleansing Oil</div>
         <div class="pk-brand">Medicube · PM double cleanse</div>
         <div class="pk-links">
-          <a href="https://www.amazon.com/shop/rissa.george" target="_blank" class="pk-link link-amazon" style="background:#fff3e0;color:#c07020;">Amazon ↗</a>
+          <a href="https://www.amazon.com/shop/rissa.george" target="_blank" class="pk-link link-amazon" style="background:#1e38283e0;color:#c07020;">Amazon ↗</a>
         </div>
       </div>
     </div>
@@ -434,7 +434,7 @@
         <div class="pk-name">Acne Foaming Wash (BP 10%)</div>
         <div class="pk-brand">PanOxyl · 2–3x per week PM</div>
         <div class="pk-links">
-          <a href="https://www.amazon.com/shop/rissa.george" target="_blank" class="pk-link link-amazon" style="background:#fff3e0;color:#c07020;">Amazon ↗</a>
+          <a href="https://www.amazon.com/shop/rissa.george" target="_blank" class="pk-link link-amazon" style="background:#1e38283e0;color:#c07020;">Amazon ↗</a>
         </div>
       </div>
     </div>
@@ -445,7 +445,7 @@
         <div class="pk-name">Azelaic Acid Toner 4%</div>
         <div class="pk-brand">Medicube · Daily AM + PM toner</div>
         <div class="pk-links">
-          <a href="https://www.amazon.com/shop/rissa.george" target="_blank" class="pk-link link-amazon" style="background:#fff3e0;color:#c07020;">Amazon ↗</a>
+          <a href="https://www.amazon.com/shop/rissa.george" target="_blank" class="pk-link link-amazon" style="background:#1e38283e0;color:#c07020;">Amazon ↗</a>
         </div>
       </div>
     </div>
@@ -456,7 +456,7 @@
         <div class="pk-name">Gentle Vitamin C Glow Serum</div>
         <div class="pk-brand">Bambu Earth · AM glow + hyperpigmentation</div>
         <div class="pk-links">
-          <a href="https://www.amazon.com/shop/rissa.george" target="_blank" class="pk-link link-amazon" style="background:#fff3e0;color:#c07020;">Amazon ↗</a>
+          <a href="https://www.amazon.com/shop/rissa.george" target="_blank" class="pk-link link-amazon" style="background:#1e38283e0;color:#c07020;">Amazon ↗</a>
         </div>
       </div>
     </div>
@@ -467,7 +467,7 @@
         <div class="pk-name">One Day Exosome Shot 700</div>
         <div class="pk-brand">Medicube · AM firming ampoule</div>
         <div class="pk-links">
-          <a href="https://www.amazon.com/shop/rissa.george" target="_blank" class="pk-link link-amazon" style="background:#fff3e0;color:#c07020;">Amazon ↗</a>
+          <a href="https://www.amazon.com/shop/rissa.george" target="_blank" class="pk-link link-amazon" style="background:#1e38283e0;color:#c07020;">Amazon ↗</a>
         </div>
       </div>
     </div>
@@ -478,7 +478,7 @@
         <div class="pk-name">Azelaic Acid Peptide Repair</div>
         <div class="pk-brand">Medicube · PM targeted treatment</div>
         <div class="pk-links">
-          <a href="https://www.amazon.com/shop/rissa.george" target="_blank" class="pk-link link-amazon" style="background:#fff3e0;color:#c07020;">Amazon ↗</a>
+          <a href="https://www.amazon.com/shop/rissa.george" target="_blank" class="pk-link link-amazon" style="background:#1e38283e0;color:#c07020;">Amazon ↗</a>
         </div>
       </div>
     </div>
@@ -500,7 +500,7 @@
         <div class="pk-name">Squalane + Vitamin C Rose Oil</div>
         <div class="pk-brand">Hossance · PM facial oil</div>
         <div class="pk-links">
-          <a href="https://www.amazon.com/shop/rissa.george" target="_blank" class="pk-link link-amazon" style="background:#fff3e0;color:#c07020;">Amazon ↗</a>
+          <a href="https://www.amazon.com/shop/rissa.george" target="_blank" class="pk-link link-amazon" style="background:#1e38283e0;color:#c07020;">Amazon ↗</a>
         </div>
       </div>
     </div>
@@ -511,7 +511,7 @@
         <div class="pk-name">Atobarrier 365 Cream</div>
         <div class="pk-brand">Aestura · Daily barrier moisturizer</div>
         <div class="pk-links">
-          <a href="https://www.amazon.com/shop/rissa.george" target="_blank" class="pk-link link-amazon" style="background:#fff3e0;color:#c07020;">Amazon ↗</a>
+          <a href="https://www.amazon.com/shop/rissa.george" target="_blank" class="pk-link link-amazon" style="background:#1e38283e0;color:#c07020;">Amazon ↗</a>
         </div>
       </div>
     </div>
@@ -533,7 +533,7 @@
         <div class="pk-name">Adapalene Gel 0.1%</div>
         <div class="pk-brand">Differin · 2–3x per week PM retinoid</div>
         <div class="pk-links">
-          <a href="https://www.amazon.com/shop/rissa.george" target="_blank" class="pk-link link-amazon" style="background:#fff3e0;color:#c07020;">Amazon ↗</a>
+          <a href="https://www.amazon.com/shop/rissa.george" target="_blank" class="pk-link link-amazon" style="background:#1e38283e0;color:#c07020;">Amazon ↗</a>
         </div>
       </div>
     </div>
@@ -723,7 +723,7 @@ function renderSteps(containerId, steps, numColor) {
       <div class="step-info">
         <div class="step-name">${s.name}</div>
         <div class="step-how">${s.how}</div>
-        ${!s.isSpf ? `<a href="${s.link}" target="_blank" class="step-product-link ${s.store==='sephora'?'link-sephora':'link-amazon'}">${s.product} ↗</a>` : `<span style="font-size:0.62rem;color:var(--soft);font-style:italic;">${s.product}</span>`}
+        ${!s.isSpf ? `<a href="${s.link}" target="_blank" class="step-product-link ${s.store==='sephora'?'link-sephora':'link-amazon'}">${s.product} ↗</a>` : `<span style="font-size:0.62rem;color:var(--sage-soft);font-style:italic;">${s.product}</span>`}
       </div>
     </div>
   `).join('');
@@ -748,12 +748,12 @@ function downloadHTML() {
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Outfit',sans-serif;background:#faf6f2;color:#2a1f1a;padding:40px;}
+body{font-family:'Outfit',sans-serif;background:#162e1e;color:#f5f0ea;padding:40px;}
 h1{font-family:'DM Serif Display',serif;font-size:2.5rem;font-weight:300;margin-bottom:8px;}
 h1 em{font-style:italic;color:#c9806a;}
-.summary{font-size:0.85rem;color:#7a5c52;margin-bottom:40px;line-height:1.7;}
+.summary{font-size:0.85rem;color:#c8d8c0;margin-bottom:40px;line-height:1.7;}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
-.panel{background:white;border-radius:20px;overflow:hidden;}
+.panel{background:#1e3828;border-radius:20px;overflow:hidden;}
 .panel-header{padding:18px 24px;font-family:'DM Serif Display',serif;font-size:1.1rem;}
 .am-header{background:#fde8e0;color:#c87050;}
 .pm-header{background:#dde8f8;color:#5060a0;}
@@ -762,9 +762,9 @@ h1 em{font-style:italic;color:#c9806a;}
 .step:last-child{border-bottom:none;}
 .num{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;color:white;flex-shrink:0;margin-top:2px;}
 .step-name{font-size:0.82rem;font-weight:600;margin-bottom:3px;}
-.step-how{font-size:0.7rem;color:#7a5c52;line-height:1.5;}
+.step-how{font-size:0.7rem;color:#c8d8c0;line-height:1.5;}
 a{color:#c9806a;font-size:0.65rem;}
-.footer{text-align:center;margin-top:40px;font-size:0.7rem;color:#b09080;font-family:'DM Serif Display',serif;font-style:italic;}
+.footer{text-align:center;margin-top:40px;font-size:0.7rem;color:#a8c4a8;font-family:'DM Serif Display',serif;font-style:italic;}
 @media print{body{padding:20px;} .grid{gap:16px;}}
 </style></head><body>
 <h1>My <em>Glow Routine</em></h1>

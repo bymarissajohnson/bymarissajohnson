@@ -5,16 +5,16 @@
 <title>Military Spouse — byMarissaJohnson</title>
 <link rel="stylesheet" href="shared.css">
 <style>
-:root{--mc:#4a7ab5;--ml:#7a9ab8;--mm:#d4e4f4;--mw:#eef4fc;--md:#2a4a6a;}
-.page-hero{background:linear-gradient(135deg,#e8f0f8,#d4e4f0,#c8dced);padding:140px 80px 80px;position:relative;overflow:hidden;}
+:root{--mc:#4a7ab5;--ml:#7a9ab8;--mm:#d4e4f4;--mw:#1e3828;--md:#c8d8c0;}
+.page-hero{background:linear-gradient(135deg,#1e3828,#d4e4f0,#c8dced);padding:140px 80px 80px;position:relative;overflow:hidden;}
 .page-hero::before{content:'';position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(74,122,181,0.2) 0%,transparent 70%);top:-80px;right:0;border-radius:50%;pointer-events:none;}
 .phi{position:relative;z-index:1;max-width:640px;}
 .page-hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;line-height:1.1;opacity:0;animation:fadeUp 0.8s ease forwards 0.2s;}
 .page-hero h1 em{font-style:italic;color:var(--mc);}
-.page-hero p{font-size:0.9rem;color:var(--mid);line-height:1.8;font-weight:300;margin-top:16px;max-width:520px;opacity:0;animation:fadeUp 0.8s ease forwards 0.4s;}
+.page-hero p{font-size:0.9rem;color:var(--muted-sage);line-height:1.8;font-weight:300;margin-top:16px;max-width:520px;opacity:0;animation:fadeUp 0.8s ease forwards 0.4s;}
 
-.location-tabs{background:white;padding:0 80px;border-bottom:1px solid rgba(74,122,181,0.12);display:flex;gap:0;overflow-x:auto;}
-.loc-tab{padding:18px 28px;font-size:0.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--soft);cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;transition:all 0.2s;font-family:'Outfit',sans-serif;background:none;border-top:none;border-left:none;border-right:none;}
+.location-tabs{background:#1e3828;padding:0 80px;border-bottom:1px solid rgba(74,122,181,0.12);display:flex;gap:0;overflow-x:auto;}
+.loc-tab{padding:18px 28px;font-size:0.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--sage-soft);cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;transition:all 0.2s;font-family:'Outfit',sans-serif;background:none;border-top:none;border-left:none;border-right:none;}
 .loc-tab:hover{color:var(--mc);}
 .loc-tab.active{color:var(--mc);border-bottom-color:var(--mc);}
 
@@ -24,10 +24,10 @@
 .loc-header{margin-bottom:48px;}
 .loc-title{font-family:'DM Serif Display',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:300;margin-bottom:8px;}
 .loc-title em{font-style:italic;color:var(--mc);}
-.loc-sub{font-size:0.85rem;color:var(--soft);font-weight:300;line-height:1.7;}
+.loc-sub{font-size:0.85rem;color:var(--sage-soft);font-weight:300;line-height:1.7;}
 
 .categories-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:40px;}
-.cat-card{background:white;border-radius:20px;overflow:hidden;border:1px solid rgba(74,122,181,0.1);transition:all 0.3s;}
+.cat-card{background:#1e3828;border-radius:20px;overflow:hidden;border:1px solid rgba(74,122,181,0.1);transition:all 0.3s;}
 .cat-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(74,122,181,0.12);}
 .cat-header{padding:18px 20px;display:flex;align-items:center;gap:10px;}
 .cat-icon{font-size:1.4rem;}
@@ -37,15 +37,15 @@
 .cat-item:last-child{border-bottom:none;}
 .ci-dot{width:8px;height:8px;border-radius:50%;background:var(--mc);flex-shrink:0;margin-top:5px;}
 .ci-content{}
-.ci-name{font-size:0.78rem;font-weight:600;color:var(--text);margin-bottom:2px;}
-.ci-desc{font-size:0.68rem;color:var(--soft);line-height:1.4;}
+.ci-name{font-size:0.78rem;font-weight:600;color:var(--warm-white);margin-bottom:2px;}
+.ci-desc{font-size:0.68rem;color:var(--sage-soft);line-height:1.4;}
 .ci-tag{display:inline-block;font-size:0.55rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:2px 8px;border-radius:100px;background:var(--mm);color:var(--mc);margin-top:4px;}
 
 .general-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-.gen-card{background:var(--mw);border-radius:20px;padding:28px;border-left:4px solid var(--mc);border-radius:0 16px 16px 0;}
+.gen-card{background:#1e3828;border-radius:20px;padding:28px;border-left:4px solid var(--mc);border-radius:0 16px 16px 0;}
 .gen-title{font-family:'DM Serif Display',serif;font-size:1.1rem;font-weight:400;margin-bottom:12px;}
 .gen-list{list-style:none;}
-.gen-list li{font-size:0.75rem;color:var(--mid);padding:5px 0 5px 16px;position:relative;line-height:1.5;}
+.gen-list li{font-size:0.75rem;color:var(--muted-sage);padding:5px 0 5px 16px;position:relative;line-height:1.5;}
 .gen-list li::before{content:'→';position:absolute;left:0;color:var(--mc);font-size:0.7rem;top:6px;}
 
 .community-section{background:linear-gradient(135deg,var(--mm),#e8f4fc);padding:80px;text-align:center;}
@@ -106,7 +106,7 @@
 </div>
 
 <!-- JAPAN -->
-<div class="location-content active" id="loc-japan" style="background:var(--brand-cream);">
+<div class="location-content active" id="loc-japan" style="background:#162e1e;">
   <div class="loc-header reveal">
     <p class="section-label" style="color:var(--mc);">Currently Living Here</p>
     <h2 class="loc-title">Japan — <em>Yokosuka & Yokota</em></h2>
@@ -184,12 +184,12 @@
   </div>
   <div class="reveal" style="background:var(--mm);border-radius:20px;padding:28px;max-width:700px;">
     <p style="font-size:0.78rem;font-weight:600;color:var(--md);margin-bottom:8px;">📌 From Marissa — Living It Right Now</p>
-    <p style="font-size:0.8rem;color:var(--mid);line-height:1.8;font-weight:300;">I am actively updating this section as I discover new places and things. Follow me on Instagram at @rissa.george for real-time Japan content, and DM me with questions — I genuinely love helping other spouses navigate this.</p>
+    <p style="font-size:0.8rem;color:var(--muted-sage);line-height:1.8;font-weight:300;">I am actively updating this section as I discover new places and things. Follow me on Instagram at @rissa.george for real-time Japan content, and DM me with questions — I genuinely love helping other spouses navigate this.</p>
   </div>
 </div>
 
 <!-- SAN DIEGO -->
-<div class="location-content" id="loc-sandiego" style="background:var(--brand-white);">
+<div class="location-content" id="loc-sandiego" style="background:#0f2418;">
   <div class="loc-header reveal">
     <p class="section-label" style="color:var(--mc);">West Coast Base</p>
     <h2 class="loc-title">San Diego, <em>California</em></h2>
@@ -229,12 +229,12 @@
   </div>
   <div class="reveal" style="background:var(--mm);border-radius:20px;padding:28px;max-width:700px;">
     <p style="font-size:0.78rem;font-weight:600;color:var(--md);margin-bottom:8px;">📌 More San Diego Recs Coming</p>
-    <p style="font-size:0.8rem;color:var(--mid);line-height:1.8;font-weight:300;">I'm building this section out with more specific recommendations. Follow on Instagram and DM me your questions about San Diego — I've got you.</p>
+    <p style="font-size:0.8rem;color:var(--muted-sage);line-height:1.8;font-weight:300;">I'm building this section out with more specific recommendations. Follow on Instagram and DM me your questions about San Diego — I've got you.</p>
   </div>
 </div>
 
 <!-- EVERETT -->
-<div class="location-content" id="loc-everett" style="background:var(--brand-cream);">
+<div class="location-content" id="loc-everett" style="background:#162e1e;">
   <div class="loc-header reveal">
     <p class="section-label" style="color:var(--mc);">Pacific Northwest</p>
     <h2 class="loc-title">Everett, <em>Washington</em></h2>
@@ -273,12 +273,12 @@
   </div>
   <div class="reveal" style="background:var(--mm);border-radius:20px;padding:28px;max-width:700px;">
     <p style="font-size:0.78rem;font-weight:600;color:var(--md);margin-bottom:8px;">📌 More Everett Recs Coming</p>
-    <p style="font-size:0.8rem;color:var(--mid);line-height:1.8;font-weight:300;">DM me on Instagram if you're headed to Everett — happy to share what I know and connect you with people there.</p>
+    <p style="font-size:0.8rem;color:var(--muted-sage);line-height:1.8;font-weight:300;">DM me on Instagram if you're headed to Everett — happy to share what I know and connect you with people there.</p>
   </div>
 </div>
 
 <!-- GENERAL PCS TIPS -->
-<div class="location-content" id="loc-general" style="background:var(--brand-white);">
+<div class="location-content" id="loc-general" style="background:#0f2418;">
   <div class="loc-header reveal">
     <p class="section-label" style="color:var(--mc);">Universal Wisdom</p>
     <h2 class="loc-title">General <em>PCS Tips</em></h2>
