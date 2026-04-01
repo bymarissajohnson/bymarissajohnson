@@ -10,7 +10,7 @@
   min-height: 100vh; padding-top: 68px;
   display: grid; grid-template-columns: 1fr 1fr;
   position: relative; overflow: hidden;
-  background: var(--brand-cream);
+  background: linear-gradient(135deg, #fdf0eb 0%, #f5e4dc 40%, #ecddd4 100%);
 }
 .page-hero::before {
   content:'';position:absolute;width:600px;height:600px;
@@ -50,10 +50,13 @@
 }
 .hero-right {
   position:relative;overflow:hidden;
+  background: linear-gradient(145deg, var(--brand-petal), var(--brand-linen));
+  min-height: 500px;
   opacity:0;animation:fadeIn 1.2s ease forwards 0.4s;
 }
 .hero-right img {
   width:100%;height:100%;object-fit:cover;object-position:center top;
+  position:absolute;top:0;left:0;
 }
 .hero-right::after {
   content:'';position:absolute;bottom:0;left:0;right:0;height:200px;
@@ -246,6 +249,8 @@
   .rates-grid{grid-template-columns:1fr;}
   .personal-section,.cred-section,.pillars-section,.partners-section,.work-section{padding:56px 24px;}
 }
+/* Force all content visible */
+.reveal, .reveal.visible { opacity: 1 !important; transform: none !important; transition: none !important; }
 </style>
 </head>
 <body>
@@ -510,6 +515,8 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+// Force all reveals visible immediately
+document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
 const obs=new IntersectionObserver(entries=>{
-  entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.
+  entries.forEach(e=>{ if(e.isIntersecting)e.
