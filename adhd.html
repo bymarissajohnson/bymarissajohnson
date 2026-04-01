@@ -2,37 +2,57 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ADHD — byMarissaJohnson</title>
+<title>ADHD Templates — byMarissaJohnson</title>
 <link rel="stylesheet" href="shared.css">
 <style>
-.page-hero{background:linear-gradient(135deg,#eef0f8 0%,#e4e8f4 50%,#dde0f0 100%);}
-.page-hero::before{content:'';position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(155,142,196,0.25) 0%,transparent 70%);top:-80px;right:0;border-radius:50%;}
-.page-eyebrow{color:var(--ad-lav);}
-.page-title em{color:var(--ad-lav);}
-
-.tools-section{background:var(--brand-white);}
-.tool-3grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px;}
-.adhd-tool{background:var(--brand-cream);border-radius:20px;padding:28px;border:1.5px solid var(--ad-mist);transition:all 0.3s;}
-.adhd-tool:hover{border-color:var(--ad-lav);transform:translateY(-4px);box-shadow:0 16px 40px rgba(155,142,196,0.15);}
-.adhd-tool-icon{font-size:1.8rem;margin-bottom:14px;}
-.adhd-tool-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;margin-bottom:8px;}
-.adhd-tool-desc{font-size:0.75rem;color:var(--mid);line-height:1.7;font-weight:300;}
-
-.reality-section{background:var(--ad-cool);}
-.reality-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px;}
-.reality-card{background:white;border-radius:20px;padding:28px;border-left:4px solid var(--ad-lav);}
-.reality-q{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--ad-slate);margin-bottom:10px;}
-.reality-a{font-size:0.78rem;color:var(--mid);line-height:1.8;font-weight:300;}
-
-.trackers-section{background:var(--brand-cream);}
-.adhd-trackers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px;}
-.adhd-tracker-card{background:var(--brand-white);border-radius:20px;overflow:hidden;border:1px solid var(--ad-mist);transition:all 0.3s;}
-.adhd-tracker-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(155,142,196,0.15);}
-.atc-top{height:140px;display:flex;align-items:center;justify-content:center;font-size:2rem;}
-.atc-body{padding:24px;}
-.atc-badge{display:inline-block;font-size:0.55rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:100px;background:var(--ad-mist);color:var(--ad-slate);margin-bottom:10px;}
-
-@media(max-width:900px){.tool-3grid,.reality-grid,.adhd-trackers{grid-template-columns:1fr;}}
+:root{--al:#9b8ec4;--as:#6b7fa8;--am:#dde4f0;--ac:#f0f2f8;--aw:#ede8f8;}
+.page-hero{background:linear-gradient(135deg,#eef0f8,#e4e8f4,#dde0f0);padding:140px 80px 80px;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(155,142,196,0.25) 0%,transparent 70%);top:-80px;right:0;border-radius:50%;pointer-events:none;}
+.phi{position:relative;z-index:1;max-width:640px;}
+.page-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;line-height:1.1;opacity:0;animation:fadeUp 0.8s ease forwards 0.2s;}
+.page-hero h1 em{font-style:italic;color:var(--al);}
+.page-hero p{font-size:0.9rem;color:var(--mid);line-height:1.8;font-weight:300;margin-top:16px;max-width:520px;opacity:0;animation:fadeUp 0.8s ease forwards 0.4s;}
+.templates-section{background:var(--brand-cream);padding:80px;}
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;}
+.tc{background:white;border-radius:24px;overflow:hidden;border:1px solid rgba(155,142,196,0.15);transition:all 0.3s;}
+.tc:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(155,142,196,0.15);}
+.tc-top{height:160px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;}
+.tc-badge{position:absolute;top:16px;right:16px;font-size:0.55rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 12px;border-radius:100px;background:var(--am);color:var(--as);}
+.tc-body{padding:28px;}
+.tc-label{font-size:0.58rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--al);margin-bottom:8px;}
+.tc-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;line-height:1.25;margin-bottom:10px;}
+.tc-desc{font-size:0.75rem;color:var(--mid);line-height:1.7;font-weight:300;}
+.tc-features{list-style:none;margin:12px 0 20px;}
+.tc-features li{font-size:0.72rem;color:var(--mid);padding:4px 0 4px 16px;position:relative;}
+.tc-features li::before{content:'✓';position:absolute;left:0;color:var(--al);font-size:0.7rem;}
+.btn-lav{background:var(--al);color:white;display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:100px;font-size:0.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.25s;font-family:'Jost',sans-serif;text-decoration:none;}
+.btn-lav:hover{background:#7a6db0;transform:translateY(-2px);}
+.btn-outline-lav{background:transparent;color:var(--al);border:1.5px solid var(--am);display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:100px;font-size:0.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all 0.25s;font-family:'Jost',sans-serif;}
+.btn-outline-lav:hover{border-color:var(--al);transform:translateY(-2px);}
+.preview-section{background:white;padding:80px;}
+.pp{background:var(--ac);border-radius:24px;padding:32px;max-width:700px;margin:32px auto 0;}
+.pp-date{font-size:0.65rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--al);margin-bottom:16px;}
+.pp-label{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;color:var(--text);margin-bottom:12px;}
+.pp-task{display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border-radius:12px;margin-bottom:8px;border:1.5px solid var(--am);}
+.pp-cb{width:20px;height:20px;border-radius:6px;border:2px solid var(--am);flex-shrink:0;}
+.pp-task-text{font-size:0.82rem;color:var(--mid);font-weight:300;}
+.pp-moods{display:flex;gap:8px;margin-top:16px;}
+.pp-mood{flex:1;padding:10px;border-radius:12px;border:1.5px solid var(--am);background:white;text-align:center;font-size:0.72rem;color:var(--mid);}
+.tips-section{background:var(--ac);padding:80px;}
+.tips-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px;}
+.tip-card{background:white;border-radius:20px;padding:28px;border-left:4px solid var(--al);border-radius:0 16px 16px 0;}
+.tip-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--am);line-height:1;}
+.tip-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;margin:8px 0 10px;}
+.tip-text{font-size:0.78rem;color:var(--mid);line-height:1.8;font-weight:300;}
+.quote-section{background:linear-gradient(135deg,var(--aw),var(--am));padding:80px;text-align:center;}
+.quote-inner{max-width:600px;margin:0 auto;}
+.big-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,2.5vw,2rem);font-weight:300;font-style:italic;line-height:1.5;color:var(--text);margin-bottom:20px;}
+.quote-attr{font-size:0.72rem;color:var(--mid);letter-spacing:2px;text-transform:uppercase;}
+@media(max-width:900px){
+.page-hero,.templates-section,.preview-section,.tips-section,.quote-section{padding:56px 24px;}
+.tg{grid-template-columns:1fr;}
+.tips-grid{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
@@ -41,155 +61,207 @@
   <ul class="nav-links">
     <li><a href="about.html">About</a></li>
     <li><a href="skincare.html">Skincare</a></li>
-    <li><a href="hair.html">Hair</a></li>
+    <li><a href="hair.html">Curly Hair</a></li>
     <li><a href="adhd.html" class="active">ADHD</a></li>
-    <li><a href="bookclub.html">Book Club</a></li>
+    <li><a href="military.html">Military Spouse</a></li>
+    <li><a href="travel.html">Travel</a></li>
     <li><a href="feed.html">From Marissa</a></li>
   </ul>
   <div class="nav-socials">
-    <a href="https://instagram.com/bymarissajohnson" target="_blank">IG</a>
+    <a href="https://www.instagram.com/rissa.george/" target="_blank">IG</a>
     <div class="nav-divider"></div>
     <a href="https://www.tiktok.com/@official_marissag" target="_blank">TT</a>
     <div class="nav-divider"></div>
-    <a href="https://www.amazon.com/shop/bymarissajohnson" target="_blank" class="btn btn-rose" style="padding:8px 18px;font-size:0.6rem;color:#000000;">Shop ↗</a>
+    <a href="https://www.amazon.com/shop/rissa.george" target="_blank" class="btn btn-rose" style="padding:8px 18px;font-size:0.6rem;color:#000000;">Shop &#8599;</a>
   </div>
 </nav>
 
 <div class="page-hero">
-  <div class="page-hero-inner">
-    <p class="page-eyebrow">🧠 ADHD</p>
-    <h1 class="page-title">A calmer,<br><em>clearer mind.</em></h1>
-    <p class="page-subtitle">Real tools, real talk about living well with ADHD — focus systems that actually stick, habit trackers built for how our brains work, and zero judgment.</p>
+  <div class="phi">
+    <p style="font-size:0.6rem;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--al);margin-bottom:20px;opacity:0;animation:fadeUp 0.8s ease forwards 0.1s;">&#129504; ADHD</p>
+    <h1>Tools for <em>how your<br>brain actually works.</em></h1>
+    <p>No shame, no judgment &#8212; just free downloadable templates designed for ADHD brains. Simple, visual, and forgiving because consistency should feel possible, not punishing.</p>
+    <div style="display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;opacity:0;animation:fadeUp 0.8s ease forwards 0.6s;">
+      <a href="#templates" class="btn-lav">Get Free Templates</a>
+      <a href="feed.html" class="btn-outline-lav">Real Talk Blog &#8594;</a>
+    </div>
   </div>
 </div>
 
-<!-- TOOLS -->
-<section class="section tools-section">
+<section class="templates-section" id="templates">
   <div class="reveal">
-    <p class="section-label" style="color:var(--ad-lav);">What Helps Me</p>
-    <h2 class="section-heading">Systems that <em>actually stick</em></h2>
-    <p class="section-sub">I've tried everything. These are the approaches that have genuinely helped me — not the ones that work for neurotypical brains.</p>
+    <p class="section-label" style="color:var(--al);">Free Downloads</p>
+    <h2 class="section-heading">Templates that <em>actually work</em></h2>
+    <p class="section-sub">Built for ADHD brains &#8212; simple, visual, and designed so missing a day doesn&#8217;t mean starting over.</p>
   </div>
-  <div class="tool-3grid">
-    <div class="adhd-tool reveal reveal-d1">
-      <div class="adhd-tool-icon">🎯</div>
-      <h3 class="adhd-tool-title">The 3-Task Rule</h3>
-      <p class="adhd-tool-desc">Pick only 3 things to accomplish today. Not 20. Not 10. Three. It removes decision paralysis and gives your brain achievable wins that build momentum.</p>
+  <div class="tg">
+    <div class="tc reveal reveal-d1">
+      <div class="tc-top" style="background:linear-gradient(135deg,var(--aw),#fff);">
+        <span class="tc-badge">Free</span>&#127919;
+      </div>
+      <div class="tc-body">
+        <p class="tc-label">Daily Planner</p>
+        <h3 class="tc-title">3-Task Daily Planner</h3>
+        <p class="tc-desc">The only daily planner built around how ADHD brains actually work. Three tasks, time blocks, mood check-in.</p>
+        <ul class="tc-features">
+          <li>Only 3 tasks per day &#8212; no overwhelm</li>
+          <li>Time blocking sections AM/PM</li>
+          <li>Daily mood + energy check-in</li>
+          <li>Brain dump space for racing thoughts</li>
+          <li>Win of the day &#8212; celebrate yourself</li>
+        </ul>
+        <button class="btn-lav" onclick="downloadPlanner()">&#8595; Download Planner</button>
+      </div>
     </div>
-    <div class="adhd-tool reveal reveal-d2">
-      <div class="adhd-tool-icon">⏱️</div>
-      <h3 class="adhd-tool-title">Body Doubling</h3>
-      <p class="adhd-tool-desc">Work alongside someone else (even virtually). The presence of another person reduces the friction of starting tasks — it's not laziness, it's neuroscience.</p>
+    <div class="tc reveal reveal-d2">
+      <div class="tc-top" style="background:linear-gradient(135deg,#e8eef8,#fff);">
+        <span class="tc-badge">Free</span>&#127769;
+      </div>
+      <div class="tc-body">
+        <p class="tc-label">Habit Tracker</p>
+        <h3 class="tc-title">Monthly Habit Tracker</h3>
+        <p class="tc-desc">A visual 30-day habit tracker that makes consistency feel satisfying &#8212; not like a chore.</p>
+        <ul class="tc-features">
+          <li>Track up to 8 habits at once</li>
+          <li>Visual streak tracker</li>
+          <li>Weekly reflection prompts</li>
+          <li>No guilt for missed days &#8212; just restart</li>
+          <li>Printable + digital versions</li>
+        </ul>
+        <button class="btn-lav" onclick="downloadHabitTracker()">&#8595; Download Tracker</button>
+      </div>
     </div>
-    <div class="adhd-tool reveal reveal-d3">
-      <div class="adhd-tool-icon">📦</div>
-      <h3 class="adhd-tool-title">Visible Storage</h3>
-      <p class="adhd-tool-desc">Out of sight = out of mind for ADHD brains. I switched to clear bins, open shelving, and visual calendars everywhere. If I can see it, I can do it.</p>
+    <div class="tc reveal reveal-d3">
+      <div class="tc-top" style="background:linear-gradient(135deg,#e8f0f8,#fff);">
+        <span class="tc-badge">Free</span>&#128138;
+      </div>
+      <div class="tc-body">
+        <p class="tc-label">Medication Log</p>
+        <h3 class="tc-title">Medication &amp; Symptom Log</h3>
+        <p class="tc-desc">Track medication timing, dosage, mood, focus levels, and side effects &#8212; so you can have real conversations with your doctor.</p>
+        <ul class="tc-features">
+          <li>Daily medication check-in</li>
+          <li>Focus and mood rating scale</li>
+          <li>Side effect notes section</li>
+          <li>Monthly pattern overview</li>
+          <li>Shareable with your provider</li>
+        </ul>
+        <button class="btn-lav" onclick="downloadMedLog()">&#8595; Download Log</button>
+      </div>
     </div>
-    <div class="adhd-tool reveal reveal-d1">
-      <div class="adhd-tool-icon">🔔</div>
-      <h3 class="adhd-tool-title">Alarms for Everything</h3>
-      <p class="adhd-tool-desc">I set alarms not just for appointments, but for transitions — "leave for gym in 15 min," "start dinner now," "time to wind down." My phone is my external brain.</p>
-    </div>
-    <div class="adhd-tool reveal reveal-d2">
-      <div class="adhd-tool-icon">🌊</div>
-      <h3 class="adhd-tool-title">Riding the Wave</h3>
-      <p class="adhd-tool-desc">When hyperfocus hits, I lean in — not against it. I batch similar tasks in those windows. The key is having a system so nothing falls through when the wave ends.</p>
-    </div>
-    <div class="adhd-tool reveal reveal-d3">
-      <div class="adhd-tool-icon">🌙</div>
-      <h3 class="adhd-tool-title">Non-Negotiable Wind Down</h3>
-      <p class="adhd-tool-desc">ADHD brains are notoriously bad at sleep transitions. I have a 30-min wind-down routine that signals to my brain it's actually time to stop. Consistency is everything.</p>
+  </div>
+  <div style="text-align:center;margin-top:40px;" class="reveal">
+    <button class="btn-lav" onclick="downloadAll()" style="font-size:0.8rem;padding:16px 36px;">&#8595; Download All Three Templates</button>
+  </div>
+</section>
+
+<section class="preview-section">
+  <div class="reveal">
+    <p class="section-label" style="color:var(--al);">Preview</p>
+    <h2 class="section-heading">What the <em>planner looks like</em></h2>
+  </div>
+  <div class="pp reveal">
+    <p class="pp-date">Today&#8217;s Date: _______________</p>
+    <p class="pp-label">&#127919; My 3 Things Today</p>
+    <div class="pp-task"><div class="pp-cb"></div><div class="pp-task-text">Most important task of the day...</div></div>
+    <div class="pp-task"><div class="pp-cb"></div><div class="pp-task-text">Second priority...</div></div>
+    <div class="pp-task"><div class="pp-cb"></div><div class="pp-task-text">Third task (if energy allows)...</div></div>
+    <p style="font-size:0.72rem;font-weight:600;color:var(--mid);margin-top:20px;margin-bottom:10px;">How am I showing up today?</p>
+    <div class="pp-moods">
+      <div class="pp-mood">&#128564; Low</div>
+      <div class="pp-mood">&#128528; Okay</div>
+      <div class="pp-mood">&#128522; Good</div>
+      <div class="pp-mood">&#128293; Focused</div>
     </div>
   </div>
 </section>
 
-<!-- REAL TALK -->
-<section class="section reality-section">
+<section class="tips-section">
   <div class="reveal">
-    <p class="section-label" style="color:var(--ad-slate);">Real Talk</p>
-    <h2 class="section-heading">The things <em>nobody says</em></h2>
+    <p class="section-label" style="color:var(--al);">What&#8217;s Working For Me</p>
+    <h2 class="section-heading">Real strategies, <em>real life</em></h2>
   </div>
-  <div class="reality-grid">
-    <div class="reality-card reveal reveal-d1">
-      <p class="reality-q">"Why can't I just start the thing?"</p>
-      <p class="reality-a">Task initiation is one of the hardest parts of ADHD — it's not laziness, it's an executive function deficit. The trick is lowering the activation energy: make the first step so small it's impossible to say no to.</p>
+  <div class="tips-grid">
+    <div class="tip-card reveal reveal-d1">
+      <div class="tip-num">01</div>
+      <h3 class="tip-title">The 3-Task Rule</h3>
+      <p class="tip-text">I stopped using 20-item to-do lists. Every day I pick only 3 things that need to happen. Not 10. Not 5. Three. It removes decision paralysis and gives my brain achievable wins that build real momentum.</p>
     </div>
-    <div class="reality-card reveal reveal-d2">
-      <p class="reality-q">"I was fine until I wasn't."</p>
-      <p class="reality-a">ADHD often goes undiagnosed in women because we mask so well for so long. If you're exhausted from compensating, that's valid. You're not broken — you just needed different tools all along.</p>
+    <div class="tip-card reveal reveal-d2">
+      <div class="tip-num">02</div>
+      <h3 class="tip-title">Alarms for Everything</h3>
+      <p class="tip-text">My phone is my external brain. I set alarms not just for appointments but for transitions &#8212; &#8220;leave in 15 min,&#8221; &#8220;start dinner now,&#8221; &#8220;wind down.&#8221; Working memory struggles are not a character flaw &#8212; they just need external scaffolding.</p>
     </div>
-    <div class="reality-card reveal reveal-d1">
-      <p class="reality-q">"My house is either spotless or a disaster."</p>
-      <p class="reality-a">All-or-nothing is SO ADHD. I stopped trying to maintain perfection and started doing "good enough" resets — 10 minutes of tidying is better than a 3-hour clean that never happens.</p>
+    <div class="tip-card reveal reveal-d1">
+      <div class="tip-num">03</div>
+      <h3 class="tip-title">Visible Everything</h3>
+      <p class="tip-text">Out of sight is genuinely out of mind for ADHD brains. I switched to clear bins, open shelving, and visual calendars. If I can see it, I can do it. Hiding things is the enemy of getting things done.</p>
     </div>
-    <div class="reality-card reveal reveal-d2">
-      <p class="reality-q">"I forget things I care about."</p>
-      <p class="reality-a">Working memory issues mean we forget things that matter deeply to us. It's not a character flaw. External systems (apps, sticky notes, voice memos) aren't crutches — they're tools, just like glasses are tools for vision.</p>
+    <div class="tip-card reveal reveal-d2">
+      <div class="tip-num">04</div>
+      <h3 class="tip-title">Body Doubling</h3>
+      <p class="tip-text">Working alongside someone else &#8212; even virtually &#8212; reduces the friction of starting tasks dramatically. It&#8217;s not laziness. It&#8217;s neuroscience. Find a body double, a coffee shop, or a virtual co-working session.</p>
+    </div>
+    <div class="tip-card reveal reveal-d1">
+      <div class="tip-num">05</div>
+      <h3 class="tip-title">Riding the Hyperfocus Wave</h3>
+      <p class="tip-text">When hyperfocus hits I lean in &#8212; not against it. I batch similar tasks in those windows. The key is having a system so nothing important falls through when the wave ends.</p>
+    </div>
+    <div class="tip-card reveal reveal-d2">
+      <div class="tip-num">06</div>
+      <h3 class="tip-title">10-Minute Reset</h3>
+      <p class="tip-text">I stopped trying to keep a perfect house or a perfect schedule. Instead I do &#8220;good enough&#8221; resets &#8212; 10 minutes of tidying, not a 3-hour clean that never happens. Progress over perfection, every single time.</p>
     </div>
   </div>
 </section>
 
-<!-- TRACKERS -->
-<section class="section trackers-section">
-  <div class="reveal">
-    <p class="section-label" style="color:var(--ad-lav);">Free Downloads</p>
-    <h2 class="section-heading">ADHD <em>Trackers</em></h2>
-    <p class="section-sub">Designed for how our brains actually work — simple, visual, forgiving.</p>
-  </div>
-  <div class="adhd-trackers">
-    <div class="adhd-tracker-card reveal reveal-d1">
-      <div class="atc-top" style="background:linear-gradient(135deg,var(--ad-mist),white);">🎯</div>
-      <div class="atc-body">
-        <span class="atc-badge">Coming Soon</span>
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;margin-bottom:8px;">Daily 3-Task Planner</h3>
-        <p style="font-size:0.75rem;color:var(--mid);line-height:1.7;font-weight:300;">Simple daily planning sheet. Three tasks, time blocks, and a mood check-in. That's it.</p>
-        <a href="feed.html" class="btn btn-outline-rose" style="margin-top:16px;display:inline-flex;padding:9px 18px;font-size:0.65rem;color:var(--ad-lav);border-color:var(--ad-lav);">Join Waitlist</a>
-      </div>
+<section class="quote-section">
+  <div class="quote-inner reveal">
+    <p class="big-quote">&#8220;I have never been broken. My brain just came with a different instruction manual &#8212; one nobody handed me for the first 30 years of my life.&#8221;</p>
+    <p class="quote-attr">&#8212; Marissa Johnson</p>
+    <div style="margin-top:32px;">
+      <a href="feed.html" class="btn-lav" style="text-decoration:none;">Read More on the Blog &#8594;</a>
     </div>
-    <div class="adhd-tracker-card reveal reveal-d2">
-      <div class="atc-top" style="background:linear-gradient(135deg,#ede8f8,white);">🌙</div>
-      <div class="atc-body">
-        <span class="atc-badge">Coming Soon</span>
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;margin-bottom:8px;">Wind-Down Routine Tracker</h3>
-        <p style="font-size:0.75rem;color:var(--mid);line-height:1.7;font-weight:300;">Build a consistent nighttime routine with a simple check-in log and sleep quality tracker.</p>
-        <a href="feed.html" class="btn btn-outline-rose" style="margin-top:16px;display:inline-flex;padding:9px 18px;font-size:0.65rem;color:var(--ad-lav);border-color:var(--ad-lav);">Join Waitlist</a>
-      </div>
-    </div>
-    <div class="adhd-tracker-card reveal reveal-d3">
-      <div class="atc-top" style="background:linear-gradient(135deg,#e8eef8,white);">💊</div>
-      <div class="atc-body">
-        <span class="atc-badge">Coming Soon</span>
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;margin-bottom:8px;">Medication & Habit Log</h3>
-        <p style="font-size:0.75rem;color:var(--mid);line-height:1.7;font-weight:300;">Track medication timing, mood, focus levels, and daily habits in one place.</p>
-        <a href="feed.html" class="btn btn-outline-rose" style="margin-top:16px;display:inline-flex;padding:9px 18px;font-size:0.65rem;color:var(--ad-lav);border-color:var(--ad-lav);">Join Waitlist</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SHOP -->
-<section class="section" style="background:var(--brand-white);">
-  <div class="reveal">
-    <p class="section-label" style="color:var(--ad-lav);">My Picks</p>
-    <h2 class="section-heading">Tools I <em>actually use</em></h2>
-    <p class="section-sub">Planners, apps, and physical tools that help me stay grounded — linked on my Amazon storefront.</p>
-  </div>
-  <div style="display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;" class="reveal">
-    <a href="https://www.amazon.com/shop/bymarissajohnson" target="_blank" class="btn btn-rose" style="background:var(--ad-lav);">Amazon ADHD Picks ↗</a>
   </div>
 </section>
 
 <footer class="site-footer">
   <div class="footer-logo"><span style="font-size:0.85rem;opacity:0.7;">by</span><em>Marissa</em>Johnson</div>
-  <p class="footer-tagline">byMarissaJohnson.com ✦ © 2026</p>
+  <p class="footer-tagline">byMarissaJohnson.com &#10022; &#169; 2026</p>
   <div class="footer-links">
-    <a href="index.html">Home</a><a href="skincare.html">Skincare</a><a href="hair.html">Hair</a><a href="bookclub.html">Books</a><a href="feed.html">Tips</a>
+    <a href="index.html">Home</a><a href="skincare.html">Skincare</a><a href="hair.html">Curly Hair</a><a href="military.html">Military</a><a href="travel.html">Travel</a><a href="feed.html">From Marissa</a>
   </div>
 </footer>
+
 <script>
-const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*100);});},{threshold:0.08});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+function downloadPlanner(){
+  var html='<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Daily Planner - byMarissaJohnson</title><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"><style>*{margin:0;padding:0;box-sizing:border-box;}body{font-family:Jost,sans-serif;background:#f0f2f8;color:#2a1f1a;padding:32px;}.page{background:white;border-radius:20px;padding:40px;max-width:600px;margin:0 auto;}h1{font-family:"Cormorant Garamond",serif;font-size:2rem;font-weight:300;margin-bottom:4px;}h1 em{font-style:italic;color:#9b8ec4;}.sub{font-size:0.72rem;color:#9b8ec4;letter-spacing:3px;text-transform:uppercase;margin-bottom:32px;}.date{border-bottom:1.5px solid #dde4f0;padding-bottom:8px;margin-bottom:28px;font-size:0.8rem;color:#9b8ec4;font-style:italic;}.sec-title{font-family:"Cormorant Garamond",serif;font-size:1.1rem;font-weight:400;margin-bottom:14px;}.task{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;}.cb{width:22px;height:22px;border-radius:6px;border:2px solid #dde4f0;flex-shrink:0;}.task-line{flex:1;border-bottom:1px solid #f0f0f8;min-height:32px;padding-bottom:8px;}.divider{border:none;border-top:1px solid #f0eef8;margin:24px 0;}.moods{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px;}.mood{border:1.5px solid #dde4f0;border-radius:12px;padding:12px 8px;text-align:center;font-size:0.75rem;color:#7a5c52;}.blocks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px;}.block-label{font-size:0.62rem;color:#9b8ec4;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}.block-box{border:1.5px solid #dde4f0;border-radius:10px;padding:12px;min-height:80px;}.brain{border:1.5px solid #dde4f0;border-radius:12px;padding:16px;min-height:80px;font-size:0.75rem;color:#c0b8d0;font-style:italic;}.win{background:#ede8f8;border-radius:12px;padding:16px;margin-top:20px;}.win-label{font-size:0.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#9b8ec4;margin-bottom:8px;}.win-line{border-bottom:1px solid #d0c8e8;min-height:28px;padding-bottom:8px;}.footer{text-align:center;margin-top:32px;font-size:0.65rem;color:#c0b8d8;font-style:italic;}@media print{body{background:white;padding:0;}.page{border-radius:0;}}</style></head><body><div class="page"><h1>My <em>3 Things</em></h1><p class="sub">Daily Planner - byMarissaJohnson.com</p><div class="date">Date: _______________________ Week: _______</div><p class="sec-title">My 3 Things Today</p><div class="task"><div class="cb"></div><div class="task-line"></div></div><div class="task"><div class="cb"></div><div class="task-line"></div></div><div class="task"><div class="cb"></div><div class="task-line"></div></div><hr class="divider"><p class="sec-title">Time Blocks</p><div class="blocks"><div><p class="block-label">Morning</p><div class="block-box"></div></div><div><p class="block-label">Afternoon</p><div class="block-box"></div></div></div><hr class="divider"><p class="sec-title">How am I showing up today?</p><div class="moods"><div class="mood">Low</div><div class="mood">Okay</div><div class="mood">Good</div><div class="mood">Focused</div></div><hr class="divider"><p class="sec-title">Brain Dump</p><div class="brain">Everything swirling around right now...</div><div class="win"><p class="win-label">Today\'s Win</p><div class="win-line"></div></div><div class="footer">byMarissaJohnson.com - Real life, real glow. - You showed up today.</div></div></body></html>';
+  var b=new Blob([html],{type:'text/html'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='daily-planner-bymarissajohnson.html';a.click();
+}
+
+function downloadHabitTracker(){
+  var habits=['Morning routine','Medication','Movement/exercise','Water intake','Wind-down routine','Gratitude/journal','Read','Skincare'];
+  var days=Array.from({length:30},function(_,i){return i+1;});
+  var rows=habits.map(function(h){return '<tr><td style="padding:8px 12px;font-size:0.75rem;font-weight:500;white-space:nowrap;border-right:2px solid #dde4f0;">'+h+'</td>'+days.map(function(){return '<td style="text-align:center;padding:4px;"><div style="width:22px;height:22px;border:1.5px solid #dde4f0;border-radius:6px;margin:0 auto;"></div></td>';}).join('')+'</tr>';}).join('');
+  var html='<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Habit Tracker - byMarissaJohnson</title><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"><style>*{margin:0;padding:0;box-sizing:border-box;}body{font-family:Jost,sans-serif;background:#f0f2f8;padding:32px;}h1{font-family:"Cormorant Garamond",serif;font-size:2rem;font-weight:300;margin-bottom:4px;}h1 em{font-style:italic;color:#9b8ec4;}.sub{font-size:0.72rem;color:#9b8ec4;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px;}.wrap{background:white;border-radius:20px;padding:32px;overflow-x:auto;}table{border-collapse:collapse;width:100%;}th{padding:8px 4px;font-size:0.62rem;font-weight:600;color:#9b8ec4;text-align:center;letter-spacing:1px;}.note{font-size:0.72rem;color:#b09080;font-style:italic;margin-top:24px;}.footer{text-align:center;margin-top:24px;font-size:0.65rem;color:#c0b8d8;font-style:italic;}@media print{body{background:white;padding:8px;}}</style></head><body><h1>Monthly <em>Habit Tracker</em></h1><p class="sub">byMarissaJohnson.com</p><div class="wrap"><table><thead><tr><th style="text-align:left;padding:8px 12px;border-right:2px solid #dde4f0;">Habit</th>'+days.map(function(d){return '<th>'+d+'</th>';}).join('')+'</tr></thead><tbody>'+rows+'</tbody></table></div><p class="note">Check each day you complete the habit. Missing a day is fine - just keep going. Progress over perfection.</p><div class="footer">byMarissaJohnson.com - Real life, real glow.</div></body></html>';
+  var b=new Blob([html],{type:'text/html'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='habit-tracker-bymarissajohnson.html';a.click();
+}
+
+function downloadMedLog(){
+  var days=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+  var dayCards=days.map(function(d){return '<div style="background:white;border-radius:14px;padding:16px;border-top:3px solid #9b8ec4;"><p style="font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#9b8ec4;margin-bottom:12px;">'+d+'</p><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:0.68rem;color:#7a5c52;"><div style="width:16px;height:16px;border:1.5px solid #dde4f0;border-radius:4px;"></div> AM dose</div><div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;font-size:0.68rem;color:#7a5c52;"><div style="width:16px;height:16px;border:1.5px solid #dde4f0;border-radius:4px;"></div> PM dose</div><p style="font-size:0.6rem;color:#9b8ec4;margin-bottom:4px;">Focus (1-5)</p><div style="display:flex;gap:3px;margin-bottom:6px;">'+[1,2,3,4,5].map(function(n){return '<div style="width:18px;height:18px;border-radius:50%;border:1.5px solid #dde4f0;display:flex;align-items:center;justify-content:center;font-size:0.55rem;color:#9b8ec4;">'+n+'</div>';}).join('')+'</div><p style="font-size:0.6rem;color:#9b8ec4;margin-bottom:4px;">Mood (1-5)</p><div style="display:flex;gap:3px;margin-bottom:6px;">'+[1,2,3,4,5].map(function(n){return '<div style="width:18px;height:18px;border-radius:50%;border:1.5px solid #dde4f0;display:flex;align-items:center;justify-content:center;font-size:0.55rem;color:#9b8ec4;">'+n+'</div>';}).join('')+'</div><p style="font-size:0.6rem;color:#9b8ec4;margin-bottom:4px;">Side effects:</p><div style="border-bottom:1px solid #dde4f0;min-height:20px;margin-top:4px;"></div></div>';}).join('');
+  var html='<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Medication Log - byMarissaJohnson</title><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"><style>*{margin:0;padding:0;box-sizing:border-box;}body{font-family:Jost,sans-serif;background:#f0f2f8;padding:32px;}h1{font-family:"Cormorant Garamond",serif;font-size:2rem;font-weight:300;margin-bottom:4px;}h1 em{font-style:italic;color:#9b8ec4;}.sub{font-size:0.72rem;color:#9b8ec4;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px;}.info{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;background:white;border-radius:16px;padding:24px;margin-bottom:20px;}.label{font-size:0.62rem;color:#9b8ec4;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}.line{border-bottom:1.5px solid #dde4f0;min-height:28px;}.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:12px;margin-bottom:20px;}.notes{background:white;border-radius:16px;padding:24px;}.notes h2{font-family:"Cormorant Garamond",serif;font-size:1rem;font-weight:400;margin-bottom:12px;}.notes-area{border:1.5px solid #dde4f0;border-radius:10px;padding:12px;min-height:80px;font-size:0.75rem;color:#b0a8c8;font-style:italic;}.footer{text-align:center;margin-top:24px;font-size:0.65rem;color:#c0b8d8;font-style:italic;}@media print{body{background:white;padding:8px;}}</style></head><body><h1>Medication &amp; <em>Symptom Log</em></h1><p class="sub">Week of: _____________</p><div class="info"><div><p class="label">Medication</p><div class="line"></div></div><div><p class="label">Dosage</p><div class="line"></div></div><div><p class="label">Prescriber</p><div class="line"></div></div></div><div class="grid">'+dayCards+'</div><div class="notes"><h2>Notes for My Provider</h2><div class="notes-area">Patterns, concerns, questions for my next appointment...</div></div><div class="footer">byMarissaJohnson.com - Bring this log to your next appointment.</div></body></html>';
+  var b=new Blob([html],{type:'text/html'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='medication-log-bymarissajohnson.html';a.click();
+}
+
+function downloadAll(){
+  setTimeout(downloadPlanner,0);
+  setTimeout(downloadHabitTracker,300);
+  setTimeout(downloadMedLog,600);
+}
+
+var obs=new IntersectionObserver(function(e){e.forEach(function(el,i){if(el.isIntersecting)setTimeout(function(){el.target.classList.add('visible');},i*100);});},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
 </script>
 </body>
 </html>
