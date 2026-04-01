@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hair Care — byMarissaJohnson</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+.page-hero{background:linear-gradient(135deg,#f5ebe0 0%,#ecddd0 50%,#e0cfc0 100%);}
+.page-hero::before{content:'';position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(196,122,85,0.25) 0%,transparent 70%);top:-80px;right:0;border-radius:50%;}
+.page-eyebrow{color:var(--hr-terra);}
+.page-title em{color:var(--hr-terra);}
+.page-subtitle{color:var(--mid);}
+
+.porosity-section{background:var(--brand-white);}
+.porosity-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px;}
+.por-card{padding:32px;border-radius:20px;border:2px solid transparent;transition:all 0.3s;cursor:default;}
+.por-card.highlight{border-color:var(--hr-terra);background:var(--hr-warm);}
+.por-card:not(.highlight){background:var(--brand-cream);}
+.por-icon{font-size:1.8rem;margin-bottom:12px;}
+.por-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;margin-bottom:10px;}
+.por-label-tag{display:inline-block;font-size:0.55rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;border-radius:100px;background:var(--hr-terra);color:white;margin-bottom:12px;}
+.por-list{list-style:none;}
+.por-list li{font-size:0.75rem;color:var(--mid);padding:5px 0;padding-left:14px;position:relative;line-height:1.5;}
+.por-list li::before{content:'·';position:absolute;left:0;color:var(--hr-terra);font-size:1.2rem;top:-2px;}
+
+.washday-steps{margin-top:48px;}
+.step-row{display:flex;gap:24px;align-items:flex-start;padding:24px 0;border-bottom:1px solid rgba(196,122,85,0.1);}
+.step-row:last-child{border-bottom:none;}
+.step-circle{width:52px;height:52px;border-radius:50%;background:var(--hr-warm);border:2px solid var(--hr-terra);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:var(--hr-terra);flex-shrink:0;}
+.step-content{}
+.step-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;margin-bottom:6px;}
+.step-desc{font-size:0.78rem;color:var(--mid);line-height:1.7;font-weight:300;}
+.step-product-tag{display:inline-block;font-size:0.6rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:100px;background:var(--hr-warm);color:var(--hr-terra);margin-top:8px;}
+
+.trackers-section{background:var(--brand-cream);}
+.tracker-2col{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px;}
+.tc2{background:var(--brand-white);border-radius:24px;overflow:hidden;border:1px solid rgba(196,122,85,0.12);transition:all 0.3s;}
+.tc2:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(196,122,85,0.15);}
+.tc2-top{height:160px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;}
+.tc2-body{padding:28px;}
+
+@media(max-width:900px){.porosity-cards,.tracker-2col{grid-template-columns:1fr;}.step-row{flex-direction:column;gap:12px;}}
+</style>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo"><span class="by">by</span><em>Marissa</em><span class="johnson">Johnson</span></a>
+  <ul class="nav-links">
+    <li><a href="skincare.html">Skincare</a></li>
+    <li><a href="hair.html" class="active">Hair</a></li>
+    <li><a href="adhd.html">ADHD</a></li>
+    <li><a href="bookclub.html">Book Club</a></li>
+    <li><a href="feed.html">From Marissa</a></li>
+  </ul>
+  <div class="nav-socials">
+    <a href="https://instagram.com/bymarissajohnson" target="_blank">IG</a>
+    <div class="nav-divider"></div>
+    <a href="https://www.tiktok.com/@official_marissag" target="_blank">TT</a>
+    <div class="nav-divider"></div>
+    <a href="https://www.amazon.com/shop/bymarissajohnson" target="_blank" class="btn btn-rose" style="padding:8px 18px;font-size:0.6rem;">Shop ↗</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="page-eyebrow">🌿 Hair Care</p>
+    <h1 class="page-title">Low porosity,<br><em>high standards.</em></h1>
+    <p class="page-subtitle">Everything I've learned about caring for low-po hair — wash day routines, trackers, and the products that actually give results.</p>
+  </div>
+</div>
+
+<!-- POROSITY GUIDE -->
+<section class="section porosity-section">
+  <div class="reveal">
+    <p class="section-label" style="color:var(--hr-terra);">Know Your Hair</p>
+    <h2 class="section-heading">Understanding <em>Porosity</em></h2>
+    <p class="section-sub">Hair porosity determines how it absorbs and retains moisture. Mine is low-po — here's what that means and why it matters.</p>
+  </div>
+  <div class="porosity-cards reveal">
+    <div class="por-card">
+      <div class="por-icon">⬇️</div>
+      <span class="por-label-tag" style="background:var(--ad-slate);">Low Porosity</span>
+      <h3 class="por-title">Resistant to moisture</h3>
+      <ul class="por-list">
+        <li>Takes forever to get wet</li>
+        <li>Products sit on top of hair</li>
+        <li>Needs heat to open cuticle</li>
+        <li>Prone to buildup</li>
+        <li>Dries slowly once wet</li>
+      </ul>
+    </div>
+    <div class="por-card highlight">
+      <div class="por-icon">✨</div>
+      <span class="por-label-tag">That's me!</span>
+      <h3 class="por-title">Low-Po Routine Goals</h3>
+      <ul class="por-list">
+        <li>Use heat to open the cuticle</li>
+        <li>Lightweight, liquid-based products</li>
+        <li>Clarify regularly to remove buildup</li>
+        <li>Protein-free moisture focus</li>
+        <li>Steam or warm water rinse</li>
+      </ul>
+    </div>
+    <div class="por-card">
+      <div class="por-icon">⬆️</div>
+      <span class="por-label-tag" style="background:var(--bk-forest);">High Porosity</span>
+      <h3 class="por-title">Absorbs quickly, loses fast</h3>
+      <ul class="por-list">
+        <li>Gets wet immediately</li>
+        <li>Absorbs products fast</li>
+        <li>Needs heavy sealers</li>
+        <li>Prone to frizz and dryness</li>
+        <li>Benefits from protein treatments</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WASH DAY -->
+<section class="section" style="background:var(--brand-cream);">
+  <div class="reveal">
+    <p class="section-label" style="color:var(--hr-terra);">Wash Day</p>
+    <h2 class="section-heading">My Low-Po <em>Routine</em></h2>
+    <p class="section-sub">Step by step — what I do every wash day for soft, moisturized results without product buildup.</p>
+  </div>
+  <div class="washday-steps reveal">
+    <div class="step-row">
+      <div class="step-circle">1</div>
+      <div class="step-content">
+        <h3 class="step-title">Pre-Poo with Light Oil</h3>
+        <p class="step-desc">Apply a light oil (argan or jojoba — NOT heavy coconut) to dry hair before washing. This protects the hair shaft from hygral fatigue during washing. Leave on 20–30 minutes.</p>
+        <span class="step-product-tag">Light oils only — avoid heavy butters</span>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-circle">2</div>
+      <div class="step-content">
+        <h3 class="step-title">Clarifying Shampoo</h3>
+        <p class="step-desc">Low-po hair builds up product fast. Use a clarifying shampoo 1–2x per month to fully reset. Regular wash weeks, use a gentle sulfate-free shampoo with warm water to start opening the cuticle.</p>
+        <span class="step-product-tag">Warm water — never cold to start</span>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-circle">3</div>
+      <div class="step-content">
+        <h3 class="step-title">Steam or Warm Deep Condition</h3>
+        <p class="step-desc">This is the most important step for low-po. Apply a lightweight deep conditioner, then sit under a hooded dryer or use a heat cap for 20–30 min. Heat forces the cuticle open so moisture actually gets IN.</p>
+        <span class="step-product-tag">Heat cap or hooded dryer — essential</span>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-circle">4</div>
+      <div class="step-content">
+        <h3 class="step-title">Cool Water Rinse</h3>
+        <p class="step-desc">Rinse with cool or cold water to seal the cuticle back down. This seals in all the moisture from your deep condition and adds shine.</p>
+        <span class="step-product-tag">Cold water seals the cuticle</span>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-circle">5</div>
+      <div class="step-content">
+        <h3 class="step-title">Leave-In + Style on Damp Hair</h3>
+        <p class="step-desc">Apply a water-based leave-in conditioner to soaking wet hair (LOC or LCO method). Avoid heavy creams and butters — they coat low-po hair and block moisture. Style while hair is very wet.</p>
+        <span class="step-product-tag">Water-based products only</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACKERS -->
+<section class="section trackers-section">
+  <div class="reveal">
+    <p class="section-label" style="color:var(--hr-terra);">Free Downloads</p>
+    <h2 class="section-heading">Hair <em>Trackers</em></h2>
+  </div>
+  <div class="tracker-2col">
+    <div class="tc2 reveal reveal-d1">
+      <div class="tc2-top" style="background:linear-gradient(135deg,var(--hr-warm),#fff);">🌿</div>
+      <div class="tc2-body">
+        <p style="font-size:0.58rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--hr-terra);margin-bottom:8px;">Coming Soon</p>
+        <h3 class="tc-title" style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;margin-bottom:10px;">Wash Day Tracker</h3>
+        <p style="font-size:0.75rem;color:var(--mid);line-height:1.7;font-weight:300;">Log your wash day steps, products used, and how your hair felt after. Track what works over time.</p>
+        <a href="feed.html" class="btn btn-outline-rose" style="margin-top:20px;display:inline-flex;padding:10px 20px;font-size:0.68rem;color:var(--hr-terra);border-color:var(--hr-sand);">Join Waitlist</a>
+      </div>
+    </div>
+    <div class="tc2 reveal reveal-d2">
+      <div class="tc2-top" style="background:linear-gradient(135deg,#e8d4c0,#fff);">💧</div>
+      <div class="tc2-body">
+        <p style="font-size:0.58rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--hr-terra);margin-bottom:8px;">Coming Soon</p>
+        <h3 class="tc-title" style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;margin-bottom:10px;">Moisture & Protein Balance Log</h3>
+        <p style="font-size:0.75rem;color:var(--mid);line-height:1.7;font-weight:300;">Track your moisture vs. protein treatments and find the sweet spot your hair loves.</p>
+        <a href="feed.html" class="btn btn-outline-rose" style="margin-top:20px;display:inline-flex;padding:10px 20px;font-size:0.68rem;color:var(--hr-terra);border-color:var(--hr-sand);">Join Waitlist</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section class="section" style="background:var(--brand-white);">
+  <div class="reveal">
+    <p class="section-label" style="color:var(--hr-terra);">Shop</p>
+    <h2 class="section-heading">My Low-Po <em>Favorites</em></h2>
+  </div>
+  <div style="display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;" class="reveal">
+    <a href="https://www.amazon.com/shop/bymarissajohnson" target="_blank" class="btn btn-rose" style="background:var(--hr-terra);">Amazon Hair Picks ↗</a>
+    <a href="https://sephora.com/creators/bymarissajohnson" target="_blank" class="btn btn-outline-rose" style="color:var(--hr-terra);border-color:var(--hr-sand);">Sephora Hair Picks ↗</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-logo"><span style="font-size:0.85rem;opacity:0.7;">by</span><em>Marissa</em>Johnson</div>
+  <p class="footer-tagline">byMarissaJohnson.com ✦ © 2026</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a><a href="skincare.html">Skincare</a><a href="adhd.html">ADHD</a><a href="bookclub.html">Books</a><a href="feed.html">Tips</a>
+  </div>
+</footer>
+<script>
+const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*100);});},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

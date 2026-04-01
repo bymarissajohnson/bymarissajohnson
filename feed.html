@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From Marissa — byMarissaJohnson</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+.page-hero{background:linear-gradient(135deg,var(--brand-petal) 0%,var(--brand-linen) 60%,#e4e8e0 100%);}
+.page-eyebrow{color:var(--brand-rose);}
+.page-title em{color:var(--brand-rose);}
+
+.filter-bar{
+  display:flex;gap:10px;flex-wrap:wrap;
+  padding:32px 80px 0;
+  position:sticky;top:68px;z-index:50;
+  background:rgba(250,246,242,0.92);backdrop-filter:blur(12px);
+  padding-bottom:20px;border-bottom:1px solid rgba(200,160,140,0.1);
+}
+.filter-btn{
+  background:var(--brand-white);border:1.5px solid var(--brand-linen);
+  border-radius:100px;padding:8px 20px;
+  font-size:0.68rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--mid);cursor:pointer;transition:all 0.2s;font-family:'Jost',sans-serif;
+}
+.filter-btn:hover,.filter-btn.active{color:white;border-color:transparent;}
+.filter-btn.active.all,.filter-btn.all:hover{background:var(--brand-rose);}
+.filter-btn.active.skin,.filter-btn.skin:hover{background:var(--sk-rose);}
+.filter-btn.active.hair,.filter-btn.hair:hover{background:var(--hr-terra);}
+.filter-btn.active.adhd,.filter-btn.adhd:hover{background:var(--ad-lav);}
+.filter-btn.active.book,.filter-btn.book:hover{background:var(--bk-forest);}
+
+.feed-section{padding:48px 80px 80px;}
+.masonry{columns:3;column-gap:24px;}
+.post-card{
+  break-inside:avoid;background:var(--brand-white);border-radius:20px;
+  overflow:hidden;border:1px solid rgba(200,160,140,0.1);
+  margin-bottom:24px;transition:all 0.3s;cursor:pointer;
+}
+.post-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.1);}
+.post-card-top{padding:28px 28px 0;display:flex;justify-content:space-between;align-items:flex-start;}
+.post-emoji{font-size:1.8rem;}
+.post-tag{font-size:0.55rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 12px;border-radius:100px;}
+.tag-all{background:var(--brand-petal);color:var(--brand-rose);}
+.tag-skin{background:var(--sk-petal);color:var(--sk-rose);}
+.tag-hair{background:var(--hr-warm);color:var(--hr-terra);}
+.tag-adhd{background:var(--ad-mist);color:var(--ad-slate);}
+.tag-book{background:var(--bk-parch);color:var(--bk-forest);}
+.post-body{padding:20px 28px 28px;}
+.post-date{font-size:0.6rem;color:var(--soft);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+.post-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;line-height:1.3;margin-bottom:10px;}
+.post-excerpt{font-size:0.76rem;color:var(--mid);line-height:1.75;font-weight:300;}
+.post-read{display:flex;align-items:center;gap:6px;margin-top:16px;font-size:0.65rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:gap 0.2s;}
+.post-read:hover{gap:10px;}
+.post-card[data-cat="skin"] .post-read{color:var(--sk-rose);}
+.post-card[data-cat="hair"] .post-read{color:var(--hr-terra);}
+.post-card[data-cat="adhd"] .post-read{color:var(--ad-lav);}
+.post-card[data-cat="book"] .post-read{color:var(--bk-forest);}
+
+.post-card.hidden{display:none;}
+
+/* NEWSLETTER */
+.newsletter-bar{
+  background:linear-gradient(135deg,var(--brand-petal),var(--sage-lt, #d4e0cc));
+  margin:0 80px 80px;border-radius:24px;
+  padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;
+}
+.nl-title{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;line-height:1.2;}
+.nl-title em{font-style:italic;color:var(--brand-rose);}
+.nl-sub{font-size:0.8rem;color:var(--mid);line-height:1.7;font-weight:300;margin-top:8px;}
+.nl-form{display:flex;gap:12px;}
+.nl-form input{
+  flex:1;background:white;border:1.5px solid rgba(200,160,140,0.2);border-radius:100px;
+  padding:14px 22px;font-size:0.78rem;font-family:'Jost',sans-serif;font-weight:300;
+  outline:none;transition:border-color 0.2s;
+}
+.nl-form input:focus{border-color:var(--brand-blush);}
+
+@media(max-width:900px){
+  .filter-bar{padding:20px 24px;top:60px;}
+  .feed-section{padding:32px 24px 60px;}
+  .masonry{columns:1;}
+  .newsletter-bar{margin:0 24px 60px;grid-template-columns:1fr;gap:24px;}
+  .nl-form{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo"><span class="by">by</span><em>Marissa</em><span class="johnson">Johnson</span></a>
+  <ul class="nav-links">
+    <li><a href="skincare.html">Skincare</a></li>
+    <li><a href="hair.html">Hair</a></li>
+    <li><a href="adhd.html">ADHD</a></li>
+    <li><a href="bookclub.html">Book Club</a></li>
+    <li><a href="feed.html" class="active">From Marissa</a></li>
+  </ul>
+  <div class="nav-socials">
+    <a href="https://instagram.com/bymarissajohnson" target="_blank">IG</a>
+    <div class="nav-divider"></div>
+    <a href="https://www.tiktok.com/@official_marissag" target="_blank">TT</a>
+    <div class="nav-divider"></div>
+    <a href="https://www.amazon.com/shop/bymarissajohnson" target="_blank" class="btn btn-rose" style="padding:8px 18px;font-size:0.6rem;">Shop ↗</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="page-eyebrow">✦ From Marissa</p>
+    <h1 class="page-title">Tips, updates,<br><em>real talk.</em></h1>
+    <p class="page-subtitle">One central feed for everything — skincare, hair, ADHD, books, and whatever else is on my mind. Filter by topic or browse it all.</p>
+  </div>
+</div>
+
+<!-- FILTER -->
+<div class="filter-bar">
+  <button class="filter-btn all active" onclick="filter('all',this)">✦ All</button>
+  <button class="filter-btn skin" onclick="filter('skin',this)">🌸 Skincare</button>
+  <button class="filter-btn hair" onclick="filter('hair',this)">🌿 Hair</button>
+  <button class="filter-btn adhd" onclick="filter('adhd',this)">🧠 ADHD</button>
+  <button class="filter-btn book" onclick="filter('book',this)">📖 Book Club</button>
+</div>
+
+<!-- FEED -->
+<div class="feed-section">
+  <div class="masonry" id="feedGrid">
+
+    <div class="post-card reveal" data-cat="skin">
+      <div class="post-card-top"><span class="post-emoji">🌸</span><span class="post-tag tag-skin">Skincare</span></div>
+      <div class="post-body">
+        <p class="post-date">April 2026</p>
+        <h3 class="post-title">Why I Added Azelaic Acid to Both My AM and PM Routine</h3>
+        <p class="post-excerpt">Azelaic acid is the unsung hero of sensitive skin — it fights hyperpigmentation, calms redness, AND helps with acne without the irritation of stronger acids. Here's how I layer it safely with my other actives.</p>
+        <a href="skincare.html" class="post-read">Read More →</a>
+      </div>
+    </div>
+
+    <div class="post-card reveal" data-cat="adhd">
+      <div class="post-card-top"><span class="post-emoji">🎯</span><span class="post-tag tag-adhd">ADHD</span></div>
+      <div class="post-body">
+        <p class="post-date">April 2026</p>
+        <h3 class="post-title">The 3-Task Rule That Actually Keeps Me on Track</h3>
+        <p class="post-excerpt">I stopped using 20-item to-do lists. Here's the simple ADHD-friendly system I swapped it for — and why choosing just three things a day is more productive than any planner I've tried.</p>
+        <a href="adhd.html" class="post-read">Read More →</a>
+      </div>
+    </div>
+
+    <div class="post-card reveal" data-cat="hair">
+      <div class="post-card-top"><span class="post-emoji">💧</span><span class="post-tag tag-hair">Hair</span></div>
+      <div class="post-body">
+        <p class="post-date">April 2026</p>
+        <h3 class="post-title">My Low Porosity Wash Day Routine (Full Step by Step)</h3>
+        <p class="post-excerpt">Low-po hair needs heat, lightweight products, and a very specific order of operations. Here's exactly what I do every wash day to get soft, moisturized results without buildup.</p>
+        <a href="hair.html" class="post-read">Read More →</a>
+      </div>
+    </div>
+
+    <div class="post-card reveal" data-cat="book">
+      <div class="post-card-top"><span class="post-emoji">📖</span><span class="post-tag tag-book">Book Club</span></div>
+      <div class="post-body">
+        <p class="post-date">March 2026</p>
+        <h3 class="post-title">March Book Club Recap — What We Read & What We Thought</h3>
+        <p class="post-excerpt">This month's pick had us all in our feelings. Here's my full review, what the community thought, and why I'd absolutely recommend it — with one caveat.</p>
+        <a href="bookclub.html" class="post-read">Read More →</a>
+      </div>
+    </div>
+
+    <div class="post-card reveal" data-cat="skin">
+      <div class="post-card-top"><span class="post-emoji">⚡</span><span class="post-tag tag-skin">Skincare</span></div>
+      <div class="post-body">
+        <p class="post-date">March 2026</p>
+        <h3 class="post-title">How I Use My Booster Pro Device for Maximum Results</h3>
+        <p class="post-excerpt">The exact step in my routine where I use it, which mode I use AM vs PM, and why skipping it on Differin nights is non-negotiable. The device that changed my glow.</p>
+        <a href="skincare.html" class="post-read">Read More →</a>
+      </div>
+    </div>
+
+    <div class="post-card reveal" data-cat="adhd">
+      <div class="post-card-top"><span class="post-emoji">🌙</span><span class="post-tag tag-adhd">ADHD</span></div>
+      <div class="post-body">
+        <p class="post-date">March 2026</p>
+        <h3 class="post-title">My Non-Negotiable Wind-Down Routine (ADHD Edition)</h3>
+        <p class="post-excerpt">ADHD brains don't just switch off. My 30-minute wind-down routine is the one habit that has most improved my sleep, my mood, and my next-day focus. Here's every step.</p>
+        <a href="adhd.html" class="post-read">Read More →</a>
+      </div>
+    </div>
+
+    <div class="post-card reveal" data-cat="hair">
+      <div class="post-card-top"><span class="post-emoji">🌿</span><span class="post-tag tag-hair">Hair</span></div>
+      <div class="post-body">
+        <p class="post-date">February 2026</p>
+        <h3 class="post-title">Why I Stopped Using Coconut Oil on My Low-Po Hair</h3>
+        <p class="post-excerpt">Coconut oil is everywhere in the natural hair community — but for low porosity hair, it can actually block moisture instead of helping. Here's what I use instead.</p>
+        <a href="hair.html" class="post-read">Read More →</a>
+      </div>
+    </div>
+
+    <div class="post-card reveal" data-cat="book">
+      <div class="post-card-top"><span class="post-emoji">☕</span><span class="post-tag tag-book">Book Club</span></div>
+      <div class="post-body">
+        <p class="post-date">February 2026</p>
+        <h3 class="post-title">5 Books I Read in February & What I Gave Each One</h3>
+        <p class="post-excerpt">A cozy reading month — here are mini reviews of everything I finished, ranked from loved it to left it. One of these was a total surprise.</p>
+        <a href="bookclub.html" class="post-read">Read More →</a>
+      </div>
+    </div>
+
+    <div class="post-card reveal" data-cat="skin">
+      <div class="post-card-top"><span class="post-emoji">🌟</span><span class="post-tag tag-skin">Skincare</span></div>
+      <div class="post-body">
+        <p class="post-date">February 2026</p>
+        <h3 class="post-title">30 Days of My Glow Routine — Here's What Changed</h3>
+        <p class="post-excerpt">I committed to my full AM + PM routine for 30 days straight with zero skipping. The results surprised me — including one thing I did NOT expect to improve.</p>
+        <a href="skincare.html" class="post-read">Read More →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<div class="newsletter-bar reveal">
+  <div>
+    <h2 class="nl-title">Stay in the <em>loop.</em></h2>
+    <p class="nl-sub">New trackers, tips, and product recs straight to your inbox. No spam, just the good stuff.</p>
+  </div>
+  <div>
+    <div class="nl-form">
+      <input type="email" placeholder="Your email address">
+      <button class="btn btn-rose" onclick="subscribeEmail(this)">Subscribe</button>
+    </div>
+    <p style="font-size:0.62rem;color:var(--soft);margin-top:10px;font-style:italic;">✦ Unsubscribe anytime. Your email stays with me only.</p>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo"><span style="font-size:0.85rem;opacity:0.7;">by</span><em>Marissa</em>Johnson</div>
+  <p class="footer-tagline">byMarissaJohnson.com ✦ © 2026</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a><a href="skincare.html">Skincare</a><a href="hair.html">Hair</a><a href="adhd.html">ADHD</a><a href="bookclub.html">Books</a>
+  </div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*80);});},{threshold:0.05});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+function filter(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.post-card').forEach(card=>{
+    if(cat==='all'||card.dataset.cat===cat){card.classList.remove('hidden');}
+    else{card.classList.add('hidden');}
+  });
+}
+
+function subscribeEmail(btn) {
+  const input = btn.previousElementSibling;
+  if(input.value && input.value.includes('@')) {
+    btn.textContent = '✓ Subscribed!';
+    btn.style.background = '#a8b89a';
+    input.value = '';
+    setTimeout(()=>{btn.textContent='Subscribe';btn.style.background='';},3000);
+  } else {
+    input.style.borderColor = '#c9806a';
+    setTimeout(()=>input.style.borderColor='',2000);
+  }
+}
+</script>
+</body>
+</html>
