@@ -51,11 +51,11 @@
 .hero-right {
   position:relative;overflow:hidden;
   background: linear-gradient(145deg, var(--brand-petal), var(--brand-linen));
-  min-height: 500px;
+  min-height: 100vh;
   opacity:0;animation:fadeIn 1.2s ease forwards 0.4s;
 }
 .hero-right img {
-  width:100%;height:100%;object-fit:cover;object-position:center top;
+  width:100%;height:100%;object-fit:cover;object-position:50% 10%;
   position:absolute;top:0;left:0;
 }
 .hero-right::after {
@@ -287,7 +287,7 @@
     <p class="hero-tagline">"I have never believed people have to fit into just one box. I have lived a lot of different lives already — and I am just getting started."</p>
   </div>
   <div class="hero-right">
-    <img src="about.jpg" alt="Marissa Johnson">
+    <img src="about.jpg" alt="Marissa Johnson" style="object-position: center 30%;">
   </div>
 </div>
 
