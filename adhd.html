@@ -45,8 +45,8 @@ nav{background:var(--cream);padding:14px 48px;display:flex;align-items:center;ju
 .hero h1 em{font-style:italic;color:var(--mauve);}
 .hero p{font-size:15px;font-weight:300;color:var(--forest);line-height:1.85;margin-bottom:28px;max-width:460px;}
 .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.hero-card{background:var(--cream);border-radius:16px;padding:22px 18px;border:0.5px solid var(--border);text-align:center;transition:transform 0.2s;cursor:default;}
-.hero-card:hover{transform:translateY(-3px);}
+.hero-card{background:var(--cream);border-radius:16px;padding:22px 18px;border:0.5px solid var(--border);text-align:center;transition:transform 0.2s,border-color 0.2s;cursor:pointer;text-decoration:none;color:inherit;display:block;}
+.hero-card:hover{transform:translateY(-3px);border-color:var(--light-mauve);}
 .hero-card .hc-icon{font-size:30px;margin-bottom:8px;}
 .hero-card .hc-name{font-size:12px;font-weight:600;color:var(--forest);margin-bottom:2px;}
 .hero-card .hc-tag{font-size:9px;color:var(--mauve);font-weight:500;}
@@ -193,26 +193,26 @@ footer{background:var(--forest);padding:28px 48px;display:flex;justify-content:s
       <a href="#my-story" class="btn-outline">Read my story</a>
     </div>
     <div class="hero-grid">
-      <div class="hero-card">
+      <a href="#daily-planner" class="hero-card">
         <div class="hc-icon">🧩</div>
         <div class="hc-name">Daily Planner</div>
         <div class="hc-tag">Free download</div>
-      </div>
-      <div class="hero-card">
+      </a>
+      <a href="#brain-dump" class="hero-card">
         <div class="hc-icon">🌀</div>
         <div class="hc-name">Brain Dump</div>
         <div class="hc-tag">Free download</div>
-      </div>
-      <div class="hero-card">
+      </a>
+      <a href="#routine-builder" class="hero-card">
         <div class="hc-icon">☀️</div>
         <div class="hc-name">Routine Builder</div>
         <div class="hc-tag">Interactive</div>
-      </div>
-      <div class="hero-card">
+      </a>
+      <a href="#dopamine-menu" class="hero-card">
         <div class="hc-icon">🎯</div>
         <div class="hc-name">Dopamine Menu</div>
         <div class="hc-tag">Free download</div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -232,7 +232,7 @@ footer{background:var(--forest);padding:28px 48px;display:flex;justify-content:s
 <div id="tools">
 
 <!-- TOOL 1: DAILY PLANNER -->
-<div style="background:var(--cream);">
+<div id="daily-planner" style="background:var(--cream);">
 <div class="tool-block">
   <div class="tool-story">
     <p class="tool-num">Tool 01</p>
@@ -268,7 +268,7 @@ footer{background:var(--forest);padding:28px 48px;display:flex;justify-content:s
 </div>
 
 <!-- TOOL 2: WEEKLY BRAIN DUMP -->
-<div style="background:var(--blush);">
+<div id="brain-dump" style="background:var(--blush);">
 <div class="tool-block alt">
   <div class="tool-story">
     <p class="tool-num">Tool 02</p>
@@ -303,7 +303,7 @@ footer{background:var(--forest);padding:28px 48px;display:flex;justify-content:s
 </div>
 
 <!-- TOOL 3: MORNING ROUTINE BUILDER -->
-<div style="background:var(--cream);">
+<div id="routine-builder" style="background:var(--cream);">
 <div class="tool-block">
   <div class="tool-story">
     <p class="tool-num">Tool 03</p>
@@ -337,7 +337,7 @@ footer{background:var(--forest);padding:28px 48px;display:flex;justify-content:s
 </div>
 
 <!-- TOOL 4: FOCUS TIMER -->
-<div style="background:var(--blush);">
+<div id="focus-timer" style="background:var(--blush);">
 <div class="tool-block alt">
   <div class="tool-story">
     <p class="tool-num">Tool 04</p>
@@ -378,7 +378,7 @@ footer{background:var(--forest);padding:28px 48px;display:flex;justify-content:s
 </div>
 
 <!-- TOOL 5: DOPAMINE MENU -->
-<div style="background:var(--cream);">
+<div id="dopamine-menu" style="background:var(--cream);">
 <div class="tool-block">
   <div class="tool-story">
     <p class="tool-num">Tool 05</p>
