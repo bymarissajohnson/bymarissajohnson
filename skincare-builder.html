@@ -7,7 +7,7 @@
 <style>
 /* BUILDER PAGE */
 .builder-hero {
-  background: linear-gradient(135deg, #fdf0eb 0%, #f5e4dc 40%, #ecddd4 100%);
+  background:linear-gradient(to right,#0f2418,#162e1e,#7a3060,#9a6888);
   padding: 140px 80px 80px;
   text-align: center;
   position: relative; overflow: hidden;
@@ -38,7 +38,7 @@
   font-size:0.7rem;font-weight:600;transition:all 0.3s;
   border:2px solid rgba(196,160,184,0.2);background:#f5f0ea;color:var(--sage-soft);
 }
-.step-dot.active{background:var(--brand-rose);border-color:var(--brand-rose);color:white;}
+.step-dot.active{background:#9a6888;border-color:var(--brand-rose);color:white;}
 .step-dot.done{background:var(--sage);border-color:var(--sage);color:white;}
 .step-line{width:40px;height:2px;background:var(--brand-linen);}
 .step-line.done{background:var(--sage);}
@@ -157,6 +157,7 @@
 }
 @media(max-width:500px){.options-grid{grid-template-columns:1fr;}}
 </style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap">
 </head>
 <body>
 
@@ -746,7 +747,7 @@ function downloadHTML() {
   const pmSteps = document.getElementById('pm-steps').innerHTML;
   const summary = document.getElementById('routine-summary').textContent;
   const html = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>My Skincare Routine — byMarissaJohnson</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Jost',sans-serif;background:#e8ddd4;color:#2a5038;padding:40px;}
@@ -767,7 +768,8 @@ h1 em{font-style:italic;color:#c9806a;}
 a{color:#c9806a;font-size:0.65rem;}
 .footer{text-align:center;margin-top:40px;font-size:0.7rem;color:#4a6050;font-family:'Cormorant Garamond',serif;font-style:italic;}
 @media print{body{padding:20px;} .grid{gap:16px;}}
-</style></head><body>
+</style><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap">
+</head><body>
 <h1>My <em>Glow Routine</em></h1>
 <p class="summary">${summary}<br><br>Built with ✦ byMarissaJohnson.com</p>
 <div class="grid">
