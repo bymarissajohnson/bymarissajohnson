@@ -15,7 +15,7 @@
 
 .guides-section{background:#e8ddd4;padding:80px;}
 .guides-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;}
-.guide-card{background:#f5f0ea;border-radius:24px;overflow:hidden;border:1px solid rgba(74,154,122,0.12);transition:all 0.3s;}
+.guide-card{background:#ffffff;border-radius:24px;overflow:hidden;border:1px solid rgba(74,154,122,0.12);transition:all 0.3s;}
 .guide-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(74,154,122,0.15);}
 .gc-image{height:200px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:relative;}
 .gc-badge{position:absolute;top:16px;left:16px;font-size:0.55rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 12px;border-radius:100px;}
@@ -31,7 +31,7 @@
 .gc-includes{list-style:none;margin-bottom:20px;}
 .gc-includes li{font-size:0.7rem;color:var(--mid);padding:3px 0 3px 16px;position:relative;}
 .gc-includes li::before{content:'✓';position:absolute;left:0;color:#9a6888;font-size:0.7rem;}
-.btn-tg{background:#9a6888;color:white;display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:100px;font-size:0.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.25s;font-family:'Jost',sans-serif;text-decoration:none;}
+.btn-tg{background:#8a3060;color:white;display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:100px;font-size:0.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.25s;font-family:'Jost',sans-serif;text-decoration:none;}
 .btn-tg:hover{background:var(--td);transform:translateY(-2px);}
 .btn-outline-tg{background:transparent;color:#9a6888;border:1.5px solid var(--tm);display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:100px;font-size:0.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all 0.25s;font-family:'Jost',sans-serif;text-decoration:none;}
 .btn-outline-tg:hover{border-color:#9a6888;transform:translateY(-2px);}
@@ -39,7 +39,7 @@
 /* TOKYO GUIDE PREVIEW */
 .tokyo-section{background:#f5f0ea;padding:80px;}
 .itinerary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px;}
-.day-card{background:#f5f0ea;border-radius:20px;overflow:hidden;border:1px solid rgba(74,154,122,0.1);}
+.day-card{background:#ffffff;border-radius:20px;overflow:hidden;border:1px solid rgba(74,154,122,0.1);}
 .day-header{padding:16px 20px;background:linear-gradient(135deg,var(--tm),#fff);display:flex;align-items:center;gap:10px;}
 .day-num{font-family:'Cormorant Garamond',serif;font-size:0.8rem;font-weight:600;color:#9a6888;letter-spacing:2px;text-transform:uppercase;}
 .day-theme{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;color:#2a5038;}
@@ -81,6 +81,7 @@
   .email-form{flex-direction:column;}
 }
 </style>
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap">
 </head>
 <body>
@@ -432,7 +433,7 @@ function subscribeNewsletter(btn) {
 function downloadTokyoGuide() {
   const html = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>3 Days in Tokyo — byMarissaJohnson</title>
 
-<style>*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Jost',sans-serif;background:#e8ddd4;color:#2a5038;padding:40px;}h1{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;margin-bottom:4px;}h1 em{font-style:italic;color:#9a6888;}.sub{font-size:0.72rem;color:#9a6888;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;}.intro{font-size:0.82rem;color:#3a5040;line-height:1.7;margin-bottom:32px;max-width:600px;}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}.day{background:#f5f0ea;border-radius:16px;overflow:hidden;}.dh{padding:16px 20px;background:linear-gradient(135deg,#d4f0e8,#1e3828);}.dn{font-size:0.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#9a6888;}.dt{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:#3a5040;}.db{padding:20px;}.tb{margin-bottom:14px;}.tbt{font-size:0.58rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#9a6888;margin-bottom:3px;}.tba{font-size:0.8rem;font-weight:600;margin-bottom:3px;}.tbd{font-size:0.68rem;color:#3a5040;line-height:1.5;}.tbp{font-size:0.62rem;color:#9a6888;font-style:italic;margin-top:3px;}.tips{background:#f5f0ea;border-radius:16px;padding:24px;margin-top:20px;}.tips h2{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:300;margin-bottom:12px;}.tip{font-size:0.75rem;color:#3a5040;padding:6px 0;border-bottom:1px solid #d4f0e8;}.tip:last-child{border-bottom:none;}.footer{text-align:center;margin-top:32px;font-size:0.65rem;color:#8ab8a8;font-family:'Cormorant Garamond',serif;font-style:italic;}@media print{body{background:#e8ddd4;padding:16px;}}</style><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap">
+<style>*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Jost',sans-serif;background:#e8ddd4;color:#162e1e;padding:40px;}h1{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;margin-bottom:4px;}h1 em{font-style:italic;color:#9a6888;}.sub{font-size:0.72rem;color:#9a6888;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;}.intro{font-size:0.82rem;color:#3a5040;line-height:1.7;margin-bottom:32px;max-width:600px;}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}.day{background:#f5f0ea;border-radius:16px;overflow:hidden;}.dh{padding:16px 20px;background:linear-gradient(135deg,#d4f0e8,#1e3828);}.dn{font-size:0.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#9a6888;}.dt{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:#3a5040;}.db{padding:20px;}.tb{margin-bottom:14px;}.tbt{font-size:0.58rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#9a6888;margin-bottom:3px;}.tba{font-size:0.8rem;font-weight:600;margin-bottom:3px;}.tbd{font-size:0.68rem;color:#3a5040;line-height:1.5;}.tbp{font-size:0.62rem;color:#9a6888;font-style:italic;margin-top:3px;}.tips{background:#f5f0ea;border-radius:16px;padding:24px;margin-top:20px;}.tips h2{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:300;margin-bottom:12px;}.tip{font-size:0.75rem;color:#3a5040;padding:6px 0;border-bottom:1px solid #d4f0e8;}.tip:last-child{border-bottom:none;}.footer{text-align:center;margin-top:32px;font-size:0.65rem;color:#8ab8a8;font-family:'Cormorant Garamond',serif;font-style:italic;}@media print{body{background:#e8ddd4;padding:16px;}}</style>
 </head><body>
 <p class="sub">Travel Guide</p>
 <h1>3 Days in <em>Tokyo</em></h1>
