@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>My Daily Planner — byMarissaJohnson</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: #f0ebe4;
+  min-height: 100vh;
+  padding: 16px;
+}
+
+.planner {
+  background: #faf6f0;
+  border-radius: 16px;
+  border: 0.5px solid #d4c8be;
+  max-width: 720px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* HEADER */
+.header {
+  background: #162e1e;
+  padding: 18px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-left .brand {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c4a0b8;
+  margin-bottom: 4px;
+}
+.header-left h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 300;
+  color: #f5f0ea;
+}
+.header-left h1 em { font-style: italic; color: #c4a0b8; }
+.date-field {
+  text-align: right;
+}
+.date-field label {
+  display: block;
+  font-size: 8px;
+  color: #c4a0b8;
+  margin-bottom: 4px;
+}
+.date-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(196,160,184,0.4);
+  color: #f5f0ea;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  width: 130px;
+  padding: 2px 0;
+  text-align: right;
+  outline: none;
+}
+.date-input::placeholder { color: rgba(196,160,184,0.4); }
+
+/* SECTIONS */
+.section { padding: 14px 28px; }
+.section-label {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #8a3060;
+  margin-bottom: 6px;
+}
+.section-hint {
+  font-size: 8px;
+  color: #8a7a70;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #8a3060;
+  color: #f5f0ea;
+  font-size: 8px;
+  font-weight: 600;
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+
+/* VIBE CHECK */
+.vibe-strip {
+  background: #f0eae4;
+  padding: 12px 28px;
+  border-bottom: 0.5px solid #e0d4c8;
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.vibe-left, .vibe-right { display: flex; flex-direction: column; gap: 6px; }
+.vibe-right { flex: 1; min-width: 180px; }
+.vibe-label {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #8a3060;
+  display: flex;
+  align-items: center;
+}
+.vibe-options {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.vibe-option {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  font-size: 11px;
+  color: #162e1e;
+  user-select: none;
+}
+.vibe-circle {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1.5px solid #d4c8be;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+.vibe-option.selected .vibe-circle {
+  background: #8a3060;
+  border-color: #8a3060;
+}
+
+/* TEXT INPUTS */
+.text-field {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #d4c8be;
+  width: 100%;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  color: #162e1e;
+  padding: 4px 2px;
+  outline: none;
+  display: block;
+}
+.text-field::placeholder { color: #c4b8ae; font-style: italic; font-size: 11px; }
+.text-field:focus { border-bottom-color: #8a3060; }
+
+/* START HERE */
+.start-here {
+  background: #8a3060;
+  padding: 14px 28px;
+}
+.start-here .section-label { color: #f5c4d0; }
+.start-here .section-hint { color: rgba(245,240,234,0.65); }
+.start-here .text-field {
+  color: #f5f0ea;
+  border-bottom-color: rgba(245,240,234,0.3);
+  font-size: 13px;
+}
+.start-here .text-field::placeholder { color: rgba(245,240,234,0.35); }
+.start-here .text-field:focus { border-bottom-color: rgba(245,240,234,0.7); }
+
+/* MAIN GRID */
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.col-left {
+  padding: 16px 14px 16px 28px;
+  border-right: 0.5px solid #e0d4c8;
+}
+.col-right {
+  padding: 16px 28px 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* TASK ROWS */
+.task-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 9px;
+}
+.task-row:last-child { margin-bottom: 0; }
+
+/* CHECKBOXES */
+.cb-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.cb {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  border: 2px solid #162e1e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+.cb.checked {
+  background: #162e1e;
+}
+.cb.checked::after {
+  content: '✓';
+  color: #f5f0ea;
+  font-size: 10px;
+  line-height: 1;
+}
+.cb-soft {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  border: 1.5px solid #c4a0b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.cb-soft.checked {
+  background: #c4a0b8;
+}
+.cb-soft.checked::after {
+  content: '✓';
+  color: #f5f0ea;
+  font-size: 9px;
+  line-height: 1;
+}
+.cb-light {
+  width: 13px;
+  height: 13px;
+  border-radius: 2px;
+  border: 1.5px solid #d4c8be;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.cb-light.checked {
+  background: #d4c8be;
+}
+.cb-light.checked::after {
+  content: '✓';
+  color: #f5f0ea;
+  font-size: 8px;
+  line-height: 1;
+}
+
+/* TASK FIELD */
+.task-field {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid #162e1e;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  color: #162e1e;
+  padding: 3px 2px;
+  outline: none;
+}
+.task-field::placeholder { color: #c4b8ae; font-style: italic; font-size: 11px; }
+.task-field:focus { border-bottom-color: #8a3060; }
+.task-field-soft {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #d4c8be;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  color: #162e1e;
+  padding: 2px;
+  outline: none;
+}
+.task-field-soft::placeholder { color: #c4b8ae; font-style: italic; font-size: 10px; }
+.task-field-soft:focus { border-bottom-color: #c4a0b8; }
+
+/* DONE BADGE */
+.done-badge {
+  background: #e8ddd4;
+  border-radius: 6px;
+  padding: 4px 10px;
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 9px;
+  color: #8a3060;
+  font-weight: 600;
+}
+
+/* REWARD BOX */
+.reward-box {
+  background: #f5f0ea;
+  border-radius: 10px;
+  padding: 13px 14px;
+  border: 1.5px solid #8a3060;
+  margin-top: 4px;
+}
+.reward-box .section-label { color: #8a3060; }
+
+/* ENERGY BLOCKS */
+.energy-label {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #8a3060;
+  margin-bottom: 2px;
+}
+.energy-hint {
+  font-size: 8px;
+  color: #8a7a70;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.block-now {
+  background: #162e1e;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.block-now .block-header {
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(196,160,184,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.block-now .block-title {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #f5f0ea;
+}
+.block-now .block-hint { font-size: 7px; color: #c4a0b8; font-style: italic; }
+.block-now .block-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 8px; }
+.block-now .task-field-soft {
+  border-bottom-color: rgba(245,240,234,0.2);
+  color: #f5f0ea;
+}
+.block-now .task-field-soft::placeholder { color: rgba(245,240,234,0.3); }
+.block-now .task-field-soft:focus { border-bottom-color: rgba(196,160,184,0.6); }
+.block-now .cb-light { border-color: rgba(245,240,234,0.4); }
+.block-now .cb-light.checked { background: rgba(245,240,234,0.4); }
+.block-now .block-footer {
+  padding: 6px 12px;
+  background: rgba(196,160,184,0.1);
+  border-top: 1px solid rgba(196,160,184,0.15);
+  font-size: 7px;
+  color: #c4a0b8;
+  font-style: italic;
+}
+
+.block-later {
+  background: #e8ddd4;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.block-later .block-header {
+  padding: 8px 12px;
+  border-bottom: 1px solid #d4c8be;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.block-later .block-title {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #162e1e;
+}
+.block-later .block-hint { font-size: 7px; color: #8a7a70; font-style: italic; }
+.block-later .block-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 7px; }
+.block-later .block-footer {
+  padding: 6px 12px;
+  background: rgba(138,48,96,0.06);
+  border-top: 1px solid #d4c8be;
+  font-size: 7px;
+  color: #8a7a70;
+  font-style: italic;
+}
+
+.block-low {
+  background: #f5f0ea;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 0.5px solid #e0d4c8;
+}
+.block-low .block-header {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e0d4c8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.block-low .block-title {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #162e1e;
+}
+.block-low .block-hint { font-size: 7px; color: #8a7a70; font-style: italic; }
+.block-low .block-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 7px; }
+.block-low .block-footer {
+  padding: 6px 12px;
+  background: #e8ddd4;
+  border-top: 1px solid #e0d4c8;
+  font-size: 7px;
+  color: #8a7a70;
+  font-style: italic;
+}
+
+/* BOTTOM ROW */
+.bottom-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-top: 0.5px solid #e0d4c8;
+}
+.bottom-col {
+  padding: 14px;
+}
+.bottom-col:first-child { padding-left: 28px; border-right: 0.5px solid #e0d4c8; }
+.bottom-col:last-child { padding-right: 28px; border-left: 0.5px solid #e0d4c8; }
+
+/* STUCK BOX */
+.stuck-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 5px;
+}
+.cb-stuck {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+  border: 1.5px solid #d4c8be;
+  flex-shrink: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+.cb-stuck.checked { background: #162e1e; border-color: #162e1e; }
+.cb-stuck.checked::after { content: '✓'; color: #f5f0ea; font-size: 7px; }
+
+/* WATER DROPS */
+.water-row {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.drop {
+  font-size: 18px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  opacity: 0.3;
+  user-select: none;
+  line-height: 1;
+}
+.drop.filled { opacity: 1; }
+
+/* MEDS */
+.med-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 4px;
+}
+.med-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.cb-med {
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
+  border: 1.5px solid #8a3060;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+.cb-med.checked { background: #8a3060; }
+.cb-med.checked::after { content: '✓'; color: #f5f0ea; font-size: 9px; }
+
+/* END OF DAY */
+.end-of-day {
+  background: #f5f0ea;
+  padding: 14px 28px;
+  border-top: 0.5px solid #e0d4c8;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* FOOTER */
+.footer {
+  background: #162e1e;
+  padding: 10px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12px;
+  font-style: italic;
+  color: #c4a0b8;
+}
+.footer-url {
+  font-size: 8px;
+  color: rgba(196,160,184,0.5);
+  letter-spacing: 1px;
+}
+
+/* SAVE BUTTON */
+.save-bar {
+  background: #162e1e;
+  padding: 12px 28px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  border-top: 1px solid rgba(196,160,184,0.2);
+}
+.save-btn {
+  background: #8a3060;
+  color: #f5f0ea;
+  border: none;
+  border-radius: 100px;
+  padding: 10px 24px;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.save-btn:hover { background: #6a2048; }
+.clear-btn {
+  background: transparent;
+  color: #c4a0b8;
+  border: 1px solid rgba(196,160,184,0.3);
+  border-radius: 100px;
+  padding: 10px 20px;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.clear-btn:hover { border-color: #c4a0b8; }
+
+/* TOAST */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: #162e1e;
+  color: #f5f0ea;
+  padding: 12px 24px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-family: 'Jost', sans-serif;
+  transition: transform 0.3s ease;
+  z-index: 999;
+  white-space: nowrap;
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  body { padding: 8px; }
+  .main-grid { grid-template-columns: 1fr; }
+  .col-left { border-right: none; border-bottom: 0.5px solid #e0d4c8; padding: 16px 20px; }
+  .col-right { padding: 16px 20px; }
+  .bottom-row { grid-template-columns: 1fr; }
+  .bottom-col { border: none !important; border-bottom: 0.5px solid #e0d4c8 !important; padding: 14px 20px !important; }
+  .bottom-col:last-child { border-bottom: none !important; }
+  .end-of-day { grid-template-columns: 1fr; gap: 12px; }
+  .header { padding: 14px 20px; }
+  .vibe-strip { padding: 12px 20px; }
+  .section { padding: 12px 20px; }
+  .start-here { padding: 12px 20px; }
+  .end-of-day { padding: 12px 20px; }
+  .footer { padding: 10px 20px; }
+  .save-bar { padding: 12px 20px; }
+}
+
+@media print {
+  body { background: white; padding: 0; }
+  .save-bar { display: none; }
+  .toast { display: none; }
+  .planner { border-radius: 0; max-width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<div class="planner">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <div class="brand">byMarissaJohnson</div>
+      <h1>My <em>Daily Planner</em></h1>
+    </div>
+    <div class="date-field">
+      <label>Date</label>
+      <input type="text" class="date-input" placeholder="Today's date" id="date-input">
+    </div>
+  </div>
+
+  <!-- STEP 1: VIBE CHECK -->
+  <div class="vibe-strip">
+    <div class="vibe-left">
+      <div class="vibe-label"><span class="step-num">1</span> 🧠 Vibe check — circle one</div>
+      <div class="vibe-options" id="vibe-options">
+        <div class="vibe-option" onclick="selectVibe(this)"><div class="vibe-circle"></div><span>Focused</span></div>
+        <div class="vibe-option" onclick="selectVibe(this)"><div class="vibe-circle"></div><span>Scattered</span></div>
+        <div class="vibe-option" onclick="selectVibe(this)"><div class="vibe-circle"></div><span>Anxious</span></div>
+        <div class="vibe-option" onclick="selectVibe(this)"><div class="vibe-circle"></div><span>Tired</span></div>
+      </div>
+    </div>
+    <div class="vibe-right">
+      <div class="vibe-label"><span class="step-num">2</span> 💡 One thing that would help right now</div>
+      <input type="text" class="text-field" placeholder="e.g. coffee, music, quiet..." id="help-field">
+    </div>
+  </div>
+
+  <!-- STEP 3: START HERE -->
+  <div class="start-here">
+    <div class="section-label"><span class="step-num" style="background:rgba(245,240,234,0.2);color:#f5f0ea;">3</span> ⚡ Start here — just begin this one thing</div>
+    <div class="section-hint">Don't finish it. Just start it. 5 minutes. Go.</div>
+    <input type="text" class="text-field" placeholder="The one thing I'll start right now..." id="start-field">
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="main-grid">
+
+    <!-- LEFT: TOP 3 + EVERYTHING ELSE -->
+    <div class="col-left">
+
+      <!-- STEP 4: TOP 3 -->
+      <div style="margin-bottom:18px;">
+        <div class="section-label" style="display:flex;align-items:center;"><span class="step-num">4</span> 🎯 Top 3 — non-negotiables</div>
+        <div class="section-hint">These 3 = a successful day. That's it.</div>
+        <div class="task-row">
+          <div class="cb" onclick="toggleCb(this)"></div>
+          <input type="text" class="task-field" placeholder="First non-negotiable...">
+        </div>
+        <div class="task-row">
+          <div class="cb" onclick="toggleCb(this)"></div>
+          <input type="text" class="task-field" placeholder="Second non-negotiable...">
+        </div>
+        <div class="task-row">
+          <div class="cb" onclick="toggleCb(this)"></div>
+          <input type="text" class="task-field" placeholder="Third non-negotiable...">
+        </div>
+        <div class="done-badge">✔ Done = good enough</div>
+      </div>
+
+      <!-- STEP 5: EVERYTHING ELSE -->
+      <div style="margin-bottom:16px;">
+        <div class="section-label" style="display:flex;align-items:center;color:#c4a0b8;"><span class="step-num" style="background:#c4a0b8;">5</span> 🌀 Everything else</div>
+        <div class="section-hint">Brain dump. Bonus only. No pressure.</div>
+        <div class="task-row" style="margin-bottom:7px;">
+          <div class="cb-soft" onclick="toggleCbSoft(this)"></div>
+          <input type="text" class="task-field-soft" placeholder="">
+        </div>
+        <div class="task-row" style="margin-bottom:7px;">
+          <div class="cb-soft" onclick="toggleCbSoft(this)"></div>
+          <input type="text" class="task-field-soft" placeholder="">
+        </div>
+        <div class="task-row" style="margin-bottom:7px;">
+          <div class="cb-soft" onclick="toggleCbSoft(this)"></div>
+          <input type="text" class="task-field-soft" placeholder="">
+        </div>
+        <div class="task-row" style="margin-bottom:7px;">
+          <div class="cb-soft" onclick="toggleCbSoft(this)"></div>
+          <input type="text" class="task-field-soft" placeholder="">
+        </div>
+        <div class="task-row" style="margin-bottom:7px;">
+          <div class="cb-soft" onclick="toggleCbSoft(this)"></div>
+          <input type="text" class="task-field-soft" placeholder="">
+        </div>
+        <div class="task-row" style="margin-bottom:7px;">
+          <div class="cb-soft" onclick="toggleCbSoft(this)"></div>
+          <input type="text" class="task-field-soft" placeholder="">
+        </div>
+        <div class="task-row" style="margin-bottom:7px;">
+          <div class="cb-soft" onclick="toggleCbSoft(this)"></div>
+          <input type="text" class="task-field-soft" placeholder="">
+        </div>
+        <div class="task-row" style="margin-bottom:0;">
+          <div class="cb-soft" onclick="toggleCbSoft(this)"></div>
+          <input type="text" class="task-field-soft" placeholder="">
+        </div>
+      </div>
+
+      <!-- STEP 8: REWARD -->
+      <div class="reward-box">
+        <div class="section-label" style="display:flex;align-items:center;"><span class="step-num">8</span> 🎁 Finish ONE thing → I get</div>
+        <div class="section-hint">Lower the bar. Celebrate anyway.</div>
+        <input type="text" class="text-field" placeholder="My reward..." style="margin-bottom:8px;">
+        <input type="text" class="text-field" placeholder="Or this...">
+      </div>
+
+    </div>
+
+    <!-- RIGHT: ENERGY BLOCKS -->
+    <div class="col-right">
+
+      <div class="energy-label" style="display:flex;align-items:center;"><span class="step-num">6</span> ⚡ Match tasks to your energy</div>
+      <div class="energy-hint">Sort your lists above into these blocks. Fluid — shift anytime.</div>
+
+      <!-- NOW BLOCK -->
+      <div class="block-now">
+        <div class="block-header">
+          <div class="block-title">⏳ Now</div>
+          <div class="block-hint">Start without resistance</div>
+        </div>
+        <div class="block-body">
+          <div class="task-row" style="margin-bottom:0;">
+            <div class="cb-light" onclick="toggleCbLight(this)"></div>
+            <input type="text" class="task-field-soft" placeholder="">
+          </div>
+          <div class="task-row" style="margin-bottom:0;">
+            <div class="cb-light" onclick="toggleCbLight(this)"></div>
+            <input type="text" class="task-field-soft" placeholder="">
+          </div>
+          <div class="task-row" style="margin-bottom:0;">
+            <div class="cb-light" onclick="toggleCbLight(this)"></div>
+            <input type="text" class="task-field-soft" placeholder="">
+          </div>
+        </div>
+        <div class="block-footer">1–3 things max. Feels heavy? Move it down.</div>
+      </div>
+
+      <!-- LATER BLOCK -->
+      <div class="block-later">
+        <div class="block-header">
+          <div class="block-title">🔄 Later</div>
+          <div class="block-hint">If momentum builds</div>
+        </div>
+        <div class="block-body">
+          <div class="task-row" style="margin-bottom:0;">
+            <div class="cb-light" onclick="toggleCbLight(this)"></div>
+            <input type="text" class="task-field-soft" placeholder="">
+          </div>
+          <div class="task-row" style="margin-bottom:0;">
+            <div class="cb-light" onclick="toggleCbLight(this)"></div>
+            <input type="text" class="task-field-soft" placeholder="">
+          </div>
+          <div class="task-row" style="margin-bottom:0;">
+            <div class="cb-light" onclick="toggleCbLight(this)"></div>
+            <input type="text" class="task-field-soft" placeholder="">
+          </div>
+          <div class="task-row" style="margin-bottom:0;">
+            <div class="cb-light" onclick="toggleCbLight(this)"></div>
+            <input type="text" class="task-field-soft" placeholder="">
+          </div>
+          <div class="task-row" style="margin-bottom:0;">
+            <div class="cb-light" onclick="toggleCbLight(this)"></div>
+            <input type="text" class="task-field-soft" placeholder="">
+          </div>
+        </div>
+        <div class="block-footer">Optional, not obligations. Move to Now anytime.</div>
+      </div>
+
+      <!-- LOW ENERGY BLOCK -->
+      <div class="block-low">
+        <div class="block-header">
+          <div class="block-title">🌙 Low energy</div>
+          <div class="block-hint">When brain says no</div>
+        </div>
+        <div class="block-body">
+          <div class="task-row" style="margin-bottom:0;">
+            <div class="cb-light" onclick="toggleCbLight(this)"></div>
+            <input type="text" class="task-field-soft" placeholder="">
+          </div>
+          <div class="task-row" style="margin-bottom:0;">
+            <div class="cb-light" onclick="toggleCbLight(this)"></div>
+            <input type="text" class="task-field-soft" placeholder="">
+          </div>
+          <div class="task-row" style="margin-bottom:0;">
+            <div class="cb-light" onclick="toggleCbLight(this)"></div>
+            <input type="text" class="task-field-soft" placeholder="">
+          </div>
+          <div class="task-row" style="margin-bottom:0;">
+            <div class="cb-light" onclick="toggleCbLight(this)"></div>
+            <input type="text" class="task-field-soft" placeholder="">
+          </div>
+          <div class="task-row" style="margin-bottom:0;">
+            <div class="cb-light" onclick="toggleCbLight(this)"></div>
+            <input type="text" class="task-field-soft" placeholder="">
+          </div>
+        </div>
+        <div class="block-footer">The ADHD hack. Keep moving without motivation.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BOTTOM ROW -->
+  <div class="bottom-row">
+
+    <!-- STUCK -->
+    <div class="bottom-col">
+      <div class="section-label"><span class="step-num">7</span> 🚧 If I'm stuck</div>
+      <div class="stuck-item"><div class="cb-stuck" onclick="toggleStuck(this)"></div><span style="font-size:11px;color:#162e1e;">Switch tasks</span></div>
+      <div class="stuck-item"><div class="cb-stuck" onclick="toggleStuck(this)"></div><span style="font-size:11px;color:#162e1e;">Set a 5-min timer</span></div>
+      <div class="stuck-item"><div class="cb-stuck" onclick="toggleStuck(this)"></div><span style="font-size:11px;color:#162e1e;">Body double</span></div>
+      <div class="stuck-item"><div class="cb-stuck" onclick="toggleStuck(this)"></div><span style="font-size:11px;color:#162e1e;">Break, no guilt</span></div>
+    </div>
+
+    <!-- DON'T FORGET -->
+    <div class="bottom-col">
+      <div class="section-label">🧠 Don't forget later</div>
+      <div class="section-hint">Messy thoughts. No structure.</div>
+      <input type="text" class="text-field" placeholder="" style="margin-bottom:7px;font-size:11px;">
+      <input type="text" class="text-field" placeholder="" style="margin-bottom:7px;font-size:11px;">
+      <input type="text" class="text-field" placeholder="" style="margin-bottom:7px;font-size:11px;">
+      <input type="text" class="text-field" placeholder="" style="font-size:11px;">
+    </div>
+
+    <!-- MEDS + WATER -->
+    <div class="bottom-col">
+      <div class="section-label">💊 Meds + water</div>
+      <div style="margin-bottom:10px;">
+        <div style="font-size:10px;color:#8a7a70;margin-bottom:5px;">Medication</div>
+        <div class="med-row">
+          <div class="med-item">
+            <div class="cb-med" onclick="toggleMed(this)"></div>
+            <span style="font-size:10px;color:#162e1e;">Morning</span>
+          </div>
+          <div class="med-item">
+            <div class="cb-med" style="border-color:#d4c8be;" onclick="toggleMedSoft(this)"></div>
+            <span style="font-size:10px;color:#162e1e;">Evening</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:10px;color:#8a7a70;margin-bottom:5px;">Water — tap each drop</div>
+        <div class="water-row" id="water-row">
+          <span class="drop" onclick="toggleDrop(this)">💧</span>
+          <span class="drop" onclick="toggleDrop(this)">💧</span>
+          <span class="drop" onclick="toggleDrop(this)">💧</span>
+          <span class="drop" onclick="toggleDrop(this)">💧</span>
+          <span class="drop" onclick="toggleDrop(this)">💧</span>
+          <span class="drop" onclick="toggleDrop(this)">💧</span>
+          <span class="drop" onclick="toggleDrop(this)">💧</span>
+          <span class="drop" onclick="toggleDrop(this)">💧</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- END OF DAY -->
+  <div class="end-of-day">
+    <div>
+      <div class="section-label"><span class="step-num">9</span> ✨ One thing I did well today</div>
+      <input type="text" class="text-field" placeholder="Be kind to yourself...">
+    </div>
+    <div>
+      <div class="section-label">🔄 One thing I'll try differently</div>
+      <input type="text" class="text-field" placeholder="No judgment, just growth...">
+    </div>
+  </div>
+
+  <!-- SAVE BAR -->
+  <div class="save-bar">
+    <button class="save-btn" onclick="savePlanner()">💾 Save My Planner</button>
+    <button class="clear-btn" onclick="clearPlanner()">Start Fresh</button>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-tagline">For the Multi-Life Woman.</div>
+    <div class="footer-url">byMarissaJohnson.com</div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast">✓ Planner saved! Check your downloads.</div>
+
+<script>
+// Set today's date
+const today = new Date();
+const options = { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' };
+document.getElementById('date-input').placeholder = today.toLocaleDateString('en-US', options);
+
+// Vibe check
+function selectVibe(el) {
+  document.querySelectorAll('.vibe-option').forEach(v => v.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+// Checkboxes
+function toggleCb(el) { el.classList.toggle('checked'); }
+function toggleCbSoft(el) { el.classList.toggle('checked'); }
+function toggleCbLight(el) { el.classList.toggle('checked'); }
+function toggleStuck(el) { el.classList.toggle('checked'); }
+function toggleMed(el) { el.classList.toggle('checked'); }
+function toggleMedSoft(el) {
+  el.classList.toggle('checked');
+  el.style.background = el.classList.contains('checked') ? '#d4c8be' : '';
+  el.style.borderColor = el.classList.contains('checked') ? '#d4c8be' : '#d4c8be';
+}
+
+// Water drops
+function toggleDrop(el) { el.classList.toggle('filled'); }
+
+// Save planner as HTML file
+function savePlanner() {
+  const html = document.documentElement.outerHTML;
+  const blob = new Blob([html], { type: 'text/html' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'my-daily-planner-bymarissajohnson.html';
+  a.click();
+  showToast('✓ Saved! Open the file anytime to continue.');
+}
+
+// Clear planner
+function clearPlanner() {
+  if (!confirm('Start fresh? This will clear everything you\'ve filled in.')) return;
+  document.querySelectorAll('input[type=text]').forEach(i => i.value = '');
+  document.querySelectorAll('.cb, .cb-soft, .cb-light, .cb-stuck, .cb-med').forEach(c => c.classList.remove('checked'));
+  document.querySelectorAll('.vibe-option').forEach(v => v.classList.remove('selected'));
+  document.querySelectorAll('.drop').forEach(d => d.classList.remove('filled'));
+  showToast('Fresh start. You got this. 🌸');
+}
+
+// Toast notification
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+// Auto-save to localStorage every 30 seconds
+function autoSave() {
+  const data = {};
+  document.querySelectorAll('input[type=text]').forEach((el, i) => {
+    data['field_' + i] = el.value;
+  });
+  data.checked = [];
+  document.querySelectorAll('.cb, .cb-soft, .cb-light, .cb-stuck, .cb-med').forEach((el, i) => {
+    data.checked.push(el.classList.contains('checked'));
+  });
+  data.drops = [];
+  document.querySelectorAll('.drop').forEach(el => {
+    data.drops.push(el.classList.contains('filled'));
+  });
+  data.vibe = document.querySelector('.vibe-option.selected')?.querySelector('span')?.textContent || '';
+  try { localStorage.setItem('bmj_planner', JSON.stringify(data)); } catch(e) {}
+}
+
+// Load from localStorage
+function loadSaved() {
+  try {
+    const raw = localStorage.getItem('bmj_planner');
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    document.querySelectorAll('input[type=text]').forEach((el, i) => {
+      if (data['field_' + i]) el.value = data['field_' + i];
+    });
+    if (data.checked) {
+      document.querySelectorAll('.cb, .cb-soft, .cb-light, .cb-stuck, .cb-med').forEach((el, i) => {
+        if (data.checked[i]) el.classList.add('checked');
+      });
+    }
+    if (data.drops) {
+      document.querySelectorAll('.drop').forEach((el, i) => {
+        if (data.drops[i]) el.classList.add('filled');
+      });
+    }
+    if (data.vibe) {
+      document.querySelectorAll('.vibe-option').forEach(v => {
+        if (v.querySelector('span').textContent === data.vibe) v.classList.add('selected');
+      });
+    }
+  } catch(e) {}
+}
+
+loadSaved();
+setInterval(autoSave, 30000);
+document.addEventListener('input', autoSave);
+document.addEventListener('click', autoSave);
+</script>
+</body>
+</html>
