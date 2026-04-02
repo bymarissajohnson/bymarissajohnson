@@ -296,7 +296,7 @@
 
 <footer class="site-footer">
   <div class="footer-logo"><span style="font-size:0.85rem;opacity:0.7;">by</span><em>Marissa</em>Johnson</div>
-  <p class="footer-tagline">byMarissaJohnson.com ✦ © 2026</p>
+  <p class="footer-tagline">For the Multi-Life Woman. ✦ byMarissaJohnson.com ✦ © 2026</p>
   <div class="footer-links">
     <a href="index.html">Home</a><a href="skincare.html">Skincare</a><a href="hair.html">Curly Hair</a><a href="military.html">Military</a><a href="travel.html">Travel</a><a href="feed.html">From Marissa</a>
   </div>
@@ -341,7 +341,7 @@ function downloadPlanner() {
     <p class="win-label">✨ Today's Win</p>
     <div class="win-line"></div>
   </div>
-  <div class="footer">byMarissaJohnson.com · Real life, real glow. · You showed up today — that counts.</div>
+  <div class="footer">byMarissaJohnson.com · For the Multi-Life Woman. · You showed up today — that counts.</div>
 </div>
 </body></html>`;
   const blob = new Blob([html], {type:'text/html'});
@@ -360,7 +360,7 @@ function downloadHabitTracker() {
 <h1>Monthly <em>Habit Tracker</em></h1><p class="sub">byMarissaJohnson.com · Rename any habit below</p>
 <div class="wrap"><table><thead><tr><th style="text-align:left;padding:8px 12px;border-right:2px solid #dde4f0;">Habit</th>${days.map(d=>`<th>${d}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div>
 <p class="note">✦ Check the box each day you complete the habit. Missing a day is fine — just keep going. Progress over perfection.</p>
-<div class="footer">byMarissaJohnson.com · Real life, real glow.</div>
+<div class="footer">byMarissaJohnson.com · For the Multi-Life Woman.</div>
 </body></html>`;
   const blob = new Blob([html],{type:'text/html'});
   const a = document.createElement('a');
@@ -377,7 +377,7 @@ function downloadMedLog() {
 <div class="info-grid"><div><p class="info-label">Medication</p><div class="info-line"></div></div><div><p class="info-label">Dosage</p><div class="info-line"></div></div><div><p class="info-label">Prescriber</p><div class="info-line"></div></div></div>
 <div class="week-grid">${days.map(d=>`<div class="day-card"><p class="day-name">${d}</p><div class="check-row"><div class="cb"></div><span>AM dose</span></div><div class="check-row"><div class="cb"></div><span>PM dose</span></div><p style="font-size:0.6rem;color:#9b8ec4;margin-top:8px;margin-bottom:4px;">Focus (1–5)</p><div class="rating">${[1,2,3,4,5].map(n=>`<div class="rb">${n}</div>`).join('')}</div><p style="font-size:0.6rem;color:#9b8ec4;margin-top:6px;margin-bottom:4px;">Mood (1–5)</p><div class="rating">${[1,2,3,4,5].map(n=>`<div class="rb">${n}</div>`).join('')}</div><p style="font-size:0.6rem;color:#9b8ec4;margin-top:6px;">Side effects:</p><div style="border-bottom:1px solid #dde4f0;margin-top:6px;min-height:20px;"></div></div>`).join('')}</div>
 <div class="notes-box"><p class="notes-title">📋 Notes for My Provider</p><div class="notes-area">Patterns, concerns, questions for my next appointment...</div></div>
-<div class="footer">byMarissaJohnson.com · Real life, real glow. · Bring this log to your next appointment.</div>
+<div class="footer">byMarissaJohnson.com · For the Multi-Life Woman. · Bring this log to your next appointment.</div>
 </body></html>`;
   const blob = new Blob([html],{type:'text/html'});
   const a = document.createElement('a');
