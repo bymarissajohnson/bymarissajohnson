@@ -322,6 +322,52 @@
 }
 </style>
 
+<style>
+.services-grid-sm {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  max-width: 680px;
+  margin: 28px auto 0;
+}
+.svc-tile {
+  background: var(--dusty-blush);
+  border-radius: 12px;
+  padding: 16px 14px;
+  border: 0.5px solid var(--blush-mid);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+.svc-icon { font-size: 1.3rem; }
+.svc-name {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--forest);
+  font-family: 'Jost', sans-serif;
+  letter-spacing: 0.5px;
+}
+@media(max-width:900px) {
+  .services-grid-sm { grid-template-columns: repeat(2,1fr); }
+}
+</style>
+<style>
+.role-pill {
+  background: #8a3060;
+  color: #f5f0ea;
+  border: none;
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: 'Jost', sans-serif;
+  display: inline-block;
+}
+</style>
 </head>
 <body>
 
@@ -579,25 +625,24 @@
 <!-- WORK WITH ME -->
 <section class="work-section" id="work">
   <div class="work-inner reveal">
-    <p class="section-label" style="color:var(--brand-rose);">Collaborate</p>
+    <p class="section-label" style="color:var(--mauve);">Collaborate</p>
     <h2 class="work-heading">Let's work <em>together.</em></h2>
     <p class="work-sub">From sponsored content to legal commentary, brand ambassadorships to speaking engagements — I show up with credibility, authenticity, and real influence. If you are looking for a partner who genuinely connects with her audience, I would love to hear from you.</p>
 
-    <div class="rates-grid">
-      <div class="rate-row"><span class="rate-name">IG Reel</span><span class="rate-price">$10,000</span></div>
-      <div class="rate-row"><span class="rate-name">IG Carousel</span><span class="rate-price">$8,000</span></div>
-      <div class="rate-row"><span class="rate-name">TikTok Reel</span><span class="rate-price">$8,000</span></div>
-      <div class="rate-row"><span class="rate-name">IG + TT Syndicated</span><span class="rate-price">$12,000</span></div>
-      <div class="rate-row"><span class="rate-name">Social Usage (30 days)</span><span class="rate-price">$500/mo</span></div>
-      <div class="rate-row"><span class="rate-name">Paid Social Usage</span><span class="rate-price">$750/mo</span></div>
-      <div class="rate-row"><span class="rate-name">Organic Full Digital</span><span class="rate-price">$750/mo</span></div>
-      <div class="rate-row"><span class="rate-name">Exclusivity</span><span class="rate-price">$500/wk</span></div>
+    <div class="services-grid-sm">
+      <div class="svc-tile"><span class="svc-icon">📱</span><span class="svc-name">Sponsored Content</span></div>
+      <div class="svc-tile"><span class="svc-icon">⚖️</span><span class="svc-name">Legal Commentary</span></div>
+      <div class="svc-tile"><span class="svc-icon">🤝</span><span class="svc-name">Brand Ambassadorships</span></div>
+      <div class="svc-tile"><span class="svc-icon">🎤</span><span class="svc-name">Speaking Engagements</span></div>
+      <div class="svc-tile"><span class="svc-icon">📺</span><span class="svc-name">Media Appearances</span></div>
+      <div class="svc-tile"><span class="svc-icon">✍🏾</span><span class="svc-name">Content Partnerships</span></div>
     </div>
 
-    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:8px;">
-      <a href="/cdn-cgi/l/email-protection#325a575e5e5d72504b5f53405b414153585d5a5c415d5c1c515d5f" class="btn btn-rose">Email to Collaborate</a>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px;">
+      <a href="mailto:hello@bymarissajohnson.com" class="btn btn-rose">Email to Collaborate</a>
       <a href="https://www.instagram.com/rissa.george/" target="_blank" class="btn btn-outline-rose">DM on Instagram</a>
     </div>
+    <p style="font-size:0.72rem;font-style:italic;color:var(--soft);font-family:'Jost',sans-serif;margin-top:16px;text-align:center;">Rate card available upon request.</p>
   </div>
 </section>
 
