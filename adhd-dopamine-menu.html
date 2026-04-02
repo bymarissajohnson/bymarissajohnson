@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>My Dopamine Menu — byMarissaJohnson</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: #f0ebe4;
+  min-height: 100vh;
+  padding: 16px;
+}
+
+.planner {
+  background: #faf6f0;
+  border-radius: 16px;
+  border: 0.5px solid #d4c8be;
+  max-width: 720px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* HEADER */
+.header {
+  background: #162e1e;
+  padding: 18px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.brand { font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #c4a0b8; margin-bottom: 4px; }
+.header h1 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 300; color: #f5f0ea; }
+.header h1 em { font-style: italic; color: #c4a0b8; }
+.name-field { text-align: right; }
+.name-field label { display: block; font-size: 8px; color: #c4a0b8; margin-bottom: 4px; }
+.name-input {
+  background: transparent; border: none;
+  border-bottom: 1px solid rgba(196,160,184,0.4);
+  color: #f5f0ea; font-family: 'Jost', sans-serif;
+  font-size: 12px; width: 140px; padding: 2px 0;
+  text-align: right; outline: none;
+}
+.name-input::placeholder { color: rgba(196,160,184,0.35); }
+
+/* INTRO STRIP */
+.intro-strip { background: #8a3060; padding: 13px 28px; }
+.intro-quote { font-family: 'Cormorant Garamond', serif; font-size: 14px; font-style: italic; color: #f5f0ea; line-height: 1.6; margin-bottom: 4px; }
+.intro-sub { font-size: 8px; color: rgba(245,240,234,0.75); font-style: italic; }
+
+/* HOW TO USE */
+.how-strip { background: #f0eae4; padding: 12px 28px; border-bottom: 0.5px solid #e0d4c8; }
+.start-here {
+  background: #8a3060; border-radius: 8px; padding: 7px 14px;
+  display: inline-flex; align-items: center; gap: 8px; margin-bottom: 10px;
+}
+.start-here-label { font-size: 9px; font-weight: 600; color: #f5c4d0; letter-spacing: 1px; text-transform: uppercase; }
+.start-here-text { font-size: 9px; color: #f5f0ea; }
+.how-steps { display: flex; gap: 20px; flex-wrap: wrap; }
+.how-step { display: flex; gap: 6px; align-items: flex-start; }
+.step-num {
+  background: #8a3060; color: #f5f0ea; border-radius: 50%;
+  width: 16px; height: 16px; display: flex; align-items: center;
+  justify-content: center; font-size: 8px; font-weight: 600;
+  flex-shrink: 0; margin-top: 1px;
+}
+.step-text { font-size: 9px; color: #162e1e; line-height: 1.5; max-width: 160px; }
+
+/* MARISSA'S MENU */
+.marissa-row { padding: 12px 28px; border-bottom: 0.5px solid #e0d4c8; opacity: 0.7; }
+.sec-label { font-size: 8px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: #8a3060; margin-bottom: 8px; }
+.inspiration-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+.pill {
+  background: #f5f0ea; border-radius: 8px; padding: 7px 12px;
+  border: 0.5px solid #e0d4c8; display: flex; align-items: center; gap: 6px;
+}
+.pill-emoji { font-size: 13px; }
+.pill-text { font-size: 9px; color: #162e1e; }
+
+/* YOUR MENU */
+.your-menu { padding: 16px 28px; background: #f5f0ea; }
+.menu-title { font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #8a3060; margin-bottom: 3px; }
+.menu-hint { font-size: 8px; color: #8a7a70; font-style: italic; margin-bottom: 14px; }
+.tiers-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+
+/* TIER BLOCKS */
+.tier { border-radius: 12px; overflow: hidden; }
+.tier-now { border: 1.5px solid #8a3060; background: #fff; }
+.tier-reset { border: 0.5px solid #e0d4c8; background: #fff; }
+.tier-out { border: 0.5px solid #e0d4c8; background: #fff; opacity: 0.85; }
+
+.tier-header { padding: 8px 12px; }
+.tier-now .tier-header { background: #162e1e; }
+.tier-reset .tier-header { background: #e8ddd4; border-bottom: 0.5px solid #d4c8be; }
+.tier-out .tier-header { background: #f5f0ea; border-bottom: 0.5px solid #e0d4c8; }
+
+.tier-title { font-size: 8px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+.tier-now .tier-title { color: #f5f0ea; }
+.tier-reset .tier-title { color: #162e1e; }
+.tier-out .tier-title { color: #8a7a70; }
+
+.tier-state { font-size: 7px; font-style: italic; margin-top: 2px; }
+.tier-now .tier-state { color: #c4a0b8; }
+.tier-reset .tier-state { color: #8a7a70; }
+.tier-out .tier-state { color: #a09080; }
+
+.tier-body { padding: 10px 12px; display: flex; flex-direction: column; gap: 8px; }
+
+/* FILLABLE LINES */
+.fill-line {
+  background: transparent; border: none;
+  border-bottom: 1px solid #e0d4c8;
+  width: 100%; font-family: 'Jost', sans-serif;
+  font-size: 12px; color: #162e1e; padding: 3px 2px; outline: none;
+}
+.fill-line::placeholder { color: #d4c8be; }
+.fill-line:focus { border-bottom-color: #8a3060; }
+.tier-now .fill-line { border-bottom-color: rgba(245,240,234,0.2); color: #162e1e; }
+.tier-now .fill-line:focus { border-bottom-color: #8a3060; }
+
+.tier-footer { padding: 7px 12px; background: #f0eae4; border-top: 1px solid #e0d4c8; }
+.tier-footer-label { font-size: 7px; color: #8a3060; font-weight: 600; margin-bottom: 2px; }
+.tier-footer-text { font-size: 7px; color: #8a7a70; }
+
+/* CHECK-IN STRIP */
+.checkin-strip {
+  background: #e8ddd4; padding: 12px 28px;
+  border-top: 0.5px solid #d4c8be; border-bottom: 0.5px solid #d4c8be;
+  display: flex; align-items: center; gap: 12px;
+}
+.checkin-icon { font-size: 18px; flex-shrink: 0; }
+.checkin-title { font-size: 8px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #162e1e; margin-bottom: 3px; }
+.checkin-text { font-size: 9px; color: #162e1e; line-height: 1.6; }
+
+/* RULES */
+.rules-row { padding: 14px 28px; background: #f5f0ea; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.rules-title { font-size: 8px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #8a3060; margin-bottom: 8px; }
+.rule-item { display: flex; gap: 6px; margin-bottom: 5px; }
+.rule-bullet { font-size: 8px; color: #8a3060; flex-shrink: 0; }
+.rule-text { font-size: 9px; color: #162e1e; line-height: 1.5; }
+.notrule-bullet { font-size: 8px; color: #8a7a70; flex-shrink: 0; }
+.notrule-text { font-size: 9px; color: #8a7a70; line-height: 1.5; }
+
+/* SAVE BAR */
+.save-bar {
+  background: #162e1e; padding: 12px 28px;
+  display: flex; gap: 10px; justify-content: center;
+  border-top: 1px solid rgba(196,160,184,0.2);
+}
+.save-btn {
+  background: #8a3060; color: #f5f0ea; border: none;
+  border-radius: 100px; padding: 10px 24px;
+  font-family: 'Jost', sans-serif; font-size: 11px;
+  font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+  cursor: pointer; transition: background 0.2s;
+}
+.save-btn:hover { background: #6a2048; }
+.clear-btn {
+  background: transparent; color: #c4a0b8;
+  border: 1px solid rgba(196,160,184,0.3);
+  border-radius: 100px; padding: 10px 20px;
+  font-family: 'Jost', sans-serif; font-size: 11px;
+  cursor: pointer; transition: all 0.2s;
+}
+.clear-btn:hover { border-color: #c4a0b8; }
+
+/* FOOTER */
+.footer {
+  background: #162e1e; padding: 10px 28px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-tagline { font-family: 'Cormorant Garamond', serif; font-size: 12px; font-style: italic; color: #c4a0b8; }
+.footer-url { font-size: 8px; color: rgba(196,160,184,0.5); letter-spacing: 1px; }
+
+/* TOAST */
+.toast {
+  position: fixed; bottom: 24px; left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: #162e1e; color: #f5f0ea;
+  padding: 12px 24px; border-radius: 100px;
+  font-size: 12px; font-family: 'Jost', sans-serif;
+  transition: transform 0.3s ease; z-index: 999; white-space: nowrap;
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+/* RESPONSIVE */
+@media(max-width:600px) {
+  body { padding: 8px; }
+  .header, .intro-strip, .how-strip, .marissa-row, .your-menu, .checkin-strip, .rules-row { padding-left: 20px; padding-right: 20px; }
+  .tiers-grid { grid-template-columns: 1fr; }
+  .rules-row { grid-template-columns: 1fr; }
+  .save-bar, .footer { padding-left: 20px; padding-right: 20px; }
+}
+
+@media print {
+  body { background: white; padding: 0; }
+  .save-bar { display: none; }
+  .toast { display: none; }
+  .planner { border-radius: 0; max-width: 100%; }
+}
+</style>
+</head>
+<body>
+<div class="planner">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <div class="brand">byMarissaJohnson</div>
+      <h1>My <em>Dopamine Menu</em></h1>
+    </div>
+    <div class="name-field">
+      <label>Name</label>
+      <input type="text" class="name-input" placeholder="Your name" id="name-input">
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="intro-strip">
+    <div class="intro-quote">"When your brain needs a reset — this is your menu."</div>
+    <div class="intro-sub">This is how I take care of myself, not push through.</div>
+  </div>
+
+  <!-- HOW TO USE -->
+  <div class="how-strip">
+    <div class="start-here">
+      <div class="start-here-label">⚡ If you don't know what to pick</div>
+      <div class="start-here-text">→ start with the 5-min section.</div>
+    </div>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="step-num">1</div>
+        <div class="step-text">Find your emotional state in the categories below. Pick one thing.</div>
+      </div>
+      <div class="how-step">
+        <div class="step-num">2</div>
+        <div class="step-text">Do that one thing. Then check in — do you need another, or are you ready?</div>
+      </div>
+      <div class="how-step">
+        <div class="step-num">3</div>
+        <div class="step-text">This is not procrastination. This is regulating your nervous system.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MARISSA'S GO-TOS -->
+  <div class="marissa-row">
+    <div class="sec-label">Marissa's go-tos — for inspiration</div>
+    <div class="inspiration-pills">
+      <div class="pill"><span class="pill-emoji">🚶‍♀️</span><span class="pill-text">Walk outside</span></div>
+      <div class="pill"><span class="pill-emoji">📺</span><span class="pill-text">Comfort TV</span></div>
+      <div class="pill"><span class="pill-emoji">📓</span><span class="pill-text">Journaling</span></div>
+      <div class="pill"><span class="pill-emoji">🛋️</span><span class="pill-text">Lie down & do nothing</span></div>
+      <div class="pill"><span class="pill-emoji">📖</span><span class="pill-text">Read a chapter</span></div>
+    </div>
+  </div>
+
+  <!-- YOUR MENU -->
+  <div class="your-menu">
+    <div class="menu-title">🎯 Your menu — fill in what works for YOU</div>
+    <div class="menu-hint">Organize by how you feel in the moment, not how much time you have.</div>
+    <div class="tiers-grid">
+
+      <!-- 5 MIN OR LESS -->
+      <div class="tier tier-now">
+        <div class="tier-header">
+          <div class="tier-title">⚡ 5 min or less</div>
+          <div class="tier-state">When I feel overwhelmed or frozen</div>
+        </div>
+        <div class="tier-body">
+          <input type="text" class="fill-line" placeholder="">
+          <input type="text" class="fill-line" placeholder="">
+          <input type="text" class="fill-line" placeholder="">
+          <input type="text" class="fill-line" placeholder="">
+          <input type="text" class="fill-line" placeholder="">
+        </div>
+        <div class="tier-footer">
+          <div class="tier-footer-label">Grounding ideas:</div>
+          <div class="tier-footer-text">Sit outside · deep breaths · cold water · lie down · do nothing</div>
+        </div>
+      </div>
+
+      <!-- 10-30 MIN -->
+      <div class="tier tier-reset">
+        <div class="tier-header">
+          <div class="tier-title">🌿 10–30 min</div>
+          <div class="tier-state">When I need a reset</div>
+        </div>
+        <div class="tier-body">
+          <input type="text" class="fill-line" placeholder="">
+          <input type="text" class="fill-line" placeholder="">
+          <input type="text" class="fill-line" placeholder="">
+          <input type="text" class="fill-line" placeholder="">
+          <input type="text" class="fill-line" placeholder="">
+        </div>
+        <div class="tier-footer">
+          <div class="tier-footer-text">e.g. walk, journal, read a chapter, comfort TV</div>
+        </div>
+      </div>
+
+      <!-- 1 HOUR+ -->
+      <div class="tier tier-out">
+        <div class="tier-header">
+          <div class="tier-title">☁️ 1 hour+</div>
+          <div class="tier-state">When I'm fully checked out</div>
+        </div>
+        <div class="tier-body">
+          <input type="text" class="fill-line" placeholder="">
+          <input type="text" class="fill-line" placeholder="">
+          <input type="text" class="fill-line" placeholder="">
+          <input type="text" class="fill-line" placeholder="">
+          <input type="text" class="fill-line" placeholder="">
+        </div>
+        <div class="tier-footer">
+          <div class="tier-footer-text">e.g. comfort TV, long bath, dinner out, movie</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CHECK-IN -->
+  <div class="checkin-strip">
+    <div class="checkin-icon">🔁</div>
+    <div>
+      <div class="checkin-title">After one thing — check in</div>
+      <div class="checkin-text">Do you feel ready to return? Or do you need one more reset? Both answers are okay. Be honest with yourself.</div>
+    </div>
+  </div>
+
+  <!-- RULES -->
+  <div class="rules-row">
+    <div>
+      <div class="rules-title">✅ Rules</div>
+      <div class="rule-item"><span class="rule-bullet">✦</span><span class="rule-text">Pick ONE thing. Not the whole menu.</span></div>
+      <div class="rule-item"><span class="rule-bullet">✦</span><span class="rule-text">Match to your state, not your schedule.</span></div>
+      <div class="rule-item"><span class="rule-bullet">✦</span><span class="rule-text">No guilt. Come back when ready.</span></div>
+    </div>
+    <div>
+      <div class="rules-title">🚫 This is NOT</div>
+      <div class="rule-item"><span class="notrule-bullet">✕</span><span class="notrule-text">A reward you have to earn.</span></div>
+      <div class="rule-item"><span class="notrule-bullet">✕</span><span class="notrule-text">Something to feel guilty about.</span></div>
+      <div class="rule-item"><span class="notrule-bullet">✕</span><span class="notrule-text">A to-do list you have to finish.</span></div>
+    </div>
+  </div>
+
+  <!-- SAVE BAR -->
+  <div class="save-bar">
+    <button class="save-btn" onclick="saveMenu()">💾 Save My Menu</button>
+    <button class="clear-btn" onclick="clearMenu()">Reset</button>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-tagline">For the Multi-Life Woman.</div>
+    <div class="footer-url">byMarissaJohnson.com</div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast">✓ Saved!</div>
+
+<script>
+function saveMenu() {
+  const html = document.documentElement.outerHTML;
+  const blob = new Blob([html], { type: 'text/html' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'my-dopamine-menu-bymarissajohnson.html';
+  a.click();
+  showToast('✓ Saved! Open anytime to use or update.');
+}
+
+function clearMenu() {
+  if (!confirm('Reset everything?')) return;
+  document.querySelectorAll('input[type=text]').forEach(i => i.value = '');
+  showToast('Reset. Fresh menu ready. 🌸');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+// Auto-save to localStorage
+function autoSave() {
+  const data = {};
+  document.querySelectorAll('input[type=text]').forEach((el, i) => {
+    data['f' + i] = el.value;
+  });
+  try { localStorage.setItem('bmj_dopamine', JSON.stringify(data)); } catch(e) {}
+}
+
+function loadSaved() {
+  try {
+    const raw = localStorage.getItem('bmj_dopamine');
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    document.querySelectorAll('input[type=text]').forEach((el, i) => {
+      if (data['f' + i]) el.value = data['f' + i];
+    });
+  } catch(e) {}
+}
+
+loadSaved();
+setInterval(autoSave, 30000);
+document.addEventListener('input', autoSave);
+</script>
+</body>
+</html>
