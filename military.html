@@ -10,20 +10,20 @@
 .page-hero::before{content:'';position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(74,122,181,0.2) 0%,transparent 70%);top:-80px;right:0;border-radius:50%;pointer-events:none;}
 .phi{position:relative;z-index:1;max-width:640px;}
 .page-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;line-height:1.1;opacity:0;animation:fadeUp 0.8s ease forwards 0.2s;}
-.page-hero h1 em{font-style:italic;color:#9a6888;}
+.page-hero h1 em{font-style:italic;color:#8a3060;}
 .page-hero p{font-size:0.9rem;color:var(--mid);line-height:1.8;font-weight:300;margin-top:16px;max-width:520px;opacity:0;animation:fadeUp 0.8s ease forwards 0.4s;}
 
 .location-tabs{background:#f5f0ea;padding:0 80px;border-bottom:1px solid rgba(74,122,181,0.12);display:flex;gap:0;overflow-x:auto;}
 .loc-tab{padding:18px 28px;font-size:0.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--sage-soft);cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;transition:all 0.2s;font-family:'Jost',sans-serif;background:none;border-top:none;border-left:none;border-right:none;}
-.loc-tab:hover{color:#9a6888;}
-.loc-tab.active{color:#8a3060;border-bottom-color:#9a6888;}
+.loc-tab:hover{color:#8a3060;}
+.loc-tab.active{color:#8a3060;border-bottom-color:#8a3060;}
 
 .location-content{display:none;padding:60px 80px;}
 .location-content.active{display:block;}
 
 .loc-header{margin-bottom:48px;}
 .loc-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:300;margin-bottom:8px;}
-.loc-title em{font-style:italic;color:#9a6888;}
+.loc-title em{font-style:italic;color:#8a3060;}
 .loc-sub{font-size:0.85rem;color:var(--sage-soft);font-weight:300;line-height:1.7;}
 
 .categories-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:40px;}
@@ -39,7 +39,7 @@
 .ci-content{}
 .ci-name{font-size:0.78rem;font-weight:600;color:var(--text);margin-bottom:2px;}
 .ci-desc{font-size:0.68rem;color:var(--sage-soft);line-height:1.4;}
-.ci-tag{display:inline-block;font-size:0.55rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:2px 8px;border-radius:100px;background:#f5f0ea;color:#9a6888;margin-top:4px;}
+.ci-tag{display:inline-block;font-size:0.55rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:2px 8px;border-radius:100px;background:#f5f0ea;color:#8a3060;margin-top:4px;}
 
 .general-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
 .gen-card{background:#ffffff;border-radius:20px;padding:28px;border-left:4px solid var(--mc);border-radius:0 16px 16px 0;}
@@ -51,7 +51,7 @@
 .community-section{background:#f5f0ea;padding:80px;text-align:center;}
 .community-inner{max-width:560px;margin:0 auto;}
 .community-section h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:300;margin-bottom:12px;}
-.community-section h2 em{font-style:italic;color:#9a6888;}
+.community-section h2 em{font-style:italic;color:#8a3060;}
 
 @media(max-width:900px){
   .page-hero{padding:120px 24px 60px;}
@@ -109,7 +109,7 @@
 </div>
 
 <!-- JAPAN -->
-<div class="location-content active" id="loc-japan" style="background:#162e1e;">
+<div class="location-content active" id="loc-japan" style="background:#e8ddd4;">
   <div class="loc-header reveal">
     <p class="section-label" style="color:#9a6888;">Currently Living Here</p>
     <h2 class="loc-title">Japan — <em>Yokosuka & Yokota</em></h2>
@@ -129,7 +129,7 @@
       </div>
     </div>
     <div class="cat-card">
-      <div class="cat-header" style="background:#162e1e;">
+      <div class="cat-header" style="background:#e8ddd4;">
         <span class="cat-icon">💅</span>
         <span class="cat-title" style="color:#5a8a5a;">Beauty & Self-Care</span>
       </div>
@@ -140,7 +140,7 @@
       </div>
     </div>
     <div class="cat-card">
-      <div class="cat-header" style="background:#1e3828;">
+      <div class="cat-header" style="background:#f5f0ea;">
         <span class="cat-icon">🛍️</span>
         <span class="cat-title" style="color:#9a6888;">Shopping & Errands</span>
       </div>
@@ -174,7 +174,7 @@
       </div>
     </div>
     <div class="cat-card">
-      <div class="cat-header" style="background:#162e1e;">
+      <div class="cat-header" style="background:#e8ddd4;">
         <span class="cat-icon">💬</span>
         <span class="cat-title" style="color:#4a7a5a;">Community & Connection</span>
       </div>
@@ -185,14 +185,14 @@
       </div>
     </div>
   </div>
-  <div class="reveal" style="background:#1e3828;border-radius:20px;padding:28px;max-width:700px;">
-    <p style="font-size:0.78rem;font-weight:600;color:#f5f0ea;margin-bottom:8px;">📌 From Marissa — Living It Right Now</p>
+  <div class="reveal" style="background:#f5f0ea;border-radius:20px;padding:28px;max-width:700px;">
+    <p style="font-size:0.78rem;font-weight:600;color:#162e1e;margin-bottom:8px;">📌 From Marissa — Living It Right Now</p>
     <p style="font-size:0.8rem;color:var(--mid);line-height:1.8;font-weight:300;">I am actively updating this section as I discover new places and things. Follow me on Instagram at @rissa.george for real-time Japan content, and DM me with questions — I genuinely love helping other spouses navigate this.</p>
   </div>
 </div>
 
 <!-- SAN DIEGO -->
-<div class="location-content" id="loc-sandiego" style="background:#0f2418;">
+<div class="location-content" id="loc-sandiego" style="background:#e8ddd4;">
   <div class="loc-header reveal">
     <p class="section-label" style="color:#9a6888;">West Coast Base</p>
     <h2 class="loc-title">San Diego, <em>California</em></h2>
@@ -210,7 +210,7 @@
       </div>
     </div>
     <div class="cat-card">
-      <div class="cat-header" style="background:#162e1e;">
+      <div class="cat-header" style="background:#e8ddd4;">
         <span class="cat-icon">💅</span><span class="cat-title" style="color:#5a8a5a;">Beauty & Hair</span>
       </div>
       <div class="cat-items">
@@ -220,7 +220,7 @@
       </div>
     </div>
     <div class="cat-card">
-      <div class="cat-header" style="background:#1e3828;">
+      <div class="cat-header" style="background:#f5f0ea;">
         <span class="cat-icon">🏖️</span><span class="cat-title" style="color:#9a6888;">Things to Do</span>
       </div>
       <div class="cat-items">
@@ -230,14 +230,14 @@
       </div>
     </div>
   </div>
-  <div class="reveal" style="background:#1e3828;border-radius:20px;padding:28px;max-width:700px;">
-    <p style="font-size:0.78rem;font-weight:600;color:#f5f0ea;margin-bottom:8px;">📌 More San Diego Recs Coming</p>
+  <div class="reveal" style="background:#f5f0ea;border-radius:20px;padding:28px;max-width:700px;">
+    <p style="font-size:0.78rem;font-weight:600;color:#162e1e;margin-bottom:8px;">📌 More San Diego Recs Coming</p>
     <p style="font-size:0.8rem;color:var(--mid);line-height:1.8;font-weight:300;">I'm building this section out with more specific recommendations. Follow on Instagram and DM me your questions about San Diego — I've got you.</p>
   </div>
 </div>
 
 <!-- EVERETT -->
-<div class="location-content" id="loc-everett" style="background:#162e1e;">
+<div class="location-content" id="loc-everett" style="background:#e8ddd4;">
   <div class="loc-header reveal">
     <p class="section-label" style="color:#9a6888;">Pacific Northwest</p>
     <h2 class="loc-title">Everett, <em>Washington</em></h2>
@@ -255,7 +255,7 @@
       </div>
     </div>
     <div class="cat-card">
-      <div class="cat-header" style="background:#162e1e;">
+      <div class="cat-header" style="background:#e8ddd4;">
         <span class="cat-icon">🌲</span><span class="cat-title" style="color:#4a7a5a;">Outdoors & Things To Do</span>
       </div>
       <div class="cat-items">
@@ -265,7 +265,7 @@
       </div>
     </div>
     <div class="cat-card">
-      <div class="cat-header" style="background:#1e3828;">
+      <div class="cat-header" style="background:#f5f0ea;">
         <span class="cat-icon">💅</span><span class="cat-title" style="color:#9a6888;">Beauty & Hair</span>
       </div>
       <div class="cat-items">
@@ -274,14 +274,14 @@
       </div>
     </div>
   </div>
-  <div class="reveal" style="background:#1e3828;border-radius:20px;padding:28px;max-width:700px;">
-    <p style="font-size:0.78rem;font-weight:600;color:#f5f0ea;margin-bottom:8px;">📌 More Everett Recs Coming</p>
+  <div class="reveal" style="background:#f5f0ea;border-radius:20px;padding:28px;max-width:700px;">
+    <p style="font-size:0.78rem;font-weight:600;color:#162e1e;margin-bottom:8px;">📌 More Everett Recs Coming</p>
     <p style="font-size:0.8rem;color:var(--mid);line-height:1.8;font-weight:300;">DM me on Instagram if you're headed to Everett — happy to share what I know and connect you with people there.</p>
   </div>
 </div>
 
 <!-- GENERAL PCS TIPS -->
-<div class="location-content" id="loc-general" style="background:#0f2418;">
+<div class="location-content" id="loc-general" style="background:#e8ddd4;">
   <div class="loc-header reveal">
     <p class="section-label" style="color:#9a6888;">Universal Wisdom</p>
     <h2 class="loc-title">General <em>PCS Tips</em></h2>
