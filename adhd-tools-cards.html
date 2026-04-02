@@ -1,0 +1,92 @@
+<!-- ADHD Tools Cards — paste this block where your 4 cards currently live -->
+
+<div class="tools-grid">
+
+  <a href="#daily-planner" class="tool-card">
+    <div class="tool-card-icon">🧩</div>
+    <p class="tool-card-name">Daily Planner</p>
+    <span class="tool-card-tag">Free download</span>
+  </a>
+
+  <a href="#brain-dump" class="tool-card">
+    <div class="tool-card-icon">🌀</div>
+    <p class="tool-card-name">Brain Dump</p>
+    <span class="tool-card-tag">Free download</span>
+  </a>
+
+  <a href="#routine-builder" class="tool-card">
+    <div class="tool-card-icon">✨</div>
+    <p class="tool-card-name">Routine Builder</p>
+    <span class="tool-card-tag">Interactive</span>
+  </a>
+
+  <a href="#dopamine-menu" class="tool-card">
+    <div class="tool-card-icon">🎯</div>
+    <p class="tool-card-name">Dopamine Menu</p>
+    <span class="tool-card-tag">Free download</span>
+  </a>
+
+</div>
+
+
+<!-- ─────────────────────────────────────────────
+     ADD THIS CSS to your stylesheet (or <style> tag)
+     ───────────────────────────────────────────── -->
+<style>
+.tools-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.tool-card {
+  background: #ffffff;
+  border: 1px solid #e8e0d8;
+  border-radius: 14px;
+  padding: 32px 20px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-4px);
+  border-color: #c9b8a8;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+}
+
+.tool-card-icon {
+  font-size: 36px;
+  line-height: 1;
+}
+
+.tool-card-name {
+  font-weight: 600;
+  font-size: 15px;
+  color: #2e2118;
+  margin: 0;
+}
+
+.tool-card-tag {
+  font-size: 12px;
+  font-weight: 400;
+  color: #8b6e5a;
+  letter-spacing: 0.01em;
+}
+</style>
+
+
+<!-- ─────────────────────────────────────────────
+     ADD THESE id ATTRIBUTES to each section below
+     so the cards know where to scroll to.
+
+     Example:
+       <section id="daily-planner">...</section>
+       <section id="brain-dump">...</section>
+       <section id="routine-builder">...</section>
+       <section id="dopamine-menu">...</section>
+     ───────────────────────────────────────────── -->
