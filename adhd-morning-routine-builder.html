@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Morning Routine Builder — byMarissaJohnson</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Jost', sans-serif; background: #f0ebe4; min-height: 100vh; padding: 16px; }
+
+.builder { background: #faf6f0; border-radius: 16px; border: 0.5px solid #d4c8be; max-width: 720px; margin: 0 auto; overflow: hidden; }
+
+/* HEADER */
+.header { background: #162e1e; padding: 18px 28px; }
+.brand { font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #c4a0b8; margin-bottom: 4px; }
+.header h1 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 300; color: #f5f0ea; }
+.header h1 em { font-style: italic; color: #c4a0b8; }
+.header-sub { font-size: 10px; color: rgba(245,240,234,0.6); margin-top: 4px; font-style: italic; }
+
+/* INTRO STRIP */
+.intro-strip { background: #8a3060; padding: 11px 28px; }
+.intro-text { font-family: 'Cormorant Garamond', serif; font-size: 13px; font-style: italic; color: #f5f0ea; }
+.intro-sub { font-size: 8px; color: rgba(245,240,234,0.65); margin-top: 3px; }
+
+/* QUIZ */
+.quiz-section { padding: 24px 28px; }
+.step { display: none; }
+.step.active { display: block; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+.step-label { font-size: 8px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #8a3060; margin-bottom: 8px; }
+.step-q { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 300; color: #162e1e; margin-bottom: 6px; line-height: 1.2; }
+.step-q em { font-style: italic; color: #8a3060; }
+.step-hint { font-size: 10px; color: #8a7a70; font-style: italic; margin-bottom: 20px; }
+
+/* OPTIONS */
+.options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 20px; }
+.opt { background: #fff; border: 1.5px solid #e0d4c8; border-radius: 12px; padding: 14px 12px; cursor: pointer; transition: all 0.2s; text-align: center; user-select: none; }
+.opt:hover { border-color: #c4a0b8; transform: translateY(-2px); }
+.opt.selected { border-color: #8a3060; background: #fff8fa; }
+.opt-icon { font-size: 1.4rem; margin-bottom: 6px; }
+.opt-title { font-size: 11px; font-weight: 600; color: #162e1e; margin-bottom: 2px; }
+.opt.selected .opt-title { color: #8a3060; }
+.opt-desc { font-size: 9px; color: #8a7a70; line-height: 1.4; }
+.opt-multi-hint { font-size: 9px; color: #8a3060; font-style: italic; margin-bottom: 12px; font-weight: 500; }
+
+/* PROGRESS DOTS */
+.progress { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 16px 28px 0; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: #e0d4c8; transition: all 0.3s; }
+.dot.active { background: #8a3060; transform: scale(1.2); }
+.dot.done { background: #c4a0b8; }
+
+/* NAV BUTTONS */
+.nav-btns { display: flex; gap: 10px; align-items: center; margin-top: 8px; }
+.btn-next { background: #8a3060; color: #f5f0ea; border: none; border-radius: 100px; padding: 11px 24px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.2s; }
+.btn-next:hover { background: #6a2048; transform: translateY(-2px); }
+.btn-back { background: transparent; color: #8a3060; border: 1.5px solid #d4c8be; border-radius: 100px; padding: 11px 20px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500; cursor: pointer; transition: all 0.2s; }
+.btn-back:hover { border-color: #8a3060; }
+
+/* RESULTS */
+.results { display: none; padding: 0; }
+.results.active { display: block; }
+
+.routine-header { background: #162e1e; padding: 20px 28px; }
+.routine-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300; color: #f5f0ea; margin-bottom: 4px; }
+.routine-name em { font-style: italic; color: #c4a0b8; }
+.routine-meta { font-size: 9px; color: #c4a0b8; letter-spacing: 1px; }
+.routine-reassurance { font-size: 9px; font-style: italic; color: rgba(245,240,234,0.6); margin-top: 6px; }
+
+.routine-body { padding: 20px 28px; }
+
+/* ROUTINE STEPS */
+.routine-step { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid #e8ddd4; }
+.routine-step:last-child { border-bottom: none; }
+.step-time { font-size: 11px; font-weight: 600; color: #8a3060; min-width: 44px; flex-shrink: 0; padding-top: 1px; }
+.step-content { flex: 1; }
+.step-name { font-size: 13px; font-weight: 500; color: #162e1e; margin-bottom: 3px; }
+.step-cue { font-size: 10px; color: #8a7a70; font-style: italic; line-height: 1.5; }
+.step-badge { display: inline-block; background: #e8ddd4; border-radius: 100px; padding: 2px 8px; font-size: 8px; font-weight: 600; color: #8a3060; margin-top: 4px; }
+
+/* ANCHOR STEP */
+.step-anchor .step-name { color: #8a3060; }
+.step-anchor .step-time { color: #162e1e; }
+
+/* DON'T DO THIS */
+.dont-box { background: #162e1e; border-radius: 12px; padding: 16px 18px; margin: 16px 0; }
+.dont-label { font-size: 8px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #c4a0b8; margin-bottom: 8px; }
+.dont-item { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 6px; }
+.dont-item:last-child { margin-bottom: 0; }
+.dont-x { font-size: 10px; color: #8a3060; flex-shrink: 0; margin-top: 1px; }
+.dont-text { font-size: 11px; color: #f5f0ea; line-height: 1.5; }
+
+/* MINIMUM VIABLE */
+.min-box { background: #e8ddd4; border-radius: 12px; padding: 16px 18px; margin-top: 16px; }
+.min-label { font-size: 8px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #162e1e; margin-bottom: 4px; }
+.min-desc { font-size: 9px; color: #8a7a70; font-style: italic; margin-bottom: 10px; }
+.min-items { display: flex; flex-wrap: wrap; gap: 6px; }
+.min-item { background: #f5f0ea; border-radius: 100px; padding: 5px 12px; font-size: 10px; font-weight: 600; color: #162e1e; border: 0.5px solid #d4c8be; }
+
+/* RESULT ACTIONS */
+.result-actions { padding: 16px 28px; background: #f5f0ea; border-top: 0.5px solid #e0d4c8; display: flex; gap: 10px; flex-wrap: wrap; }
+.btn-save { background: #8a3060; color: #f5f0ea; border: none; border-radius: 100px; padding: 10px 22px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
+.btn-save:hover { background: #6a2048; }
+.btn-rebuild { background: transparent; color: #8a3060; border: 1.5px solid #d4c8be; border-radius: 100px; padding: 10px 18px; font-family: 'Jost', sans-serif; font-size: 11px; cursor: pointer; transition: all 0.2s; }
+.btn-rebuild:hover { border-color: #8a3060; }
+
+/* FOOTER */
+.footer { background: #162e1e; padding: 10px 28px; display: flex; justify-content: space-between; align-items: center; }
+.footer-tagline { font-family: 'Cormorant Garamond', serif; font-size: 12px; font-style: italic; color: #c4a0b8; }
+.footer-url { font-size: 8px; color: rgba(196,160,184,0.5); letter-spacing: 1px; }
+
+/* TOAST */
+.toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px); background: #162e1e; color: #f5f0ea; padding: 12px 24px; border-radius: 100px; font-size: 12px; font-family: 'Jost', sans-serif; transition: transform 0.3s ease; z-index: 999; white-space: nowrap; }
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+@media(max-width:600px) {
+  body { padding: 8px; }
+  .quiz-section, .routine-body, .result-actions { padding-left: 20px; padding-right: 20px; }
+  .header, .intro-strip, .routine-header, .footer { padding-left: 20px; padding-right: 20px; }
+  .options-grid { grid-template-columns: 1fr 1fr; }
+}
+@media print {
+  body { background: white; padding: 0; }
+  .result-actions { display: none; }
+  .toast { display: none; }
+  .builder { border-radius: 0; }
+}
+</style>
+</head>
+<body>
+<div class="builder">
+
+  <div class="header">
+    <div class="brand">byMarissaJohnson</div>
+    <h1>Morning Routine <em>Builder</em></h1>
+    <div class="header-sub">Answer 5 questions. Get a personalized ADHD-friendly morning routine.</div>
+  </div>
+
+  <div class="intro-strip">
+    <div class="intro-text">"Your morning doesn't have to be perfect. It just has to start."</div>
+    <div class="intro-sub">Built for ADHD brains — realistic, time-based, and forgiving.</div>
+  </div>
+
+  <!-- PROGRESS -->
+  <div class="progress" id="progress">
+    <div class="dot active" id="d1"></div>
+    <div class="dot" id="d2"></div>
+    <div class="dot" id="d3"></div>
+    <div class="dot" id="d4"></div>
+    <div class="dot" id="d5"></div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="quiz-section">
+
+    <!-- STEP 1: START TIME -->
+    <div class="step active" id="step-1">
+      <p class="step-label">Question 1 of 5</p>
+      <h2 class="step-q">What time do you <em>wake up?</em></h2>
+      <p class="step-hint">Your routine will be built from this time.</p>
+      <div class="options-grid" style="grid-template-columns: repeat(4, 1fr);">
+        <div class="opt" onclick="selectSingle(this,'startTime','6:00')"><div class="opt-title">6:00 am</div></div>
+        <div class="opt" onclick="selectSingle(this,'startTime','6:30')"><div class="opt-title">6:30 am</div></div>
+        <div class="opt" onclick="selectSingle(this,'startTime','7:00')"><div class="opt-title">7:00 am</div></div>
+        <div class="opt" onclick="selectSingle(this,'startTime','7:30')"><div class="opt-title">7:30 am</div></div>
+        <div class="opt" onclick="selectSingle(this,'startTime','8:00')"><div class="opt-title">8:00 am</div></div>
+        <div class="opt" onclick="selectSingle(this,'startTime','8:30')"><div class="opt-title">8:30 am</div></div>
+        <div class="opt" onclick="selectSingle(this,'startTime','9:00')"><div class="opt-title">9:00 am</div></div>
+        <div class="opt" onclick="selectSingle(this,'startTime','9:30')"><div class="opt-title">9:30 am</div></div>
+      </div>
+      <div class="nav-btns"><button class="btn-next" onclick="nextStep(1)">Next →</button></div>
+    </div>
+
+    <!-- STEP 2: TIME AVAILABLE -->
+    <div class="step" id="step-2">
+      <p class="step-label">Question 2 of 5</p>
+      <h2 class="step-q">How much time do you <em>have?</em></h2>
+      <p class="step-hint">Be realistic — not aspirational.</p>
+      <div class="options-grid">
+        <div class="opt" onclick="selectSingle(this,'duration',30)">
+          <div class="opt-title">30 min</div>
+          <div class="opt-desc">Quick and essential only</div>
+        </div>
+        <div class="opt" onclick="selectSingle(this,'duration',45)">
+          <div class="opt-title">45 min</div>
+          <div class="opt-desc">A little breathing room</div>
+        </div>
+        <div class="opt" onclick="selectSingle(this,'duration',60)">
+          <div class="opt-title">60 min</div>
+          <div class="opt-desc">Room for a real routine</div>
+        </div>
+        <div class="opt" onclick="selectSingle(this,'duration',90)">
+          <div class="opt-title">90 min</div>
+          <div class="opt-desc">A full, grounded morning</div>
+        </div>
+      </div>
+      <div class="nav-btns">
+        <button class="btn-back" onclick="prevStep(2)">← Back</button>
+        <button class="btn-next" onclick="nextStep(2)">Next →</button>
+      </div>
+    </div>
+
+    <!-- STEP 3: MORNING ENERGY -->
+    <div class="step" id="step-3">
+      <p class="step-label">Question 3 of 5</p>
+      <h2 class="step-q">What's your usual <em>morning energy?</em></h2>
+      <p class="step-hint">Be honest — your routine will match your real state, not your ideal one.</p>
+      <div class="options-grid">
+        <div class="opt" onclick="selectSingle(this,'energy','foggy')">
+          <div class="opt-icon">😴</div>
+          <div class="opt-title">Foggy / slow</div>
+          <div class="opt-desc">Hard to wake up, needs gentle activation</div>
+        </div>
+        <div class="opt" onclick="selectSingle(this,'energy','anxious')">
+          <div class="opt-icon">😰</div>
+          <div class="opt-title">Anxious / scattered</div>
+          <div class="opt-desc">Mind racing before feet hit the floor</div>
+        </div>
+        <div class="opt" onclick="selectSingle(this,'energy','distractible')">
+          <div class="opt-icon">😵</div>
+          <div class="opt-title">Okay but distractible</div>
+          <div class="opt-desc">Fine until something pulls me off track</div>
+        </div>
+        <div class="opt" onclick="selectSingle(this,'energy','hyperfocus')">
+          <div class="opt-icon">⚡</div>
+          <div class="opt-title">Motivated but hyperfocus risk</div>
+          <div class="opt-desc">Can go deep and lose track of time</div>
+        </div>
+      </div>
+      <div class="nav-btns">
+        <button class="btn-back" onclick="prevStep(3)">← Back</button>
+        <button class="btn-next" onclick="nextStep(3)">Next →</button>
+      </div>
+    </div>
+
+    <!-- STEP 4: CHALLENGE -->
+    <div class="step" id="step-4">
+      <p class="step-label">Question 4 of 5</p>
+      <h2 class="step-q">What's your biggest <em>morning challenge?</em></h2>
+      <p class="step-hint">Pick the one that feels most true right now.</p>
+      <div class="options-grid">
+        <div class="opt" onclick="selectSingle(this,'challenge','bed')">
+          <div class="opt-title">Getting out of bed</div>
+          <div class="opt-desc">The transition from sleep to up is the hardest part</div>
+        </div>
+        <div class="opt" onclick="selectSingle(this,'challenge','start')">
+          <div class="opt-title">Starting the first task</div>
+          <div class="opt-desc">I'm up but can't get going</div>
+        </div>
+        <div class="opt" onclick="selectSingle(this,'challenge','distracted')">
+          <div class="opt-title">Getting distracted between tasks</div>
+          <div class="opt-desc">I start fine but lose the thread</div>
+        </div>
+        <div class="opt" onclick="selectSingle(this,'challenge','forgetting')">
+          <div class="opt-title">Forgetting essentials</div>
+          <div class="opt-desc">Meds, keys, things I need — they slip my mind</div>
+        </div>
+        <div class="opt" onclick="selectSingle(this,'challenge','motivation')">
+          <div class="opt-title">Low energy / motivation</div>
+          <div class="opt-desc">Everything feels like too much before noon</div>
+        </div>
+      </div>
+      <div class="nav-btns">
+        <button class="btn-back" onclick="prevStep(4)">← Back</button>
+        <button class="btn-next" onclick="nextStep(4)">Next →</button>
+      </div>
+    </div>
+
+    <!-- STEP 5: NON-NEGOTIABLES -->
+    <div class="step" id="step-5">
+      <p class="step-label">Question 5 of 5</p>
+      <h2 class="step-q">Pick your <em>non-negotiables</em></h2>
+      <p class="opt-multi-hint">Choose 2–4 things that must happen every morning.</p>
+      <div class="options-grid">
+        <div class="opt" onclick="selectMulti(this,'musts','meds')">
+          <div class="opt-icon">💊</div><div class="opt-title">Meds</div>
+        </div>
+        <div class="opt" onclick="selectMulti(this,'musts','shower')">
+          <div class="opt-icon">🚿</div><div class="opt-title">Shower</div>
+        </div>
+        <div class="opt" onclick="selectMulti(this,'musts','coffee')">
+          <div class="opt-icon">☕</div><div class="opt-title">Coffee</div>
+        </div>
+        <div class="opt" onclick="selectMulti(this,'musts','skincare')">
+          <div class="opt-icon">🧴</div><div class="opt-title">Skincare</div>
+        </div>
+        <div class="opt" onclick="selectMulti(this,'musts','movement')">
+          <div class="opt-icon">🏃‍♀️</div><div class="opt-title">Movement</div>
+        </div>
+        <div class="opt" onclick="selectMulti(this,'musts','journal')">
+          <div class="opt-icon">📓</div><div class="opt-title">Journaling</div>
+        </div>
+        <div class="opt" onclick="selectMulti(this,'musts','breakfast')">
+          <div class="opt-icon">🍳</div><div class="opt-title">Breakfast</div>
+        </div>
+        <div class="opt" onclick="selectMulti(this,'musts','planner')">
+          <div class="opt-icon">📋</div><div class="opt-title">Daily Planner</div>
+        </div>
+      </div>
+      <div class="nav-btns">
+        <button class="btn-back" onclick="prevStep(5)">← Back</button>
+        <button class="btn-next" onclick="buildRoutine()">Build My Routine 🌸</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RESULTS -->
+  <div class="results" id="results">
+
+    <div class="routine-header">
+      <div class="routine-name" id="routine-name">My <em>Morning Routine</em></div>
+      <div class="routine-meta" id="routine-meta"></div>
+      <div class="routine-reassurance">This routine is meant to help you start, not be perfect.</div>
+    </div>
+
+    <div class="routine-body">
+      <div id="routine-steps"></div>
+      <div id="dont-box"></div>
+      <div id="min-box"></div>
+    </div>
+
+    <div class="result-actions">
+      <button class="btn-save" onclick="saveRoutine()">💾 Save My Routine</button>
+      <button class="btn-rebuild" onclick="resetBuilder()">← Start Over</button>
+      <button class="btn-rebuild" onclick="window.print()">🖨 Print</button>
+    </div>
+
+    <div class="footer">
+      <div class="footer-tagline">For the Multi-Life Woman.</div>
+      <div class="footer-url">byMarissaJohnson.com</div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER (quiz state) -->
+  <div class="footer" id="quiz-footer">
+    <div class="footer-tagline">For the Multi-Life Woman.</div>
+    <div class="footer-url">byMarissaJohnson.com</div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast">✓ Saved!</div>
+
+<script>
+const A = { startTime: '', duration: 0, energy: '', challenge: '', musts: [] };
+
+function selectSingle(el, key, val) {
+  el.closest('.options-grid').querySelectorAll('.opt').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  A[key] = val;
+}
+
+function selectMulti(el, key, val) {
+  el.classList.toggle('selected');
+  if (!A[key]) A[key] = [];
+  if (el.classList.contains('selected')) {
+    A[key].push(val);
+  } else {
+    A[key] = A[key].filter(v => v !== val);
+  }
+}
+
+function nextStep(cur) {
+  const required = { 1: 'startTime', 2: 'duration', 3: 'energy', 4: 'challenge' };
+  if (required[cur] && !A[required[cur]]) { alert('Please make a selection!'); return; }
+  document.getElementById('step-' + cur).classList.remove('active');
+  document.getElementById('step-' + (cur + 1)).classList.add('active');
+  updateDots(cur + 1);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function prevStep(cur) {
+  document.getElementById('step-' + cur).classList.remove('active');
+  document.getElementById('step-' + (cur - 1)).classList.add('active');
+  updateDots(cur - 1);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateDots(active) {
+  for (let i = 1; i <= 5; i++) {
+    const d = document.getElementById('d' + i);
+    d.classList.remove('active', 'done');
+    if (i < active) d.classList.add('done');
+    if (i === active) d.classList.add('active');
+  }
+}
+
+// TIME HELPERS
+function parseTime(str) {
+  const [h, m] = str.split(':').map(Number);
+  return h * 60 + (m || 0);
+}
+function formatTime(mins) {
+  let h = Math.floor(mins / 60);
+  let m = mins % 60;
+  const ampm = h >= 12 ? 'pm' : 'am';
+  if (h > 12) h -= 12;
+  if (h === 0) h = 12;
+  return `${h}:${m.toString().padStart(2, '0')} ${ampm}`;
+}
+
+function buildRoutine() {
+  if (A.musts.length < 2) { alert('Please pick at least 2 non-negotiables!'); return; }
+  if (A.musts.length > 4) { alert('Please pick no more than 4 non-negotiables for a realistic routine!'); return; }
+
+  const steps = [];
+  let t = parseTime(A.startTime);
+  const dur = A.duration;
+
+  // STEP LIBRARY
+  const stepLib = {
+    meds: { name: '💊 Meds', dur: 2, cue: 'Keep them on your nightstand or next to the coffee maker — wherever you always go first.' },
+    shower: { name: '🚿 Shower', dur: 15, cue: 'Set a 10-min timer. ADHD brains lose time here. One song = done.' },
+    coffee: { name: '☕ Coffee', dur: 5, cue: 'Make it while meds kick in. This is your activation ritual.' },
+    skincare: { name: '🧴 Skincare', dur: 8, cue: 'Keep products in order on the counter. No decisions, just the sequence.' },
+    movement: { name: '🏃‍♀️ Movement', dur: dur >= 60 ? 20 : 10, cue: 'Even 10 minutes counts. A walk, stretches, anything that gets blood moving.' },
+    journal: { name: '📓 Journal', dur: 10, cue: 'One page max. What\'s on your mind? What\'s one thing you want to feel today?' },
+    breakfast: { name: '🍳 Breakfast', dur: 10, cue: 'Keep it simple. ADHD meds work better with food. This is not optional.' },
+    planner: { name: '📋 Open Daily Planner', dur: 5, cue: 'Write your Top 3. This is your morning anchor — when this is done, morning is done.' }
+  };
+
+  // BUILD ROUTINE BASED ON ENERGY + CHALLENGE
+  const isAnxious = A.energy === 'anxious';
+  const isFoggy = A.energy === 'foggy';
+  const isHyperfocus = A.energy === 'hyperfocus';
+
+  // 1. START CUE — based on energy
+  const startCues = {
+    foggy: { name: '😴 Wake up — slow start is okay', cue: 'Phone stays face down. Don\'t open apps. Feet on floor first.', dur: 5 },
+    anxious: { name: '😰 Wake up — breathe first', cue: 'Before anything: 3 deep breaths. You don\'t have to rush. The day can wait 60 seconds.', dur: 5 },
+    distractible: { name: '😵 Wake up — anchor yourself', cue: 'Phone stays face down. Say out loud: "First thing I\'m doing is ____."', dur: 3 },
+    hyperfocus: { name: '⚡ Wake up — timer on immediately', cue: 'Set your end-of-morning timer NOW before anything else. This protects your day.', dur: 3 }
+  };
+  const startCue = startCues[A.energy];
+  steps.push({ time: formatTime(t), name: startCue.name, cue: startCue.cue, badge: 'Start cue' });
+  t += startCue.dur;
+
+  // 2. REGULATING ACTION — based on energy
+  if (isFoggy) {
+    steps.push({ time: formatTime(t), name: '💧 Water + open blinds', cue: 'Light and water are the two fastest ways to signal your brain it\'s time to wake up.', badge: 'Activation' });
+    t += 3;
+  } else if (isAnxious) {
+    steps.push({ time: formatTime(t), name: '🪟 Open blinds + wash face', cue: 'Cold water on your face is a fast nervous system reset. Gentler than a shower, takes 60 seconds.', badge: 'Regulation' });
+    t += 3;
+  } else if (isHyperfocus) {
+    steps.push({ time: formatTime(t), name: '⏱️ Set end-of-morning alarm', cue: `Set an alarm for ${formatTime(parseTime(A.startTime) + dur)} right now. This is your hard stop. When it goes off, morning is over.`, badge: 'Hard stop' });
+    t += 2;
+  }
+
+  // 3. NON-NEGOTIABLES — schedule in realistic order
+  const order = ['meds', 'coffee', 'shower', 'breakfast', 'skincare', 'movement', 'journal', 'planner'];
+  const toSchedule = order.filter(s => A.musts.includes(s));
+
+  // Make sure planner is always last if included
+  const plannerIdx = toSchedule.indexOf('planner');
+  if (plannerIdx > -1 && plannerIdx !== toSchedule.length - 1) {
+    toSchedule.splice(plannerIdx, 1);
+    toSchedule.push('planner');
+  }
+
+  // If planner not in musts, add it at the end as anchor
+  const hasPlanner = A.musts.includes('planner');
+
+  toSchedule.forEach((key, i) => {
+    const s = stepLib[key];
+    const isLast = i === toSchedule.length - 1 && hasPlanner && key === 'planner';
+    steps.push({
+      time: formatTime(t),
+      name: s.name,
+      cue: s.cue,
+      badge: isLast ? 'Morning anchor ✓' : '',
+      anchor: isLast
+    });
+    t += s.dur;
+    // Add transition buffer between tasks for distractible/foggy
+    if ((A.energy === 'distractible' || isFoggy) && i < toSchedule.length - 1) {
+      t += 2;
+    }
+  });
+
+  // If planner not selected, add as anchor
+  if (!hasPlanner) {
+    steps.push({
+      time: formatTime(t),
+      name: '📋 Open Daily Planner — write Top 3',
+      cue: 'This is your morning anchor. When this is done, morning is complete. You\'re ready.',
+      badge: 'Morning anchor ✓',
+      anchor: true
+    });
+    t += 5;
+  }
+
+  // ROUTINE NAME
+  const energyNames = { foggy: 'Gentle', anxious: 'Calm', distractible: 'Focused', hyperfocus: 'Anchored' };
+  const routineName = `My ${energyNames[A.energy]} ${dur}-Minute Morning`;
+
+  // DON'T DO THIS — personalized
+  const dontItems = {
+    bed: ['Don\'t hit snooze more than once — each snooze makes it harder to start', 'Don\'t check your phone until your first task is done', 'Don\'t stand in the kitchen deciding what to do next — you already know'],
+    start: ['Don\'t open social media before your start cue', 'Don\'t skip the start cue even if it feels silly — it signals your brain to begin', 'Don\'t let the first task be your hardest one'],
+    distracted: ['Don\'t sit on the bed once you\'re up — it\'s a trap', 'Don\'t let one distraction derail the whole morning — just return', 'Don\'t skip the transition buffers — that\'s where you lose momentum'],
+    forgetting: ['Don\'t leave the bathroom without checking: meds, deodorant, toothbrush', 'Don\'t change the order of your routine — sequence is your memory', 'Lay out everything you need the night before'],
+    motivation: ['Don\'t start with your hardest task — start with your easiest win', 'Don\'t wait to feel motivated — start anyway and let momentum build', 'Don\'t compare your morning to anyone else\'s']
+  };
+
+  // MINIMUM VIABLE MORNING
+  const minItems = ['Meds (if applicable)', 'Water or coffee', 'Get dressed'];
+  if (A.musts.includes('shower')) minItems.splice(1, 0, 'Quick shower');
+  minItems.push('Open planner — write 1 thing');
+
+  // RENDER
+  document.getElementById('routine-name').innerHTML = routineName.replace('My ', 'My <em>').replace(' Morning', '</em> Morning');
+  document.getElementById('routine-meta').textContent = `Starting ${A.startTime} · ${dur} minutes · ${A.energy === 'foggy' ? 'Gentle activation' : A.energy === 'anxious' ? 'Regulated start' : A.energy === 'hyperfocus' ? 'Hard stops included' : 'Distraction-proof'}`;
+
+  const stepsHTML = steps.map(s => `
+    <div class="routine-step ${s.anchor ? 'step-anchor' : ''}">
+      <div class="step-time">${s.time}</div>
+      <div class="step-content">
+        <div class="step-name">${s.name}</div>
+        <div class="step-cue">${s.cue}</div>
+        ${s.badge ? `<span class="step-badge">${s.badge}</span>` : ''}
+      </div>
+    </div>
+  `).join('');
+  document.getElementById('routine-steps').innerHTML = stepsHTML;
+
+  const dontHTML = `
+    <div class="dont-box">
+      <div class="dont-label">🚫 For your morning — don't do this</div>
+      ${(dontItems[A.challenge] || []).map(d => `
+        <div class="dont-item">
+          <span class="dont-x">✕</span>
+          <span class="dont-text">${d}</span>
+        </div>
+      `).join('')}
+    </div>
+  `;
+  document.getElementById('dont-box').innerHTML = dontHTML;
+
+  const minHTML = `
+    <div class="min-box">
+      <div class="min-label">☁️ If today is hard — minimum viable morning</div>
+      <div class="min-desc">Can't do the full routine? Do this instead. It still counts.</div>
+      <div class="min-items">
+        ${minItems.map(i => `<div class="min-item">${i}</div>`).join('')}
+      </div>
+    </div>
+  `;
+  document.getElementById('min-box').innerHTML = minHTML;
+
+  // SHOW RESULTS
+  document.querySelector('.quiz-section').style.display = 'none';
+  document.querySelector('.progress').style.display = 'none';
+  document.getElementById('quiz-footer').style.display = 'none';
+  document.getElementById('results').classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function resetBuilder() {
+  A.startTime = ''; A.duration = 0; A.energy = ''; A.challenge = ''; A.musts = [];
+  document.querySelectorAll('.opt').forEach(o => o.classList.remove('selected'));
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.getElementById('step-1').classList.add('active');
+  updateDots(1);
+  document.querySelector('.quiz-section').style.display = 'block';
+  document.querySelector('.progress').style.display = 'flex';
+  document.getElementById('quiz-footer').style.display = 'flex';
+  document.getElementById('results').classList.remove('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function saveRoutine() {
+  const html = document.documentElement.outerHTML;
+  const blob = new Blob([html], { type: 'text/html' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'my-morning-routine-bymarissajohnson.html';
+  a.click();
+  showToast('✓ Routine saved! Open anytime.');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+</script>
+</body>
+</html>
