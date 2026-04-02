@@ -19,7 +19,7 @@
 }
 .builder-hero-inner { position:relative;z-index:1;max-width:640px;margin:0 auto; }
 .builder-hero h1 {
-  font-family:'DM Serif Display',serif;
+  font-family:'Yellowtail',serif;
   font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;line-height:1.1;
   opacity:0;animation:fadeUp 0.8s ease forwards 0.2s;
 }
@@ -36,7 +36,7 @@
   width:32px;height:32px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
   font-size:0.7rem;font-weight:600;transition:all 0.3s;
-  border:2px solid rgba(196,160,184,0.2);background:#1e3828;color:var(--sage-soft);
+  border:2px solid rgba(196,160,184,0.2);background:#f5f0ea;color:var(--sage-soft);
 }
 .step-dot.active{background:var(--brand-rose);border-color:var(--brand-rose);color:white;}
 .step-dot.done{background:var(--sage);border-color:var(--sage);color:white;}
@@ -44,7 +44,7 @@
 .step-line.done{background:var(--sage);}
 
 /* QUIZ */
-.quiz-section { background:#162e1e;padding:60px 80px 80px; }
+.quiz-section { background:#e8ddd4;padding:60px 80px 80px; }
 .quiz-step { display:none;max-width:780px;margin:0 auto; }
 .quiz-step.active { display:block;animation:fadeUp 0.5s ease forwards; }
 .quiz-label {
@@ -52,14 +52,14 @@
   color:var(--brand-rose);margin-bottom:12px;
 }
 .quiz-question {
-  font-family:'DM Serif Display',serif;
+  font-family:'Yellowtail',serif;
   font-size:clamp(1.6rem,3vw,2.4rem);font-weight:300;line-height:1.2;margin-bottom:8px;
 }
 .quiz-question em{font-style:italic;color:var(--brand-rose);}
 .quiz-sub{font-size:0.82rem;color:var(--sage-soft);font-weight:300;margin-bottom:36px;}
 .options-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:32px; }
 .option-card {
-  background:#1e3828;border:2px solid rgba(196,160,184,0.2);border-radius:18px;
+  background:#f5f0ea;border:2px solid rgba(196,160,184,0.2);border-radius:18px;
   padding:22px 18px;cursor:pointer;transition:all 0.2s;text-align:center;
   user-select:none;
 }
@@ -73,20 +73,20 @@
 .quiz-nav{display:flex;gap:12px;align-items:center;margin-top:8px;}
 
 /* RESULTS */
-.results-section{display:none;background:#162e1e;padding:60px 80px 80px;}
+.results-section{display:none;background:#e8ddd4;padding:60px 80px 80px;}
 .results-section.active{display:block;}
 .results-header{text-align:center;margin-bottom:56px;}
 .results-header h2{
-  font-family:'DM Serif Display',serif;
+  font-family:'Yellowtail',serif;
   font-size:clamp(2rem,3.5vw,3rem);font-weight:300;
 }
 .results-header h2 em{font-style:italic;color:var(--brand-rose);}
 .results-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:1000px;margin:0 auto;}
-.routine-panel{background:#162e1e;border-radius:24px;overflow:hidden;}
+.routine-panel{background:#e8ddd4;border-radius:24px;overflow:hidden;}
 .routine-panel-header{
   padding:22px 28px;display:flex;align-items:center;gap:12px;
 }
-.routine-panel-title{font-family:'DM Serif Display',serif;font-size:1.2rem;font-weight:400;}
+.routine-panel-title{font-family:'Yellowtail',serif;font-size:1.2rem;font-weight:400;}
 .routine-steps-list{padding:0 28px 28px;}
 .routine-step-item{
   display:flex;gap:14px;padding:14px 0;
@@ -109,14 +109,14 @@
 }
 .link-sephora{background:#f8e8f0;color:#c06080;}
 .link-sephora:hover{background:#f0d0e0;}
-.link-amazon{background:#1e38283e0;color:#c07020;}
+.link-amazon{background:#f5f0ea3e0;color:#c07020;}
 .link-amazon:hover{background:#ffe8c0;}
 
 /* PRODUCT KEY */
-.product-key-section{background:#162e1e;padding:60px 80px;}
+.product-key-section{background:#e8ddd4;padding:60px 80px;}
 .product-key-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;}
 .product-key-card{
-  background:#1e3828;border-radius:18px;padding:18px;
+  background:#f5f0ea;border-radius:18px;padding:18px;
   border:1px solid rgba(200,160,140,0.12);
   display:flex;align-items:center;gap:14px;
   transition:all 0.25s;
@@ -138,11 +138,11 @@
 
 /* DOWNLOAD */
 .download-section{
-  background:#162e1e;
+  background:#e8ddd4;
   padding:80px;text-align:center;
 }
 .download-section h2{
-  font-family:'DM Serif Display',serif;
+  font-family:'Yellowtail',serif;
   font-size:clamp(2rem,3vw,2.8rem);font-weight:300;margin-bottom:12px;
 }
 .download-section h2 em{font-style:italic;color:var(--brand-rose);}
@@ -746,16 +746,16 @@ function downloadHTML() {
   const pmSteps = document.getElementById('pm-steps').innerHTML;
   const summary = document.getElementById('routine-summary').textContent;
   const html = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>My Skincare Routine — byMarissaJohnson</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Yellowtail&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Outfit',sans-serif;background:#162e1e;color:#f5f0ea;padding:40px;}
-h1{font-family:'DM Serif Display',serif;font-size:2.5rem;font-weight:300;margin-bottom:8px;}
+body{font-family:'Poppins',sans-serif;background:#e8ddd4;color:#2a5038;padding:40px;}
+h1{font-family:'Yellowtail',serif;font-size:2.5rem;font-weight:300;margin-bottom:8px;}
 h1 em{font-style:italic;color:#c9806a;}
-.summary{font-size:0.85rem;color:#c8d8c0;margin-bottom:40px;line-height:1.7;}
+.summary{font-size:0.85rem;color:#3a5040;margin-bottom:40px;line-height:1.7;}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
-.panel{background:#1e3828;border-radius:20px;overflow:hidden;}
-.panel-header{padding:18px 24px;font-family:'DM Serif Display',serif;font-size:1.1rem;}
+.panel{background:#f5f0ea;border-radius:20px;overflow:hidden;}
+.panel-header{padding:18px 24px;font-family:'Yellowtail',serif;font-size:1.1rem;}
 .am-header{background:#fde8e0;color:#c87050;}
 .pm-header{background:#dde8f8;color:#5060a0;}
 .steps{padding:0 24px 24px;}
@@ -763,9 +763,9 @@ h1 em{font-style:italic;color:#c9806a;}
 .step:last-child{border-bottom:none;}
 .num{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;color:white;flex-shrink:0;margin-top:2px;}
 .step-name{font-size:0.82rem;font-weight:600;margin-bottom:3px;}
-.step-how{font-size:0.7rem;color:#c8d8c0;line-height:1.5;}
+.step-how{font-size:0.7rem;color:#3a5040;line-height:1.5;}
 a{color:#c9806a;font-size:0.65rem;}
-.footer{text-align:center;margin-top:40px;font-size:0.7rem;color:#a8c4a8;font-family:'DM Serif Display',serif;font-style:italic;}
+.footer{text-align:center;margin-top:40px;font-size:0.7rem;color:#4a6050;font-family:'Yellowtail',serif;font-style:italic;}
 @media print{body{padding:20px;} .grid{gap:16px;}}
 </style></head><body>
 <h1>My <em>Glow Routine</em></h1>
