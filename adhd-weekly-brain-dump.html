@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Weekly Brain Dump — byMarissaJohnson</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: #f0ebe4;
+  min-height: 100vh;
+  padding: 16px;
+}
+
+.planner {
+  background: #faf6f0;
+  border-radius: 16px;
+  border: 0.5px solid #d4c8be;
+  max-width: 720px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* HEADER */
+.header {
+  background: #162e1e;
+  padding: 18px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.brand {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c4a0b8;
+  margin-bottom: 4px;
+}
+.header h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 300;
+  color: #f5f0ea;
+}
+.header h1 em { font-style: italic; color: #c4a0b8; }
+.week-field {
+  text-align: right;
+}
+.week-field label {
+  display: block;
+  font-size: 8px;
+  color: #c4a0b8;
+  margin-bottom: 4px;
+}
+.week-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(196,160,184,0.4);
+  color: #f5f0ea;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  width: 140px;
+  padding: 2px 0;
+  text-align: right;
+  outline: none;
+}
+.week-input::placeholder { color: rgba(196,160,184,0.35); }
+
+/* PULL CUE STRIP */
+.pull-strip {
+  background: #8a3060;
+  padding: 11px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.pull-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: #f5f0ea;
+  margin-bottom: 2px;
+}
+.pull-sub {
+  font-size: 8px;
+  color: rgba(245,240,234,0.6);
+  letter-spacing: 1px;
+}
+.pull-cue {
+  background: rgba(245,240,234,0.12);
+  border-radius: 8px;
+  padding: 7px 12px;
+  border: 0.5px solid rgba(245,240,234,0.2);
+  flex-shrink: 0;
+}
+.pull-cue-label {
+  font-size: 8px;
+  font-weight: 600;
+  color: #f5c4d0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.pull-cue-text {
+  font-size: 8px;
+  color: rgba(245,240,234,0.8);
+}
+
+/* SECTION LABELS */
+.sec-label {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #8a3060;
+  margin-bottom: 4px;
+}
+.sec-hint {
+  font-size: 8px;
+  color: #8a7a70;
+  font-style: italic;
+  margin-bottom: 6px;
+}
+.sec-rule {
+  font-size: 8px;
+  color: #8a3060;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* TEXT INPUTS */
+.text-field {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #d4c8be;
+  width: 100%;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  color: #162e1e;
+  padding: 4px 2px;
+  outline: none;
+  display: block;
+}
+.text-field::placeholder { color: #c4b8ae; font-style: italic; font-size: 11px; }
+.text-field:focus { border-bottom-color: #8a3060; }
+
+.text-field-dotted {
+  background: transparent;
+  border: none;
+  border-bottom: 2px dotted #e0d4c8;
+  width: 100%;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  color: #162e1e;
+  padding: 4px 2px;
+  outline: none;
+  display: block;
+}
+.text-field-dotted::placeholder { color: #d4c8be; font-style: italic; font-size: 11px; }
+.text-field-dotted:focus { border-bottom-color: #c4a0b8; }
+
+/* CHECKBOXES */
+.task-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.task-row:last-child { margin-bottom: 0; }
+
+.cb {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  border: 1.5px solid #c4a0b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.15s;
+  position: relative;
+}
+.cb.checked {
+  background: #c4a0b8;
+  border-color: #c4a0b8;
+}
+.cb.checked::after {
+  content: '✓';
+  color: #f5f0ea;
+  font-size: 9px;
+  line-height: 1;
+}
+.cb.crossed {
+  border-color: #d4c8be;
+}
+.cb.crossed::after {
+  content: '✕';
+  color: #d4c8be;
+  font-size: 9px;
+  line-height: 1;
+}
+.cb-week {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  border: 2px solid #8a3060;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.cb-week.checked {
+  background: #8a3060;
+  border-color: #8a3060;
+}
+.cb-week.checked::after {
+  content: '✓';
+  color: #f5f0ea;
+  font-size: 9px;
+  line-height: 1;
+}
+.cb-week.crossed::after {
+  content: '✕';
+  color: #8a3060;
+  font-size: 9px;
+  line-height: 1;
+}
+.cb-month {
+  width: 13px;
+  height: 13px;
+  border-radius: 3px;
+  border: 1.5px solid #c4a0b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.cb-month.checked {
+  background: #c4a0b8;
+}
+.cb-month.checked::after {
+  content: '✓';
+  color: #f5f0ea;
+  font-size: 8px;
+  line-height: 1;
+}
+.cb-someday {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  border: 1px solid #e0d4c8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.cb-someday.checked {
+  background: #e0d4c8;
+}
+.cb-someday.checked::after {
+  content: '✓';
+  color: #a09080;
+  font-size: 7px;
+  line-height: 1;
+}
+
+/* TASK FIELDS */
+.tf {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #d4c8be;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  color: #162e1e;
+  padding: 3px 2px;
+  outline: none;
+}
+.tf::placeholder { color: #d4c8be; }
+.tf:focus { border-bottom-color: #8a3060; }
+
+.tf-dotted {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-bottom: 2px dotted #e0d4c8;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  color: #162e1e;
+  padding: 3px 2px;
+  outline: none;
+}
+.tf-dotted::placeholder { color: #e0d4c8; }
+.tf-dotted:focus { border-bottom-color: #c4a0b8; }
+
+.tf-week {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid #d4c8be;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  color: #162e1e;
+  padding: 3px 2px;
+  outline: none;
+}
+.tf-week::placeholder { color: #d4c8be; }
+.tf-week:focus { border-bottom-color: #8a3060; }
+
+.tf-faded {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-bottom: 1px dotted #e8ddd4;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  color: #a09080;
+  padding: 3px 2px;
+  outline: none;
+}
+.tf-faded::placeholder { color: #e8ddd4; }
+.tf-faded:focus { border-bottom-color: #d4c8be; }
+
+/* MAIN DUMP */
+.dump-section {
+  padding: 18px 28px;
+  border-bottom: 0.5px solid #e0d4c8;
+}
+.dump-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* FILTERS GRID */
+.filters-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 0.8fr;
+  border-bottom: 0.5px solid #e0d4c8;
+}
+.filter-col {
+  padding: 14px 12px;
+  background: #f5f0ea;
+}
+.filter-col:first-child { padding-left: 28px; border-right: 0.5px solid #e0d4c8; }
+.filter-col:last-child { padding-right: 28px; opacity: 0.75; }
+.filter-col:nth-child(2) { border-right: 0.5px solid #e0d4c8; }
+
+.filter-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 5px;
+}
+.badge-week { background: #8a3060; }
+.badge-week span { font-size: 8px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #f5f0ea; }
+.badge-month { background: #e8ddd4; border: 0.5px solid #d4c8be; }
+.badge-month span { font-size: 8px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #162e1e; }
+.badge-someday { background: #f0eae4; border: 0.5px solid #e0d4c8; }
+.badge-someday span { font-size: 8px; font-weight: 400; letter-spacing: 1px; text-transform: uppercase; color: #a09080; }
+
+/* BREAK IT DOWN */
+.break-section {
+  padding: 14px 28px;
+  border-bottom: 0.5px solid #e0d4c8;
+  background: #f5f0ea;
+}
+.break-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.break-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.break-tf {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #d4c8be;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  color: #162e1e;
+  padding: 3px 2px;
+  outline: none;
+}
+.break-tf::placeholder { color: #d4c8be; }
+.break-tf:focus { border-bottom-color: #8a3060; }
+.break-arrow {
+  font-size: 9px;
+  color: #8a7a70;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* BOTTOM ROW */
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 0.5px solid #e0d4c8;
+}
+.bottom-col {
+  padding: 14px 28px;
+  background: #f5f0ea;
+}
+.bottom-col:first-child {
+  background: #e8ddd4;
+  border-right: 0.5px solid #e0d4c8;
+  padding-left: 28px;
+}
+
+/* STUCK ITEMS */
+.stuck-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+.cb-stuck {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+  border: 1.5px solid #d4c8be;
+  flex-shrink: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+.cb-stuck.checked { background: #162e1e; border-color: #162e1e; }
+.cb-stuck.checked::after { content: '✓'; color: #f5f0ea; font-size: 7px; }
+
+/* SAVE BAR */
+.save-bar {
+  background: #162e1e;
+  padding: 12px 28px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  border-top: 1px solid rgba(196,160,184,0.2);
+}
+.save-btn {
+  background: #8a3060;
+  color: #f5f0ea;
+  border: none;
+  border-radius: 100px;
+  padding: 10px 24px;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.save-btn:hover { background: #6a2048; }
+.clear-btn {
+  background: transparent;
+  color: #c4a0b8;
+  border: 1px solid rgba(196,160,184,0.3);
+  border-radius: 100px;
+  padding: 10px 20px;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.clear-btn:hover { border-color: #c4a0b8; }
+
+/* FOOTER */
+.footer {
+  background: #162e1e;
+  padding: 10px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12px;
+  font-style: italic;
+  color: #c4a0b8;
+}
+.footer-url { font-size: 8px; color: rgba(196,160,184,0.5); letter-spacing: 1px; }
+
+/* TOAST */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: #162e1e;
+  color: #f5f0ea;
+  padding: 12px 24px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-family: 'Jost', sans-serif;
+  transition: transform 0.3s ease;
+  z-index: 999;
+  white-space: nowrap;
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+/* RESPONSIVE */
+@media(max-width:600px) {
+  body { padding: 8px; }
+  .header, .pull-strip, .dump-section, .break-section { padding-left: 20px; padding-right: 20px; }
+  .dump-grid { grid-template-columns: 1fr; gap: 10px; }
+  .filters-grid { grid-template-columns: 1fr; }
+  .filter-col { border-right: none !important; border-bottom: 0.5px solid #e0d4c8; padding: 14px 20px !important; }
+  .filter-col:last-child { border-bottom: none; }
+  .bottom-grid { grid-template-columns: 1fr; }
+  .bottom-col { border-right: none !important; border-bottom: 0.5px solid #e0d4c8; padding: 14px 20px !important; }
+  .break-grid { grid-template-columns: 1fr; }
+  .save-bar { padding: 12px 20px; }
+  .footer { padding: 10px 20px; }
+}
+
+@media print {
+  body { background: white; padding: 0; }
+  .save-bar { display: none; }
+  .toast { display: none; }
+  .planner { border-radius: 0; max-width: 100%; }
+}
+</style>
+</head>
+<body>
+<div class="planner">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <div class="brand">byMarissaJohnson</div>
+      <h1>Weekly <em>Brain Dump</em></h1>
+    </div>
+    <div class="week-field">
+      <label>Week of</label>
+      <input type="text" class="week-input" placeholder="e.g. Apr 7 – Apr 13" id="week-input">
+    </div>
+  </div>
+
+  <!-- PULL CUE STRIP -->
+  <div class="pull-strip">
+    <div>
+      <div class="pull-quote">"No order. No categories. Just get it out of your head."</div>
+      <div class="pull-sub">Starting counts as progress. Momentum > perfection.</div>
+    </div>
+    <div class="pull-cue">
+      <div class="pull-cue-label">Each morning →</div>
+      <div class="pull-cue-text">Only choose what you can actually start today.</div>
+    </div>
+  </div>
+
+  <!-- MAIN DUMP -->
+  <div class="dump-section">
+    <div class="sec-label" style="font-size:10px;">🧠 Everything on my mind</div>
+    <div class="sec-hint">Tasks, ideas, errands, calls, worries — today, this week, this month, someday. All of it.</div>
+    <div class="sec-rule">✔ checked = done &nbsp;&nbsp; ✖ tap twice to cross out = released. No guilt either way.</div>
+    <div class="dump-grid">
+      <!-- Left: solid lines -->
+      <div>
+        <div class="task-row"><div class="cb" onclick="cycleCb(this)"></div><input type="text" class="tf" placeholder=""></div>
+        <div class="task-row"><div class="cb" onclick="cycleCb(this)"></div><input type="text" class="tf" placeholder=""></div>
+        <div class="task-row"><div class="cb" onclick="cycleCb(this)"></div><input type="text" class="tf" placeholder=""></div>
+        <div class="task-row"><div class="cb" onclick="cycleCb(this)"></div><input type="text" class="tf" placeholder=""></div>
+        <div class="task-row"><div class="cb" onclick="cycleCb(this)"></div><input type="text" class="tf" placeholder=""></div>
+        <div class="task-row"><div class="cb" onclick="cycleCb(this)"></div><input type="text" class="tf" placeholder=""></div>
+        <div class="task-row"><div class="cb" onclick="cycleCb(this)"></div><input type="text" class="tf" placeholder=""></div>
+        <div class="task-row"><div class="cb" onclick="cycleCb(this)"></div><input type="text" class="tf" placeholder=""></div>
+        <div class="task-row"><div class="cb" onclick="cycleCb(this)"></div><input type="text" class="tf" placeholder=""></div>
+        <div class="task-row"><div class="cb" onclick="cycleCb(this)"></div><input type="text" class="tf" placeholder=""></div>
+      </div>
+      <!-- Right: dotted lines — freeform feel -->
+      <div>
+        <div class="task-row"><div class="cb" onclick="cycleCb(this)"></div><input type="text" class="tf-dotted" placeholder=""></div>
+        <div class="task-row"><div class="cb" onclick="cycleCb(this)"></div><input type="text" class="tf-dotted" placeholder=""></div>
+        <div class="task-row"><div class="cb" onclick="cycleCb(this)"></div><input type="text" class="tf-dotted" placeholder=""></div>
+        <div class="task-row"><div class="cb" onclick="cycleCb(this)"></div><input type="text" class="tf-dotted" placeholder=""></div>
+        <div class="task-row"><div class="cb" onclick="cycleCb(this)"></div><input type="text" class="tf-dotted" placeholder=""></div>
+        <div class="task-row"><div class="cb" onclick="cycleCb(this)"></div><input type="text" class="tf-dotted" placeholder=""></div>
+        <div class="task-row"><div class="cb" onclick="cycleCb(this)"></div><input type="text" class="tf-dotted" placeholder=""></div>
+        <div class="task-row"><div class="cb" onclick="cycleCb(this)"></div><input type="text" class="tf-dotted" placeholder=""></div>
+        <div class="task-row"><div class="cb" onclick="cycleCb(this)"></div><input type="text" class="tf-dotted" placeholder=""></div>
+        <div class="task-row"><div class="cb" onclick="cycleCb(this)"></div><input type="text" class="tf-dotted" placeholder=""></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTIONAL FILTERS -->
+  <div class="filters-grid">
+
+    <!-- FOCUS THIS WEEK -->
+    <div class="filter-col" style="padding-left:28px;border-right:0.5px solid #e0d4c8;">
+      <div class="filter-badge badge-week"><span>🔥 Focus this week</span></div>
+      <div class="sec-hint">Pick a few, not all.</div>
+      <div class="task-row"><div class="cb-week" onclick="cycleCbWeek(this)"></div><input type="text" class="tf-week" placeholder=""></div>
+      <div class="task-row"><div class="cb-week" onclick="cycleCbWeek(this)"></div><input type="text" class="tf-week" placeholder=""></div>
+      <div class="task-row"><div class="cb-week" onclick="cycleCbWeek(this)"></div><input type="text" class="tf-week" placeholder=""></div>
+      <div class="task-row"><div class="cb-week" onclick="cycleCbWeek(this)"></div><input type="text" class="tf-week" placeholder=""></div>
+      <div class="task-row"><div class="cb-week" onclick="cycleCbWeek(this)"></div><input type="text" class="tf-week" placeholder=""></div>
+      <div class="task-row"><div class="cb-week" onclick="cycleCbWeek(this)"></div><input type="text" class="tf-week" placeholder=""></div>
+    </div>
+
+    <!-- THIS MONTH -->
+    <div class="filter-col" style="border-right:0.5px solid #e0d4c8;">
+      <div class="filter-badge badge-month"><span>📅 This month</span></div>
+      <div class="sec-hint">Not yet, but coming.</div>
+      <div class="task-row"><div class="cb-month" onclick="toggleCbMonth(this)"></div><input type="text" class="tf" placeholder=""></div>
+      <div class="task-row"><div class="cb-month" onclick="toggleCbMonth(this)"></div><input type="text" class="tf" placeholder=""></div>
+      <div class="task-row"><div class="cb-month" onclick="toggleCbMonth(this)"></div><input type="text" class="tf" placeholder=""></div>
+      <div class="task-row"><div class="cb-month" onclick="toggleCbMonth(this)"></div><input type="text" class="tf" placeholder=""></div>
+      <div class="task-row"><div class="cb-month" onclick="toggleCbMonth(this)"></div><input type="text" class="tf" placeholder=""></div>
+      <div class="task-row"><div class="cb-month" onclick="toggleCbMonth(this)"></div><input type="text" class="tf" placeholder=""></div>
+    </div>
+
+    <!-- SOMEDAY — faded -->
+    <div class="filter-col" style="padding-right:28px;opacity:0.75;">
+      <div class="filter-badge badge-someday"><span>💭 Someday</span></div>
+      <div style="font-size:8px;color:#b0a090;font-style:italic;margin-bottom:10px;">Ideas, dreams, not now.</div>
+      <div class="task-row"><div class="cb-someday" onclick="toggleCbSomeday(this)"></div><input type="text" class="tf-faded" placeholder=""></div>
+      <div class="task-row"><div class="cb-someday" onclick="toggleCbSomeday(this)"></div><input type="text" class="tf-faded" placeholder=""></div>
+      <div class="task-row"><div class="cb-someday" onclick="toggleCbSomeday(this)"></div><input type="text" class="tf-faded" placeholder=""></div>
+      <div class="task-row"><div class="cb-someday" onclick="toggleCbSomeday(this)"></div><input type="text" class="tf-faded" placeholder=""></div>
+      <div class="task-row"><div class="cb-someday" onclick="toggleCbSomeday(this)"></div><input type="text" class="tf-faded" placeholder=""></div>
+      <div class="task-row"><div class="cb-someday" onclick="toggleCbSomeday(this)"></div><input type="text" class="tf-faded" placeholder=""></div>
+    </div>
+
+  </div>
+
+  <!-- BREAK IT DOWN -->
+  <div class="break-section">
+    <div class="sec-label">✂️ Too big? Break it down</div>
+    <div class="sec-hint">If it feels overwhelming, shrink it. Small counts.</div>
+    <div class="break-grid">
+      <div class="break-row"><input type="text" class="break-tf" placeholder="big task..."><span class="break-arrow">→ first step:</span><input type="text" class="break-tf" placeholder=""></div>
+      <div class="break-row"><input type="text" class="break-tf" placeholder="big task..."><span class="break-arrow">→ first step:</span><input type="text" class="break-tf" placeholder=""></div>
+      <div class="break-row"><input type="text" class="break-tf" placeholder="big task..."><span class="break-arrow">→ first step:</span><input type="text" class="break-tf" placeholder=""></div>
+      <div class="break-row"><input type="text" class="break-tf" placeholder="big task..."><span class="break-arrow">→ first step:</span><input type="text" class="break-tf" placeholder=""></div>
+    </div>
+  </div>
+
+  <!-- BOTTOM: IF STUCK + INTENTION -->
+  <div class="bottom-grid">
+    <div class="bottom-col" style="padding-left:28px;background:#e8ddd4;border-right:0.5px solid #e0d4c8;">
+      <div class="sec-label" style="color:#162e1e;margin-bottom:7px;">🚧 If I'm avoiding this list</div>
+      <div class="stuck-item"><div class="cb-stuck" onclick="toggleStuck(this)"></div><span style="font-size:11px;color:#162e1e;">Pick the easiest thing</span></div>
+      <div class="stuck-item"><div class="cb-stuck" onclick="toggleStuck(this)"></div><span style="font-size:11px;color:#162e1e;">Set a 5-min timer</span></div>
+      <div class="stuck-item"><div class="cb-stuck" onclick="toggleStuck(this)"></div><span style="font-size:11px;color:#162e1e;">Move 1 thing to low energy</span></div>
+      <div class="stuck-item"><div class="cb-stuck" onclick="toggleStuck(this)"></div><span style="font-size:11px;color:#162e1e;">Come back tomorrow. It's okay.</span></div>
+    </div>
+    <div class="bottom-col" style="padding-right:28px;">
+      <div class="sec-label" style="margin-bottom:5px;">💭 What kind of week do I need?</div>
+      <input type="text" class="text-field" style="margin-bottom:12px;" placeholder="">
+      <div class="sec-label" style="margin-bottom:5px;">🌱 One thing I want to protect</div>
+      <input type="text" class="text-field" style="margin-bottom:6px;" placeholder="">
+      <input type="text" class="text-field" placeholder="">
+    </div>
+  </div>
+
+  <!-- SAVE BAR -->
+  <div class="save-bar">
+    <button class="save-btn" onclick="saveDump()">💾 Save My Brain Dump</button>
+    <button class="clear-btn" onclick="clearDump()">Start Fresh</button>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-tagline">For the Multi-Life Woman.</div>
+    <div class="footer-url">byMarissaJohnson.com</div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast">✓ Saved!</div>
+
+<script>
+// Cycle checkbox: empty → checked → crossed → empty
+function cycleCb(el) {
+  if (!el.classList.contains('checked') && !el.classList.contains('crossed')) {
+    el.classList.add('checked');
+    // strike through the text field
+    const tf = el.nextElementSibling;
+    if (tf) tf.style.textDecoration = 'line-through';
+    if (tf) tf.style.opacity = '0.5';
+  } else if (el.classList.contains('checked')) {
+    el.classList.remove('checked');
+    el.classList.add('crossed');
+    const tf = el.nextElementSibling;
+    if (tf) tf.style.textDecoration = 'line-through';
+    if (tf) tf.style.opacity = '0.35';
+  } else {
+    el.classList.remove('crossed');
+    const tf = el.nextElementSibling;
+    if (tf) tf.style.textDecoration = 'none';
+    if (tf) tf.style.opacity = '1';
+  }
+}
+
+function cycleCbWeek(el) {
+  if (!el.classList.contains('checked') && !el.classList.contains('crossed')) {
+    el.classList.add('checked');
+    const tf = el.nextElementSibling;
+    if (tf) { tf.style.textDecoration = 'line-through'; tf.style.opacity = '0.5'; }
+  } else if (el.classList.contains('checked')) {
+    el.classList.remove('checked');
+    el.classList.add('crossed');
+    const tf = el.nextElementSibling;
+    if (tf) { tf.style.textDecoration = 'line-through'; tf.style.opacity = '0.35'; }
+  } else {
+    el.classList.remove('crossed');
+    const tf = el.nextElementSibling;
+    if (tf) { tf.style.textDecoration = 'none'; tf.style.opacity = '1'; }
+  }
+}
+
+function toggleCbMonth(el) { el.classList.toggle('checked'); }
+function toggleCbSomeday(el) { el.classList.toggle('checked'); }
+function toggleStuck(el) { el.classList.toggle('checked'); }
+
+// Save
+function saveDump() {
+  const html = document.documentElement.outerHTML;
+  const blob = new Blob([html], { type: 'text/html' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'weekly-brain-dump-bymarissajohnson.html';
+  a.click();
+  showToast('✓ Saved! Open the file anytime to continue.');
+}
+
+function clearDump() {
+  if (!confirm('Start fresh? This will clear everything.')) return;
+  document.querySelectorAll('input[type=text]').forEach(i => {
+    i.value = '';
+    i.style.textDecoration = 'none';
+    i.style.opacity = '1';
+  });
+  document.querySelectorAll('.cb, .cb-week, .cb-month, .cb-someday, .cb-stuck').forEach(c => {
+    c.classList.remove('checked', 'crossed');
+  });
+  showToast('Fresh start. You got this. 🌸');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+// Auto-save to localStorage
+function autoSave() {
+  const data = {};
+  document.querySelectorAll('input[type=text]').forEach((el, i) => {
+    data['f' + i] = el.value;
+    data['td' + i] = el.style.textDecoration;
+    data['op' + i] = el.style.opacity;
+  });
+  const states = [];
+  document.querySelectorAll('.cb, .cb-week, .cb-month, .cb-someday, .cb-stuck').forEach(el => {
+    states.push({ checked: el.classList.contains('checked'), crossed: el.classList.contains('crossed') });
+  });
+  data.states = states;
+  try { localStorage.setItem('bmj_braindump', JSON.stringify(data)); } catch(e) {}
+}
+
+function loadSaved() {
+  try {
+    const raw = localStorage.getItem('bmj_braindump');
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    document.querySelectorAll('input[type=text]').forEach((el, i) => {
+      if (data['f' + i]) { el.value = data['f' + i]; }
+      if (data['td' + i]) el.style.textDecoration = data['td' + i];
+      if (data['op' + i]) el.style.opacity = data['op' + i];
+    });
+    if (data.states) {
+      document.querySelectorAll('.cb, .cb-week, .cb-month, .cb-someday, .cb-stuck').forEach((el, i) => {
+        if (data.states[i]) {
+          if (data.states[i].checked) el.classList.add('checked');
+          if (data.states[i].crossed) el.classList.add('crossed');
+        }
+      });
+    }
+  } catch(e) {}
+}
+
+loadSaved();
+setInterval(autoSave, 30000);
+document.addEventListener('input', autoSave);
+document.addEventListener('click', autoSave);
+</script>
+</body>
+</html>
